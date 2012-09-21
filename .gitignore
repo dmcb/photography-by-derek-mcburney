@@ -1,0 +1,4 @@
+# Ignore OS and SASS garbage
+.DS_Store*
+Thumbs.db
+.sass-cache

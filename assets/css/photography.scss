@@ -1,0 +1,59 @@
+body {
+	margin: 4px;
+	background: url("../images/background.jpg") no-repeat center -1000px;
+	color: #FFFFFF;
+	font-size: 14px;
+	font-family: Georgia, serif;
+}
+
+h1 {
+	font-family: "League Gothic";	
+	font-size: 2.5em;
+	text-transform: lowercase;
+	font-weight: normal;
+	margin-bottom: 0;
+}
+
+h2, .aboutme > span {
+	font-family: "Goudy Old Style";
+	font-size: 1.4em;
+	font-weight: normal;
+	font-style: italic;
+}
+
+.showcase {
+
+	> img {
+		max-width: 1280px;
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 700px) {
+	body {
+		margin: 16px;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	.frame {
+		width: 1000px;
+		margin: 0 auto;		
+	}
+}
+
+@media screen and (min-width: 1600px) {
+
+	.frame {
+		width: 100%;
+	}
+
+	.showcase {
+	
+		> img {
+			max-width: 100%;
+			width: 80%;
+			float: right;
+		}
+	}
+}
