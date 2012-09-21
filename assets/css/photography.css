@@ -5,6 +5,20 @@ body {
   font-size: 14px;
   font-family: Georgia, serif; }
 
+input, textarea, button {
+  border-radius: 8px;
+  border: 0 none;
+  width: 100%;
+  margin: 2px 0;
+  font-size: 1.4em; }
+
+textarea {
+  height: 96px; }
+
+button {
+  background-color: #4c4c4c;
+  color: #FFFFFF; }
+
 h1 {
   font-family: "League Gothic";
   font-size: 2.5em;
@@ -12,28 +26,35 @@ h1 {
   font-weight: normal;
   margin-bottom: 0; }
 
-h2, .aboutme > span {
+h2, .section > span, form > span {
   font-family: "Goudy Old Style";
   font-size: 1.4em;
   font-weight: normal;
-  font-style: italic; }
+  font-style: italic;
+  width: 100%;
+  display: block; }
 
-.showcase > img {
-  max-width: 1280px;
-  width: 100%; }
-
-@media screen and (min-width: 700px) {
-  body {
-    margin: 16px; } }
-@media screen and (min-width: 1000px) {
-  .frame {
-    width: 1000px;
-    margin: 0 auto; } }
-@media screen and (min-width: 1600px) {
-  .frame {
+#showcase {
+  text-align: center; }
+  #showcase img {
+    max-width: 1000px;
     width: 100%; }
+  #showcase #details {
+    text-align: left; }
 
-  .showcase > img {
-    max-width: 100%;
-    width: 80%;
-    float: right; } }
+@media screen and (min-width: 592px) {
+  body {
+    margin: 16px; }
+
+  #showcase {
+    width: 100%; }
+    #showcase #details {
+      width: 560px;
+      margin: 0 auto; }
+
+  h1, .section {
+    width: 560px;
+    margin: 0 auto; }
+
+  button {
+    width: 176px; } }
