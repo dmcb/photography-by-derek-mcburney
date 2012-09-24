@@ -1,5 +1,10 @@
+@mixin drop-shadow {
+	-moz-box-shadow: 10px 10px 5px #888;
+	-webkit-box-shadow: 10px 10px 5px #888;
+	box-shadow: 0 0 16px #000;	
+}
+
 body {
-	margin: 4px;
 	background: url("../images/background.jpg") no-repeat center -1000px;
 	color: #FFFFFF;
 	font-size: 14px;
@@ -28,7 +33,8 @@ h1 {
 	font-size: 2.5em;
 	text-transform: lowercase;
 	font-weight: normal;
-	margin-bottom: 0;
+	text-align: center;
+	margin: 8px 0;
 }
 
 h2, .section > span, form > span {
@@ -39,6 +45,11 @@ h2, .section > span, form > span {
 	width: 100%;
 	display: block;
 	margin: 0.8em 0;
+	text-align: center;
+}
+
+.frame {
+	margin: 4px;
 }
 
 #showcase {
@@ -47,6 +58,7 @@ h2, .section > span, form > span {
 	img {
 		max-width: 1000px;
 		width: 100%;
+		@include drop-shadow;
 	}
 	
 	#details {
@@ -56,8 +68,16 @@ h2, .section > span, form > span {
 
 @media screen and (min-width: 592px) {
 	body {
-		margin: 16px;
 		font-size: 16px;
+	}
+	
+	button {
+		width: 176px;
+		margin-left: 192px;
+	}
+	
+	.frame {
+		margin: 16px;
 	}
 	
 	#showcase {
@@ -71,35 +91,57 @@ h2, .section > span, form > span {
 	
 	h1, .section {
 		width: 560px;
-		margin: 0 auto;
-	}
-	
-	button {
-		width: 176px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 
 @media screen and (min-width: 1400px) {
 	h1 {
 		width: 100%;
-		float: left;
+		text-align: left;
+	}
+	
+	h2, .section > span, form > span {
+		text-align: left;
+	}
+	
+	button {
+		margin-left: 0;
+	}
+	
+	.frame {
+		max-width: 2528px;
+		position: absolute;
 	}
 	
 	#showcase {
 		img {
 			float: left;
 			width: 75%;
-			max-width: none;
+			max-width: 1896px;
+			max-height: 1264px;
 		}
 	}
 	
 	#details h2 {
 		margin-top: 0;
 	}
-
-	#details, #aboutme, #contactme {
+	
+	#details {
 		float: right;
 		width: 24%;
 		padding-left: 1%;
+	}
+	
+	#aboutme, #contactme {
+		width: 100%;
+	}
+	
+	#side {
+		width: 24%;
+		position: absolute;
+		right: 0;
+		bottom: 0;
 	}
 }
