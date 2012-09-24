@@ -5,6 +5,7 @@ body {
   font-family: Georgia, serif; }
 
 input, textarea, button {
+  font-family: Georgia, serif;
   border-radius: 4px;
   border: 0 none;
   width: 100%;
@@ -15,8 +16,13 @@ textarea {
   height: 96px; }
 
 button {
+  font-family: "Goudy Old Style";
+  font-style: italic;
+  cursor: pointer;
   background-color: #4c4c4c;
   color: #FFFFFF; }
+  button:hover {
+    background-color: #5c5c5c; }
 
 h1 {
   font-family: "League Gothic";
