@@ -1,6 +1,7 @@
 body {
   margin: 0;
   background: black url("../images/background.jpg") no-repeat center -1000px;
+  -webkit-background-size: 2560px;
   color: #FFF;
   font-size: 14px;
   font-family: Georgia, serif; }
