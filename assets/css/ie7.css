@@ -18,13 +18,12 @@
     padding-top: 16px; }
 
   #showcase {
+    max-width: 1000px;
     display: inherit;
     width: 100%;
     padding-right: 0; }
     #showcase img {
-      float: none;
-      max-width: 1000px;
-      max-height: none; }
+      float: none; }
 
   #details {
     position: static;
