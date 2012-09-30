@@ -29,11 +29,9 @@ $(function( $ ) {
         },
 
         photo: function(id){
-        	this.photo = App.photos.get(id);
-        	console.log(this.photo);
 	    	new App.Views.Photo({
-		    	model: this.photo
-		    });
+		    	id: id
+	    	});
         },
 
         // We have a common showView function that updates the

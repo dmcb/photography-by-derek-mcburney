@@ -19,12 +19,12 @@ $(function( $ ) {
 		
 		initialize: function() {
 			_.bindAll(this);
-			this.name = 'Photo #' + this.model.get('title');
-			this.render();
+			App.photos.bind('reset', this.render);
 		},
 		
 		render: function() {
-			var renderedContent = this.template(this.model);
+			var photo = App.photos.get(this.id);
+			var renderedContent = this.template(photo.attributes);
 			$(this.el).html(renderedContent);
 			
 			App.router.showView('#photo-content', this);
