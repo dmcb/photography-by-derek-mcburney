@@ -11,6 +11,8 @@
 	<div class="container">
 		<div class="frame">
 			<h1>Photography by Derek McBurney</h1>
+			
+			<div id="photo-content"></div>
 
 			<div id="side">
 				<div id="aboutme" class="section">
@@ -34,21 +36,12 @@
 		<div id="showcase" class="section">
 			<div class="navigation" id="left"><a>&nbsp;</a></div>
 			<div class="navigation" id="right"><a>&nbsp;</a></div> 
-			<img src="assets/images/marnie-jeff-1.jpg" alt="Marnie and Jeff" />
-	<!--
-			<img src="assets/images/candle-lighting.jpg" alt="Candle Lighting" />
-			<div id="details">
-				<h2>Candle Lighting</h2>
-				<p>
-					My fiance Hailey would be the first to say that I never listen, and she'd be right. I distinctly recall her here telling me she didn't want me to shoot a photo in this moment, but in my defence, she couldn't see what I saw. The vivid colours and contrast of light and shadow highlights the intimacy of this personal moment. She forgave my indiscretion when she saw the photo.
-				</p>
-			</div>
-	-->
+			<img src="assets/images/<%= file %>" alt="<%= alt %>" />
 		</div>
 		<div id="details" class="section">
-			<h2>Marnie and Jeff with the Old Dominion Bank</h2>
+			<h2><%= title %></h2>
 			<p>
-				I prepared for Marnie and Jeff's engagement shoot by scouting our meeting location for light and texture I could take advantage of. The rustic walls of the old Dominion Bank building caught my eye. The light cast was being filtered through nearby trees and I knew it would result in a playful light to bring them into a brilliant focus. 
+				<%= description %>
 			</p>
 		</div>
 	</script>

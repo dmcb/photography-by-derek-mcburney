@@ -12,7 +12,6 @@ $(function( $ ) {
     App.Routers.AppRouter = Backbone.Router.extend({
 
         currentView: null,
-        app: null,
 
         routes: {
             '': 'home',
@@ -20,14 +19,21 @@ $(function( $ ) {
         },
 
         initialize: function(options) {
+        	// Grab all photos
+        	App.photos = new App.Collections.Photos();
+        	App.photos.fetch();
         },
 
         home: function(){
-          this.navigate('#/photos/marnie-and-jeff', {trigger: true});
+         	this.navigate('#/photo/marnie-and-jeff', {trigger: true});
         },
 
         photo: function(id){
-			var view = new App.Views.Photo(id);
+        	this.photo = App.photos.get(id);
+        	console.log(this.photo);
+	    	new App.Views.Photo({
+		    	model: this.photo
+		    });
         },
 
         // We have a common showView function that updates the

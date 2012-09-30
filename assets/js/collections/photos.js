@@ -10,6 +10,6 @@ $(function( $ ) {
 
 	App.Collections.Photos = Backbone.Collection.extend({
 		model: App.Models.Photo,
-		url: 'photo_data.json'
+		url: 'assets/js/collections/photo-data.json'
 	});
 });

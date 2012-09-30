@@ -17,13 +17,10 @@ $(function( $ ) {
 		events: {
 		},
 		
-		initialize: function(id) {
-			// Get photo from collection
-			this.model = new App.Models.Photo(id);
-
+		initialize: function() {
 			_.bindAll(this);
-			this.model.on('change', this.render);
-			this.model.fetch();
+			this.name = 'Photo #' + this.model.get('title');
+			this.render();
 		},
 		
 		render: function() {
@@ -33,8 +30,6 @@ $(function( $ ) {
 			App.router.showView('#photo-content', this);
 		},
 		
-		// Remove this view from the DOM, remove the view, and remove
-		// any event listeners in order to clean up any possible memory leaks.
 		destroy: function() {
 			var that = this;
 			
