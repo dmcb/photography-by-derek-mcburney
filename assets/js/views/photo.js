@@ -23,8 +23,9 @@ $(function( $ ) {
 		},
 		
 		render: function() {
-			var photo = App.photos.get(this.id);
-			var renderedContent = this.template(photo.attributes);
+			this.photo = App.photos.get(this.id);
+			this.name = this.photo.attributes.title;
+			var renderedContent = this.template(this.photo.attributes);
 			$(this.el).html(renderedContent);
 			
 			App.router.showView('#photo-content', this);
