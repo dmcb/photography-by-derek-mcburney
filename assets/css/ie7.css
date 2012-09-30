@@ -21,7 +21,7 @@
     max-width: 1000px;
     display: inherit;
     width: 100%;
-    padding-right: 0; }
+    margin-right: auto; }
     #showcase img {
       float: none; }
 
