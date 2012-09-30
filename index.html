@@ -12,8 +12,10 @@
 		<div class="frame">
 			<h1>Photography by Derek McBurney</h1>
 			
-			<div id="photo-content"></div>
+			<div id="showcase" class="section"></div>
 
+			<div id="details" class="section"></div>
+			
 			<div id="side">
 				<div id="aboutme" class="section">
 					<span>I would love to work with you.</span>
@@ -32,18 +34,17 @@
 	</div>
 	
 	<!-- Templates -->
-	<script id="photo-template" type="text/template">
-		<div id="showcase" class="section">
-			<div class="navigation" id="left"><a>&nbsp;</a></div>
-			<div class="navigation" id="right"><a>&nbsp;</a></div> 
-			<img src="assets/images/<%= file %>" alt="<%= alt %>" />
-		</div>
-		<div id="details" class="section">
-			<h2><%= title %></h2>
-			<p>
-				<%= description %>
-			</p>
-		</div>
+	<script id="photo-showcase" type="text/template">
+		<div class="navigation" id="left"><a>&nbsp;</a></div>
+		<div class="navigation" id="right"><a>&nbsp;</a></div> 
+		<img src="assets/images/<%= file %>" alt="<%= alt %>" />
+	</script>
+	
+	<script id="photo-details" type="text/template">
+		<h2><%= title %></h2>
+		<p>
+			<%= description %>
+		</p>
 	</script>
 	
 	<!-- Javascripts -->

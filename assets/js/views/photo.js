@@ -9,36 +9,50 @@ $(function( $ ) {
 	'use strict';
 
 	App.Views.Photo = Backbone.View.extend({
-
-		tagName: 'div',
 		
-		template: _.template($('#photo-template').html()),
+		el: "#showcase",
+		template: _.template($('#photo-showcase').html()),
 		
 		events: {
 		},
 		
 		initialize: function() {
 			_.bindAll(this);
-			App.photos.bind('reset', this.render);
+			this.render();
 		},
 		
 		render: function() {
 			this.photo = App.photos.get(this.id);
-			this.name = this.photo.attributes.title;
+			this.name = "photo " + this.id;
+			
 			var renderedContent = this.template(this.photo.attributes);
 			$(this.el).html(renderedContent);
-			
-			App.router.showView('#photo-content', this);
+            $(this.el).css('display', 'none').fadeIn('slow');
+            return this;
+		}
+	});
+	
+	App.Views.PhotoDetails = Backbone.View.extend({
+		
+		el: "#details",
+		template: _.template($('#photo-details').html()),
+		
+		events: {
 		},
 		
-		destroy: function() {
-			var that = this;
+		initialize: function() {
+			_.bindAll(this);
+			this.render();
+		},
+		
+		render: function() {
+			this.photo = App.photos.get(this.id);
+			this.name = "photo details " + this.id;
 			
-			$(this.el).fadeOut('slow', function(){
-			$(that.el).remove();
-			that.remove();
-			that.unbind();
-			});
+			var renderedContent = this.template(this.photo.attributes);
+			$(this.el).html(renderedContent);
+			$(this.el).css('display', 'none').fadeIn('slow');
+            return this;
 		}
 	});
 });

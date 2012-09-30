@@ -19,9 +19,6 @@ $(function( $ ) {
         },
 
         initialize: function(options) {
-        	// Grab all photos
-        	App.photos = new App.Collections.Photos();
-        	App.photos.fetch();
         },
 
         home: function(){
@@ -29,21 +26,18 @@ $(function( $ ) {
         },
 
         photo: function(id){
-	    	new App.Views.Photo({
-		    	id: id
-	    	});
+        	// Grab all photos
+        	App.photos = new App.Collections.Photos();
+        	App.photos.fetch({
+	        	success: function() {
+			    	new App.Views.Photo({
+				    	id: id
+			    	});
+			    	new App.Views.PhotoDetails({
+				    	id: id
+			    	});
+	        	}
+        	});
         },
-
-        // We have a common showView function that updates the
-        // the current view, renders it and destroys the old one
-        showView: function(selector, view) {
-            if (this.currentView) this.currentView.destroy();
-            $(selector).hide().html(view.el).fadeIn('slow');
-            this.currentView = view;
-
-            console.log('Rendered ' + view.name);
-
-            return view;
-        }
     });
 });
