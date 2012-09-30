@@ -8,4 +8,8 @@ var App = App || {
 $(function() {
 	App.router = new App.Routers.AppRouter();
 	Backbone.history.start();
+	
+	$("#contactme").submit(function() {
+		alert('Validation placeholder');
+	});
 });
