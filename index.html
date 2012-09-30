@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
 	<title>Photography by Derek McBurney</title>
 	<link href="assets/css/all.css" rel="stylesheet"/>
@@ -10,26 +11,7 @@
 	<div class="container">
 		<div class="frame">
 			<h1>Photography by Derek McBurney</h1>
-			<div id="showcase" class="section">
-				<div class="navigation" id="left"><a>&nbsp;</a></div>
-				<div class="navigation" id="right"><a>&nbsp;</a></div> 
-				<img src="assets/images/marnie-jeff-1.jpg" alt="Marnie and Jeff" />
-	<!--
-				<img src="assets/images/candle-lighting.jpg" alt="Candle Lighting" />
-				<div id="details">
-					<h2>Candle Lighting</h2>
-					<p>
-						My fiance Hailey would be the first to say that I never listen, and she'd be right. I distinctly recall her here telling me she didn't want me to shoot a photo in this moment, but in my defence, she couldn't see what I saw. The vivid colours and contrast of light and shadow highlights the intimacy of this personal moment. She forgave my indiscretion when she saw the photo.
-					</p>
-				</div>
-	-->
-			</div>
-			<div id="details" class="section">
-				<h2>Marnie and Jeff with the Old Dominion Bank</h2>
-				<p>
-					I prepared for Marnie and Jeff's engagement shoot by scouting our meeting location for light and texture I could take advantage of. The rustic walls of the old Dominion Bank building caught my eye. The light cast was being filtered through nearby trees and I knew it would result in a playful light to bring them into a brilliant focus. 
-				</p>
-			</div>
+
 			<div id="side">
 				<div id="aboutme" class="section">
 					<span>I would love to work with you.</span>
@@ -47,11 +29,44 @@
 		</div>
 	</div>
 	
+	<!-- Templates -->
+	<script id="photo-template" type="text/template">
+		<div id="showcase" class="section">
+			<div class="navigation" id="left"><a>&nbsp;</a></div>
+			<div class="navigation" id="right"><a>&nbsp;</a></div> 
+			<img src="assets/images/marnie-jeff-1.jpg" alt="Marnie and Jeff" />
+	<!--
+			<img src="assets/images/candle-lighting.jpg" alt="Candle Lighting" />
+			<div id="details">
+				<h2>Candle Lighting</h2>
+				<p>
+					My fiance Hailey would be the first to say that I never listen, and she'd be right. I distinctly recall her here telling me she didn't want me to shoot a photo in this moment, but in my defence, she couldn't see what I saw. The vivid colours and contrast of light and shadow highlights the intimacy of this personal moment. She forgave my indiscretion when she saw the photo.
+				</p>
+			</div>
+	-->
+		</div>
+		<div id="details" class="section">
+			<h2>Marnie and Jeff with the Old Dominion Bank</h2>
+			<p>
+				I prepared for Marnie and Jeff's engagement shoot by scouting our meeting location for light and texture I could take advantage of. The rustic walls of the old Dominion Bank building caught my eye. The light cast was being filtered through nearby trees and I knew it would result in a playful light to bring them into a brilliant focus. 
+			</p>
+		</div>
+	</script>
+	
 	<!-- Javascripts -->
-	<script type="text/javascript" src="assets/lib/jquery-1.8.2.min.js"></script>
-	<script type="text/javascript" src="assets/lib/modernizr.2.6.2.min.js"></script>
-	<script type="text/javascript" src="assets/lib/respond.min.js"></script>
-	<script type="text/javascript" src="assets/lib/jquery.placeholder.min.js"></script>
+	<script type="text/javascript" src="assets/js/lib/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="assets/js/lib/underscore-1.4.0.min.js"></script>
+	<script type="text/javascript" src="assets/js/lib/backbone-0.9.2.min.js"></script>
+	<script type="text/javascript" src="assets/js/lib/modernizr.2.6.2.min.js"></script>
+	<script type="text/javascript" src="assets/js/lib/respond.min.js"></script>
+	<script type="text/javascript" src="assets/js/lib/jquery.placeholder.min.js"></script>
+	
+    <script type="text/javascript" src="assets/js/models/photo.js"></script>
+    <script type="text/javascript" src="assets/js/collections/photos.js"></script>
+    <script type="text/javascript" src="assets/js/views/photo.js"></script>
+    <script type="text/javascript" src="assets/js/router.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+	
 	<script type="text/javascript" src="assets/js/script.js"></script>
 </body>
 </html>
