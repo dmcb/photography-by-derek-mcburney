@@ -6,6 +6,12 @@ body {
   font-size: 14px;
   font-family: Georgia, serif; }
 
+a {
+  color: #ffa300;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: none; }
+
 input, textarea, button {
   font-family: Georgia, serif;
   border-radius: 4px;
@@ -15,7 +21,17 @@ input, textarea, button {
   font-size: 1em;
   padding: 2px;
   background-color: rgba(255, 255, 255, 0.1);
-  color: #FFF; }
+  color: #FFF;
+  border: 2px solid transparent; }
+  input.error, textarea.error, button.error {
+    border: 2px solid #b42727; }
+
+label.error {
+  color: #b42727;
+  width: 100%;
+  text-align: right;
+  display: none;
+  font-size: 0.8em; }
 
 textarea {
   height: 96px; }

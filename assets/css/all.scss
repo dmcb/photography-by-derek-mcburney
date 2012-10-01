@@ -22,6 +22,15 @@ body {
 	font-family: Georgia, serif;
 }
 
+a {
+	color: #ffa300;
+	text-decoration: none;
+	
+	&:hover {
+		text-decoration: none;
+	}
+}
+
 input, textarea, button {
 	font-family: Georgia, serif;
 	border-radius: 4px;
@@ -32,6 +41,19 @@ input, textarea, button {
 	padding: 2px;
 	background-color: rgba(255,255,255,0.1);
 	color: #FFF;
+	border: 2px solid transparent;
+	
+	&.error {
+		border: 2px solid #b42727;
+	}
+}
+
+label.error {
+	color: #b42727;
+	width: 100%;
+	text-align: right;
+	display: none;
+	font-size: 0.8em;
 }
 
 textarea {
