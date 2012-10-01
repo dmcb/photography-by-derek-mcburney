@@ -11,33 +11,34 @@ $(function( $ ) {
     // ---------------
     App.Routers.AppRouter = Backbone.Router.extend({
 
-        currentView: null,
-
         routes: {
-            '': 'home',
-            'photo/:id': 'photo'
+            '': 'index'
         },
 
         initialize: function(options) {
         },
 
-        home: function(){
-         	this.navigate('#/photo/marnie-and-jeff', {trigger: true});
-        },
-
-        photo: function(id){
+        index: function() {
         	// Grab all photos
         	App.photos = new App.Collections.Photos();
         	App.photos.fetch({
 	        	success: function() {
+	        		var photo = App.photos.first();
 			    	new App.Views.Photo({
-				    	id: id
+				    	model: photo,
+				    	collection: App.photos
 			    	});
 			    	new App.Views.PhotoDetails({
-				    	id: id
+				    	model: photo
 			    	});
 	        	}
         	});
         },
+        
+        changePhoto: function(index) {
+	        console.log('Switching photo to ' + index);
+	        App.Views.Photo.model = App.photos.at(index);
+	        App.Views.PhotoDetails.model = App.photos.at(index);
+        }
     });
 });
