@@ -46,10 +46,10 @@ $(function() {
 			dataType: 'json',
 			success: function(response) {
 				if (!response) {
-					$("#contactme").html("<span class=\"error\">Thank you very much for your interest! I'll respond to you as soon as I can.</span>");
+					$("#contactme").html("<span class=\"error\">Thank you very much for your interest! I'll respond to you as soon as I can.</span>").css('display', 'none').fadeIn('slow');;
 				}
 				else if (response.error) {
-					$("#contactme").html("<span class=\"error\">" + response.error + "</span>");
+					$("#contactme").html("<span class=\"error\">" + response.error + "</span>").css('display', 'none').fadeIn('slow');
 				} else {
 					$("#send").attr("disabled", false);
 					$("#send").html("Send");
