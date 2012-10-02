@@ -33,8 +33,8 @@ $(function() {
 	});
 	
 	$("#contactme").submit(function() {
-		//$("#load").show();
-		$('#send').hide();
+		$('#send').attr("disabled", true);
+		$("#send").html("<img src=\"assets/images/loader.gif\" alt=\"Loading\"/>");
 		$.ajax({
 			type: 'POST',
 			url: "assets/php/emailer.php",
@@ -45,14 +45,14 @@ $(function() {
 			},
 			dataType: 'json',
 			success: function(response) {
-				//$('#load').hide();
 				if (!response) {
 					$("#contactme").html("<span class=\"error\">Thank you very much for your interest! I'll respond to you as soon as I can.</span>");
 				}
 				else if (response.error) {
 					$("#contactme").html("<span class=\"error\">" + response.error + "</span>");
 				} else {
-					$("#send").show();
+					$("#send").attr("disabled", false);
+					$("#send").html("Send");
 					
 					var fields = ['name', 'email', 'story'];
 					for (var i=0; i < fields.length; i++) {
@@ -67,7 +67,8 @@ $(function() {
 				}
 			},
 			error: function(xhr, ajaxOptions, thrownError) {
-				$("#send").show();
+				$("#send").attr("disabled", false);
+				$("#send").html("Send");
 				//$('#load').hide();
 				alert(xhr.status);
 				alert(thrownError);

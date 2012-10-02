@@ -26,6 +26,9 @@ input, textarea, button {
   input.error, textarea.error, button.error {
     border: 2px solid #b42727; }
 
+button {
+  height: 28px; }
+
 label.error {
   color: #b42727;
   width: 100%;
