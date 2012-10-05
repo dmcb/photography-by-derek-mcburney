@@ -16,29 +16,52 @@ $(function( $ ) {
         },
 
         initialize: function(options) {
+        	// Grab all photos
+        	App.photos = new App.Collections.Photos();
+			App.photos.on("reset", function(collection, response){
+				var photo = collection.first();
+				App.router.loadPhoto(collection, photo);
+				App.router.loadPhotoDetails(photo);
+			});
+			App.photos.fetch();
         },
 
         index: function() {
-        	// Grab all photos
-        	App.photos = new App.Collections.Photos();
-        	App.photos.fetch({
-	        	success: function() {
-	        		var photo = App.photos.first();
-			    	new App.Views.Photo({
-				    	model: photo,
-				    	collection: App.photos
-			    	});
-			    	new App.Views.PhotoDetails({
-				    	model: photo
-			    	});
-	        	}
-        	});
+        	
+        },
+        
+        loadPhoto: function(collection, photo) {
+			App.photoView = new App.Views.Photo({
+		    	model: photo,
+		    	collection: collection
+	    	});
+	    },
+	    
+	    loadPhotoDetails: function(photo) {
+	    	App.photoDetailsView = new App.Views.PhotoDetails({
+			    model: photo
+		    });
         },
         
         changePhoto: function(index) {
-	        console.log('Switching photo to ' + index);
-	        App.Views.Photo.model = App.photos.at(index);
-	        App.Views.PhotoDetails.model = App.photos.at(index);
+        
+			console.log('Switching photo to ' + index);
+			
+			var photo = App.photos.at(index);
+			
+			$('#showcase').fadeOut('fast', function(){
+				$('#showcase').remove();
+				$('#showcase').unbind();
+				$('h1').after('<div id="showcase" class="section"></div>');
+				App.router.loadPhoto(App.photos, photo);
+			});
+
+			$('#details').fadeOut('fast', function(){
+				$('#details').remove();
+				$('#details').unbind();
+				$('#showcase').after('<div id="details" class="section"></div>');
+				App.router.loadPhotoDetails(photo);
+			});
         }
     });
 });

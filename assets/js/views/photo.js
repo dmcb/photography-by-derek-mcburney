@@ -20,7 +20,6 @@ $(function( $ ) {
 		
 		initialize: function() {
 			_.bindAll(this);
-			this.model.on('change', this.render);
 			this.render();
 		},
 		
