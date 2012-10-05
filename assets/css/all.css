@@ -115,7 +115,6 @@ h2, .section > span, form > span {
     #showcase .navigation a {
       background-color: #4c4c4c;
       display: block;
-      height: 50px;
       width: 50px;
       border-radius: 8px;
       position: absolute;
@@ -127,7 +126,10 @@ h2, .section > span, form > span {
       transition: 0.3s ease;
       -moz-transition: 0.3s ease;
       -webkit-transition: 0.3s ease;
-      -o-transition: 0.3s ease; }
+      -o-transition: 0.3s ease;
+      font-family: "Goudy Old Style";
+      font-style: italic;
+      padding: 10px 0; }
   #showcase img {
     width: 100%;
     -moz-box-shadow: 0 0 16px #000;
@@ -159,7 +161,7 @@ html.touch #showcase .navigation {
     #showcase .navigation#right {
       right: -16px; }
     #showcase .navigation a {
-      height: 80px;
+      padding: 20px 0;
       width: 80px;
       margin-top: -80px; }
 

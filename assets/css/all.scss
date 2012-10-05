@@ -154,7 +154,6 @@ h2, .section > span, form > span {
 		a {
 			background-color: $grey;
 			display: block;
-			height: 50px;
 			width: 50px;
 			border-radius: 8px;
 			position: absolute;
@@ -162,6 +161,9 @@ h2, .section > span, form > span {
 			top: 50%;
 			@include drop-shadow;
 			@include easing;
+			font-family: "Goudy Old Style";
+			font-style: italic;
+			padding: 10px 0;
 		}
 	}
 
@@ -207,7 +209,7 @@ html.touch #showcase .navigation {
 			}
 			
 			a {
-				height: 80px;
+				padding: 20px 0;
 				width: 80px;
 				margin-top: -80px;
 			}
