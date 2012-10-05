@@ -134,11 +134,11 @@ h2, .section > span, form > span {
 		}
 		
 		&#left {
-			left: 0;
+			left: 4;
 			
 			a {
 				float: left;
-				left: 0;
+				left: -4px;
 			}
 		}
 		
@@ -147,7 +147,7 @@ h2, .section > span, form > span {
 			
 			a {
 				float: right;
-				right: 0;
+				right: -4px;
 			}
 		}
 		

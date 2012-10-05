@@ -103,15 +103,15 @@ h2, .section > span, form > span {
     #showcase .navigation:hover {
       opacity: 1; }
     #showcase .navigation#left {
-      left: 0; }
+      left: 4; }
       #showcase .navigation#left a {
         float: left;
-        left: 0; }
+        left: -4px; }
     #showcase .navigation#right {
       right: 0; }
       #showcase .navigation#right a {
         float: right;
-        right: 0; }
+        right: -4px; }
     #showcase .navigation a {
       background-color: #4c4c4c;
       display: block;
