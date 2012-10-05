@@ -15,7 +15,7 @@ $(function( $ ) {
 		
 		events: {
 			"click .navigation#left": "previousPhoto",
-			"click .navigation#right": "nextPhoto",
+			"click .navigation#right": "nextPhoto"
 		},
 		
 		initialize: function() {
