@@ -13,6 +13,28 @@ $grey: #4c4c4c;
 	-o-transition: 0.3s ease;
 }
 
+@font-face {
+    font-family: 'LeagueGothicRegular';
+    src: url('../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.eot');
+    src: url('../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.woff') format('woff'),
+         url('../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.ttf') format('truetype'),
+         url('../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SortsMillGoudyItalic';
+    src: url('../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.eot');
+    src: url('../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.woff') format('woff'),
+         url('../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.ttf') format('truetype'),
+         url('../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.svg#SortsMillGoudyItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
 	margin: 0;
 	background: #000 url("../images/background.jpg") no-repeat center -1000px;
@@ -69,8 +91,7 @@ textarea {
 }
 
 button {
-	font-family: "Goudy Old Style";
-	font-style: italic;
+	font-family: 'SortsMillGoudyItalic', Georgia, serif;
 	font-size: 1.2em;
 	cursor: pointer;
 	background-color: $grey;
@@ -85,7 +106,7 @@ button {
 }
 
 h1 {
-	font-family: "League Gothic";	
+	font-family: "LeagueGothicRegular", impact, sans-serif;	
 	font-size: 2.5em;
 	text-transform: lowercase;
 	font-weight: normal;
@@ -96,10 +117,9 @@ h1 {
 }
 
 h2, .section > span, form > span {
-	font-family: "Goudy Old Style";
+	font-family: 'SortsMillGoudyItalic', Georgia, serif;
 	font-size: 1.4em;
 	font-weight: normal;
-	font-style: italic;
 	width: 100%;
 	display: block;
 	margin: 0.8em 0;
@@ -161,9 +181,9 @@ h2, .section > span, form > span {
 			top: 50%;
 			@include drop-shadow;
 			@include easing;
-			font-family: "Goudy Old Style";
-			font-style: italic;
+			font-family: Georgia, serif;
 			padding: 10px 0;
+			text-transform: lowercase;
 		}
 	}
 
