@@ -107,14 +107,12 @@ h2, .section > span, form > span {
     height: 100%;
     width: 30%;
     position: absolute;
-    opacity: 0;
     cursor: pointer;
-    transition: 0.3s ease;
-    -moz-transition: 0.3s ease;
-    -webkit-transition: 0.3s ease;
-    -o-transition: 0.3s ease; }
+    background-image: url("../images/transparent.gif"); }
     #showcase .navigation:hover {
       opacity: 1; }
+      #showcase .navigation:hover a {
+        opacity: 1; }
     #showcase .navigation#left {
       left: 4; }
       #showcase .navigation#left a {
@@ -142,7 +140,8 @@ h2, .section > span, form > span {
       -o-transition: 0.3s ease;
       font-family: Georgia, serif;
       padding: 10px 0;
-      text-transform: lowercase; }
+      text-transform: lowercase;
+      opacity: 0; }
   #showcase img {
     width: 100%;
     -moz-box-shadow: 0 0 16px #000;
