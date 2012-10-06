@@ -84,6 +84,7 @@ label.error {
 
 textarea {
 	height: 96px;
+	overflow: auto;
 }
 
 .placeholder, ::-webkit-input-placeholder, :-moz-placeholder, :-ms-input-placeholder {
