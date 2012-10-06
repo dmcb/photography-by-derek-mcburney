@@ -44,8 +44,6 @@ $(function( $ ) {
         },
         
         changePhoto: function(index) {
-        
-			console.log('Switching photo to ' + index);
 			
 			var photo = App.photos.at(index);
 			
