@@ -149,11 +149,10 @@ h2, .section > span, form > span {
 		cursor: pointer;
 		background-image: url("../images/transparent.gif");
 		
-		&:hover {
-			opacity: 1;
-			
+		&:hover {	
 			a {
 				opacity: 1;
+				visibility: visible;
 			}
 		}
 		
@@ -177,7 +176,6 @@ h2, .section > span, form > span {
 		
 		a {
 			background-color: $grey;
-			display: block;
 			width: 50px;
 			border-radius: 8px;
 			position: absolute;
@@ -189,6 +187,8 @@ h2, .section > span, form > span {
 			padding: 10px 0;
 			text-transform: lowercase;
 			opacity: 0;
+			display: block;
+			visibility: hidden;
 		}
 	}
 
@@ -199,7 +199,8 @@ h2, .section > span, form > span {
 }
 
 /* Modernizr detects touch ability, so if touch, don't require a hover to show previous/next elements */
-html.touch #showcase .navigation {
+html.touch #showcase .navigation a {
+	visibility: visible;
 	opacity: 1;
 }
 

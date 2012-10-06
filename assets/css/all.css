@@ -109,10 +109,9 @@ h2, .section > span, form > span {
     position: absolute;
     cursor: pointer;
     background-image: url("../images/transparent.gif"); }
-    #showcase .navigation:hover {
-      opacity: 1; }
-      #showcase .navigation:hover a {
-        opacity: 1; }
+    #showcase .navigation:hover a {
+      opacity: 1;
+      visibility: visible; }
     #showcase .navigation#left {
       left: 4; }
       #showcase .navigation#left a {
@@ -125,7 +124,6 @@ h2, .section > span, form > span {
         right: -4px; }
     #showcase .navigation a {
       background-color: #4c4c4c;
-      display: block;
       width: 50px;
       border-radius: 8px;
       position: absolute;
@@ -141,7 +139,9 @@ h2, .section > span, form > span {
       font-family: Georgia, serif;
       padding: 10px 0;
       text-transform: lowercase;
-      opacity: 0; }
+      opacity: 0;
+      display: block;
+      visibility: hidden; }
   #showcase img {
     width: 100%;
     -moz-box-shadow: 0 0 16px #000;
@@ -149,7 +149,8 @@ h2, .section > span, form > span {
     box-shadow: 0 0 16px #000; }
 
 /* Modernizr detects touch ability, so if touch, don't require a hover to show previous/next elements */
-html.touch #showcase .navigation {
+html.touch #showcase .navigation a {
+  visibility: visible;
   opacity: 1; }
 
 @media screen and (min-width: 592px) {
