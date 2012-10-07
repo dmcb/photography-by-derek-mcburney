@@ -40,13 +40,13 @@ input, textarea, button {
   color: #FFF;
   border: 2px solid transparent; }
   input.error, textarea.error, button.error {
-    border: 2px solid #b42727; }
+    border: 2px solid #ffa300; }
 
 button {
   height: 28px; }
 
 label.error {
-  color: #b42727;
+  color: #ffa300;
   width: 100%;
   text-align: right;
   display: none;
@@ -72,7 +72,7 @@ button {
   -webkit-transition: 0.3s ease;
   -o-transition: 0.3s ease; }
   button:hover {
-    background-color: #8c8c8c; }
+    color: #ffa300; }
 
 h1 {
   font-family: "LeagueGothicRegular", impact, sans-serif;
