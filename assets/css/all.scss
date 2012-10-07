@@ -131,7 +131,7 @@ h2, .section > span, form > span {
 	padding: 8px;
 }
 
-.section {
+.section, #watermark {
 	max-width: 544px;
 	width: 100%;
 	margin-left: auto;
@@ -204,6 +204,21 @@ html.touch #showcase .navigation a {
 	opacity: 1;
 }
 
+#watermark {
+	font-size: 0.8em;
+	text-align: center;
+	margin-top: 32px;
+	
+	a {
+		color: $grey;
+	}
+	
+	img {
+		vertical-align: bottom;
+		margin: 0 3px;
+	}
+}
+
 @media screen and (min-width: 592px) {
 	body {
 		font-size: 16px;
@@ -217,7 +232,7 @@ html.touch #showcase .navigation a {
 		padding: 24px;
 	}
 	
-	.section {
+	.section, #watermark {
 		max-width: 560px;
 	}
 	
@@ -305,5 +320,13 @@ html.touch #showcase .navigation a {
 		width: 22%;
 		display: inline-block;
 		vertical-align: bottom;
+	}
+	
+	#watermark {
+		max-width: none;
+		margin-top: 0;
+		margin-left: 0;
+		margin-right: 0;
+		text-align: left;
 	}
 }

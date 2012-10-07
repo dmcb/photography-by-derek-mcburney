@@ -42,4 +42,11 @@
   #side {
     width: 100%;
     display: inherit;
-    vertical-align: baseline; } }
+    vertical-align: baseline; }
+
+  #watermark {
+    max-width: 544px;
+    text-align: center;
+    margin-top: 32px;
+    margin-left: auto;
+    margin-right: auto; } }
