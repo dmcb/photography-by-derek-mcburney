@@ -24,6 +24,8 @@ $(function( $ ) {
 				App.router.loadPhotoDetails(photo);
 			});
 			App.photos.fetch();
+			
+	    	App.photoDetailsView = new App.Views.Categories({});
         },
 
         index: function() {
@@ -50,7 +52,7 @@ $(function( $ ) {
 			$('#showcase').fadeOut('fast', function(){
 				$('#showcase').remove();
 				$('#showcase').unbind();
-				$('h1').after('<div id="showcase" class="section"></div>');
+				$('#menu').after('<div id="showcase" class="section"></div>');
 				App.router.loadPhoto(App.photos, photo);
 			});
 

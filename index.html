@@ -16,6 +16,8 @@
 		<div class="frame">
 			<h1>Photography by Derek McBurney</h1>
 			
+			<div id="menu"></div>
+			
 			<div id="showcase" class="section"></div>
 
 			<div id="details" class="section"></div>
@@ -45,6 +47,15 @@
 	</div>
 	
 	<!-- Templates -->
+	<script id="photo-categories" type="text/template">
+		<ul>
+			<li>Weddings/Engagements</li>
+			<li>Events</li>
+			<li>People</li>
+			<li>Landscapes/Architecture</li>
+		</ul>
+	</script>
+	
 	<script id="photo-showcase" type="text/template">
 		<div class="navigation" id="left"><a>Previous</a></div>
 		<div class="navigation" id="right"><a>Next</a></div> 
@@ -68,6 +79,7 @@
 	
     <script type="text/javascript" src="assets/js/models/photo.js"></script>
     <script type="text/javascript" src="assets/js/collections/photos.js"></script>
+    <script type="text/javascript" src="assets/js/views/categories.js"></script>
     <script type="text/javascript" src="assets/js/views/photo.js"></script>
     <script type="text/javascript" src="assets/js/router.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>

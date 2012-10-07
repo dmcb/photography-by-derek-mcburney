@@ -55,7 +55,7 @@ textarea {
   overflow: auto; }
 
 .placeholder, ::-webkit-input-placeholder, :-moz-placeholder, :-ms-input-placeholder {
-  color: #999; }
+  color: #8c8c8c; }
 
 button {
   font-family: 'SortsMillGoudyItalic', Georgia, serif;
@@ -70,7 +70,7 @@ button {
   -webkit-transition: 0.3s ease;
   -o-transition: 0.3s ease; }
   button:hover {
-    background-color: #6c6c6c; }
+    background-color: #8c8c8c; }
 
 h1 {
   font-family: "LeagueGothicRegular", impact, sans-serif;
@@ -99,6 +99,19 @@ h2, .section > span, form > span {
   width: 100%;
   margin-left: auto;
   margin-right: auto; }
+
+#menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center; }
+  #menu ul li {
+    font-size: 0.8em;
+    display: inline-block;
+    text-align: center;
+    padding: 8px 16px;
+    cursor: pointer;
+    color: #8c8c8c; }
 
 #showcase {
   text-align: center;
@@ -236,9 +249,13 @@ html.touch #showcase .navigation a {
     display: inline-block;
     vertical-align: bottom; }
 
-  #watermark {
+  #menu ul, #watermark {
     max-width: none;
     margin-top: 0;
     margin-left: 0;
     margin-right: 0;
-    text-align: left; } }
+    text-align: left; }
+
+  #menu ul li {
+    padding-left: 0;
+    padding-right: 32px; } }

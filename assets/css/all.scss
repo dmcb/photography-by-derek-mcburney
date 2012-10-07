@@ -1,4 +1,7 @@
+$dark-grey: #222;
 $grey: #4c4c4c;
+$grey-highlight: #8c8c8c;
+$orange: #ffa300;
 
 @mixin drop-shadow {
 	-moz-box-shadow: 0 0 16px #000;
@@ -45,7 +48,7 @@ body {
 }
 
 a {
-	color: #ffa300;
+	color: $orange;
 	text-decoration: none;
 	
 	&:hover {
@@ -88,7 +91,7 @@ textarea {
 }
 
 .placeholder, ::-webkit-input-placeholder, :-moz-placeholder, :-ms-input-placeholder {
-    color: #999;
+    color: $grey-highlight;
 }
 
 button {
@@ -102,7 +105,7 @@ button {
 	@include easing;
 	
 	&:hover {
-		background-color: #6c6c6c;
+		background-color: $grey-highlight;
 	}
 }
 
@@ -136,6 +139,24 @@ h2, .section > span, form > span {
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#menu {
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		text-align: center;
+		
+		li {
+			font-size: 0.8em;
+			display: inline-block;
+			text-align: center;
+			padding: 8px 16px;
+			cursor: pointer;
+			color: $grey-highlight;
+		}
+	}
 }
 
 #showcase {
@@ -322,11 +343,16 @@ html.touch #showcase .navigation a {
 		vertical-align: bottom;
 	}
 	
-	#watermark {
+	#menu ul, #watermark {
 		max-width: none;
 		margin-top: 0;
 		margin-left: 0;
 		margin-right: 0;
 		text-align: left;
+	}
+	
+	#menu ul li {
+		padding-left: 0;
+		padding-right: 32px;
 	}
 }

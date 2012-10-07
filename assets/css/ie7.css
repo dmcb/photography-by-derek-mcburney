@@ -44,9 +44,13 @@
     display: inherit;
     vertical-align: baseline; }
 
-  #watermark {
+  #menu ul, #watermark {
     max-width: 544px;
     text-align: center;
     margin-top: 32px;
     margin-left: auto;
-    margin-right: auto; } }
+    margin-right: auto; }
+
+  #menu ul li {
+    padding-left: 16px;
+    padding-right: 16px; } }
