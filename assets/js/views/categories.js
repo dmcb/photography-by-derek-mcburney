@@ -27,6 +27,6 @@ $(function( $ ) {
 			$(this.el).html(renderedContent);
             $(this.el).css('display', 'none').fadeIn('slow');
             return this;
-		},
+		}
 	});
 });

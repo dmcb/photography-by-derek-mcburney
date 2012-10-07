@@ -25,6 +25,8 @@ a {
   text-decoration: none; }
   a:hover {
     text-decoration: none; }
+  a img {
+    border: 0; }
 
 input, textarea, button {
   font-family: Georgia, serif;
@@ -111,7 +113,11 @@ h2, .section > span, form > span {
     text-align: center;
     padding: 8px 16px;
     cursor: pointer;
-    color: #8c8c8c; }
+    color: #8c8c8c;
+    *display: inline;
+    zoom: 1; }
+    #menu ul li:hover {
+      color: #ffa300; }
 
 #showcase {
   text-align: center;

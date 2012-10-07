@@ -54,6 +54,10 @@ a {
 	&:hover {
 		text-decoration: none;
 	}
+	
+	img {
+		border: 0;
+	}
 }
 
 input, textarea, button {
@@ -155,6 +159,12 @@ h2, .section > span, form > span {
 			padding: 8px 16px;
 			cursor: pointer;
 			color: $grey-highlight;
+			*display: inline;
+			zoom: 1;
+		
+			&:hover {
+				color: $orange;
+			}
 		}
 	}
 }

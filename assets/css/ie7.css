@@ -1,3 +1,6 @@
+#watermark img {
+  vertical-align: baseline; }
+
 @media screen and (min-width: 1400px) {
   h1 {
     text-align: center; }
@@ -15,7 +18,7 @@
     display: inherit;
     vertical-align: baseline;
     max-width: 100%;
-    padding-top: 16px; }
+    padding-top: 24px; }
 
   #showcase {
     max-width: 1000px;
@@ -44,12 +47,16 @@
     display: inherit;
     vertical-align: baseline; }
 
-  #menu ul, #watermark {
+  #watermark {
     max-width: 544px;
     text-align: center;
     margin-top: 32px;
     margin-left: auto;
     margin-right: auto; }
+
+  #menu ul {
+    margin: 0;
+    text-align: center; }
 
   #menu ul li {
     padding-left: 16px;
