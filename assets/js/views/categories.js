@@ -14,12 +14,15 @@ $(function( $ ) {
 		template: _.template($('#photo-categories').html()),
 		
 		events: {
-
+			"click li": "selectCategory"
 		},
 		
 		initialize: function() {
 			_.bindAll(this);
 			this.render();
+			
+			App.globalState.on('change:category', this.changeCategory);
+			App.globalState.set('category', 'weddings-engagements');   
 		},
 		
 		render: function() {
@@ -27,6 +30,17 @@ $(function( $ ) {
 			$(this.el).html(renderedContent);
             $(this.el).css('display', 'none').fadeIn('slow');
             return this;
+		},
+		
+		changeCategory: function() {
+			var category = App.globalState.get('category');
+			$('#'+category).addClass('active');
+		},
+		
+		selectCategory: function(event) {
+			var target = $(event.currentTarget);
+			$('li').removeClass('active');
+			App.globalState.set('category', $(target).attr('id'));
 		}
 	});
 });

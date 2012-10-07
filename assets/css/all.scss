@@ -159,11 +159,16 @@ h2, .section > span, form > span {
 			padding: 8px 16px;
 			cursor: pointer;
 			color: $grey-highlight;
+			@include easing;
 			*display: inline;
 			zoom: 1;
 		
 			&:hover {
 				color: $orange;
+			}
+			
+			&.active {
+				color: $orange;	
 			}
 		}
 	}

@@ -12,10 +12,15 @@ $(function( $ ) {
     App.Routers.AppRouter = Backbone.Router.extend({
 
         routes: {
-            '': 'index'
+            '': 'index',
+            'photo/:id': 'photo'
         },
 
         initialize: function(options) {
+        	// Define a global state
+        	App.global = Backbone.Model.extend({});
+        	App.globalState = new App.global;
+        
         	// Grab all photos
         	App.photos = new App.Collections.Photos();
 			App.photos.on("reset", function(collection, response){
@@ -32,6 +37,10 @@ $(function( $ ) {
         	
         },
         
+        photo: function(id) {
+	        
+        },
+        
         loadPhoto: function(collection, photo) {
 			App.photoView = new App.Views.Photo({
 		    	model: photo,
@@ -45,9 +54,7 @@ $(function( $ ) {
 		    });
         },
         
-        changePhoto: function(index) {
-			
-			var photo = App.photos.at(index);
+        changePhoto: function(photo) {
 			
 			$('#showcase').fadeOut('fast', function(){
 				$('#showcase').remove();

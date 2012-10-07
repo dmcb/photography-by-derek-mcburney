@@ -114,9 +114,15 @@ h2, .section > span, form > span {
     padding: 8px 16px;
     cursor: pointer;
     color: #8c8c8c;
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
     *display: inline;
     zoom: 1; }
     #menu ul li:hover {
+      color: #ffa300; }
+    #menu ul li.active {
       color: #ffa300; }
 
 #showcase {
