@@ -38,7 +38,6 @@ $(function( $ ) {
 			} else {
 				newIndex = currentIndex-1;
 			}
-			
 			App.router.changePhoto(this.collection.at(newIndex));
 		},
 		
@@ -50,7 +49,6 @@ $(function( $ ) {
 			} else {
 				newIndex = currentIndex+1;
 			}
-			
 			App.router.changePhoto(this.collection.at(newIndex));
 		}
 	});

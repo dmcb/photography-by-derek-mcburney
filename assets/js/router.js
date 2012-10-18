@@ -8,12 +8,10 @@ var App = App || {
 $(function( $ ) {
 	'use strict';
 
-    // ---------------
     App.Routers.AppRouter = Backbone.Router.extend({
 
         routes: {
-            '': 'index',
-            'photo/:id': 'photo'
+            '': 'index'
         },
 
         initialize: function(options) {
@@ -21,54 +19,45 @@ $(function( $ ) {
         	App.global = Backbone.Model.extend({});
         	App.globalState = new App.global;
         
-        	// Grab all photos
+        	// Load the first photo of a collection when a collection is loaded
         	App.photos = new App.Collections.Photos();
 			App.photos.on("reset", function(collection, response){
 				var photo = collection.first();
-				App.router.loadPhoto(collection, photo);
-				App.router.loadPhotoDetails(photo);
+				App.router.changePhoto(photo);
 			});
-			App.photos.fetch();
 			
 	    	App.photoDetailsView = new App.Views.Categories({});
         },
 
         index: function() {
-        	
-        },
-        
-        photo: function(id) {
-	        
-        },
-        
-        loadPhoto: function(collection, photo) {
-			App.photoView = new App.Views.Photo({
-		    	model: photo,
-		    	collection: collection
-	    	});
-	    },
-	    
-	    loadPhotoDetails: function(photo) {
-	    	App.photoDetailsView = new App.Views.PhotoDetails({
-			    model: photo
-		    });
+        	// Set the default category to weddings-engagements
+        	App.globalState.set('category', 'weddings-engagements');  
         },
         
         changePhoto: function(photo) {
-			
 			$('#showcase').fadeOut('fast', function(){
 				$('#showcase').remove();
 				$('#showcase').unbind();
 				$('#menu').after('<div id="showcase" class="section"></div>');
-				App.router.loadPhoto(App.photos, photo);
+				App.photoView = new App.Views.Photo({
+			    	model: photo,
+			    	collection: App.photos
+		    	});
 			});
 
 			$('#details').fadeOut('fast', function(){
 				$('#details').remove();
 				$('#details').unbind();
 				$('#showcase').after('<div id="details" class="section"></div>');
-				App.router.loadPhotoDetails(photo);
+				App.photoDetailsView = new App.Views.PhotoDetails({
+				    model: photo
+			    });
 			});
+        },
+        
+        changeCollection: function(id) {
+	        App.photos.url = 'assets/js/collections/photo-data-' + id + '.json';
+	        App.photos.fetch();
         }
     });
 });

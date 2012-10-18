@@ -21,8 +21,7 @@ $(function( $ ) {
 			_.bindAll(this);
 			this.render();
 			
-			App.globalState.on('change:category', this.changeCategory);
-			App.globalState.set('category', 'weddings-engagements');   
+			App.globalState.on('change:category', this.changeCategory); 
 		},
 		
 		render: function() {
@@ -35,6 +34,7 @@ $(function( $ ) {
 		changeCategory: function() {
 			var category = App.globalState.get('category');
 			$('#'+category).addClass('active');
+			App.router.changeCollection(category);
 		},
 		
 		selectCategory: function(event) {

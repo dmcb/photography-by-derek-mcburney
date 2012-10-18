@@ -9,7 +9,6 @@ $(function( $ ) {
 	'use strict';
 
 	App.Collections.Photos = Backbone.Collection.extend({
-		model: App.Models.Photo,
-		url: 'assets/js/collections/photo-data.json'
+		model: App.Models.Photo
 	});
 });
