@@ -17,7 +17,7 @@ body {
   background: black url("../images/background.jpg") no-repeat center -1000px;
   -webkit-background-size: 2560px;
   color: #FFF;
-  font-size: 14px;
+  font-size: 16px;
   font-family: Georgia, serif; }
 
 a {
@@ -42,9 +42,6 @@ input, textarea, button {
   input.error, textarea.error, button.error {
     border: 2px solid #ffa300; }
 
-button {
-  height: 28px; }
-
 label.error {
   color: #ffa300;
   width: 100%;
@@ -66,6 +63,7 @@ button {
   background-color: #4c4c4c;
   color: #FFFFFF;
   width: 100%;
+  height: 28px;
   padding: 0;
   transition: 0.3s ease;
   -moz-transition: 0.3s ease;
@@ -102,11 +100,21 @@ h2, .section > span, form > span {
   margin-left: auto;
   margin-right: auto; }
 
+#menu select {
+  display: none;
+  width: 100%;
+  margin: 8px 0; }
+  @media screen and (max-width: 564px) {
+    #menu select {
+      display: inline; } }
 #menu ul {
   margin: 0;
   padding: 0;
   list-style: none;
   text-align: center; }
+  @media screen and (max-width: 564px) {
+    #menu ul {
+      display: none; } }
   #menu ul li {
     font-size: 0.8em;
     display: inline-block;
@@ -189,9 +197,6 @@ html.touch #showcase .navigation a {
     margin: 0 3px; }
 
 @media screen and (min-width: 592px) {
-  body {
-    font-size: 16px; }
-
   button {
     width: 176px; }
 

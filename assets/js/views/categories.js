@@ -14,7 +14,8 @@ $(function( $ ) {
 		template: _.template($('#photo-categories').html()),
 		
 		events: {
-			"click li": "selectCategory"
+			"click li": "selectCategoryLink",
+			"change select": "selectCategoryDropdown"
 		},
 		
 		initialize: function() {
@@ -33,14 +34,22 @@ $(function( $ ) {
 		
 		changeCategory: function() {
 			var category = App.globalState.get('category');
+			$('li').removeClass('active');
 			$('#'+category).addClass('active');
+			$("select option").filter(function() {
+				return $(this).val() == category; 
+			}).attr('selected', true);
 			App.router.changeCollection(category);
 		},
 		
-		selectCategory: function(event) {
+		selectCategoryLink: function(event) {
 			var target = $(event.currentTarget);
-			$('li').removeClass('active');
 			App.globalState.set('category', $(target).attr('id'));
+		},
+		
+		selectCategoryDropdown: function(event) {
+			var target = $(event.currentTarget);
+			App.globalState.set('category', $(target).val());
 		}
 	});
 });
