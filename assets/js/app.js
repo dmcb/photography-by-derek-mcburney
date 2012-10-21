@@ -10,6 +10,7 @@ $(function() {
 	Backbone.history.start();
 	
 	$('input, textarea').placeholder();
+	$('#showcase img').css( "background-size", "cover" );
 	
 	$('#name, #email, #story').bind('input', function(event) { 
 		var target = event.target.id;

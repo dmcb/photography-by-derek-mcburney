@@ -177,6 +177,7 @@ h2, .section > span, form > span {
       visibility: hidden; }
   #showcase img {
     width: 100%;
+    background-color: #080808;
     -moz-box-shadow: 0 0 16px #000;
     -webkit-box-shadow: 0 0 16px #000;
     box-shadow: 0 0 16px #000; }
