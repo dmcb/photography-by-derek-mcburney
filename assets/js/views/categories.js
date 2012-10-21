@@ -28,8 +28,8 @@ $(function( $ ) {
 		render: function() {
 			var renderedContent = this.template();
 			$(this.el).html(renderedContent);
-            $(this.el).css('display', 'none').fadeIn('slow');
-            return this;
+			$(this.el).css('display', 'none').fadeIn('slow');
+			return this;
 		},
 		
 		changeCategory: function() {

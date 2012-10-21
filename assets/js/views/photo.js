@@ -20,36 +20,28 @@ $(function( $ ) {
 		
 		initialize: function() {
 			_.bindAll(this);
-			this.render();
 		},
 		
 		render: function() {
 			var renderedContent = this.template(this.model.attributes);
 			$(this.el).html(renderedContent);
-            $(this.el).css('display', 'none').fadeIn('slow');
-            return this;
+            $(this.el).animate({opacity: 1}, 'slow');
 		},
 		
 		previousPhoto: function(e) {
-			var currentIndex = this.collection.indexOf(this.model);
-			var newIndex;
-			if (currentIndex == 0) {
-				newIndex = this.collection.length-1;
-			} else {
-				newIndex = currentIndex-1;
-			}
-			App.router.changePhoto(this.collection.at(newIndex));
+			App.router.previousPhoto(this.model);
 		},
 		
 		nextPhoto: function(e) {
-			var currentIndex = this.collection.indexOf(this.model);
-			var newIndex;
-			if (currentIndex == this.collection.length-1) {
-				newIndex = 0;
-			} else {
-				newIndex = currentIndex+1;
-			}
-			App.router.changePhoto(this.collection.at(newIndex));
+			App.router.nextPhoto(this.model);
+		},
+		
+		changePhoto: function(photo) {
+			var that = this;
+			$(this.el).animate({opacity: 0}, 'fast', function() {
+				that.model = photo;
+				that.render();
+			});
 		}
 	});
 	
@@ -63,15 +55,20 @@ $(function( $ ) {
 		
 		initialize: function() {
 			_.bindAll(this);
-			this.model.on('change', this.render);
-			this.render();
 		},
 		
 		render: function() {
 			var renderedContent = this.template(this.model.attributes);
 			$(this.el).html(renderedContent);
-			$(this.el).css('display', 'none').fadeIn('slow');
-            return this;
+			$(this.el).animate({opacity: 1}, 'slow');
+		},
+		
+		changePhoto: function(photo) {
+			var that = this;
+			$(this.el).animate({opacity: 0}, 'fast', function() {
+				that.model = photo;
+				that.render();
+			});
 		}
 	});
 });
