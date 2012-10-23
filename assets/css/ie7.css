@@ -47,12 +47,15 @@
     display: inherit;
     vertical-align: baseline; }
 
-  #watermark {
+  #footer {
     max-width: 544px;
     text-align: center;
     margin-top: 32px;
     margin-left: auto;
     margin-right: auto; }
+    #footer #social-media {
+      display: block;
+      margin-right: 0; }
 
   #menu ul {
     margin: 0;

@@ -135,7 +135,7 @@ h2, .section > span, form > span {
 	padding: 8px;
 }
 
-.section, #watermark {
+.section, #footer {
 	max-width: 544px;
 	width: 100%;
 	margin-left: auto;
@@ -253,18 +253,28 @@ html.touch #showcase .navigation a {
 	opacity: 1;
 }
 
-#watermark {
-	font-size: 0.8em;
+#footer {
+	margin-top: 16px;
 	text-align: center;
-	margin-top: 32px;
+
+	#social-media {
+		
 	
-	a {
-		color: $grey;
+		img {
+			width: 32px;
+		}
 	}
 	
-	img {
-		vertical-align: bottom;
-		margin: 0 3px;
+	#watermark {
+		font-size: 0.8em;
+		text-align: center;
+		margin-top: 8px;
+		color: $grey;
+		
+		img {
+			vertical-align: bottom;
+			margin: 0 3px;
+		}
 	}
 }
 
@@ -368,12 +378,17 @@ html.touch #showcase .navigation a {
 		vertical-align: bottom;
 	}
 	
-	#menu ul, #watermark {
+	#menu ul, #footer {
 		max-width: none;
 		margin-top: 0;
 		margin-left: 0;
 		margin-right: 0;
 		text-align: left;
+		
+		#social-media {
+			display: inline-block;
+			margin-right: 16px;
+		}
 	}
 	
 	#menu ul li {
