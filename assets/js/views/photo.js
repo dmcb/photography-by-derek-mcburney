@@ -20,12 +20,12 @@ $(function( $ ) {
 		
 		initialize: function() {
 			_.bindAll(this);
+			this.render();
 		},
 		
 		render: function() {
-			var renderedContent = this.template(this.model.attributes);
-			$(this.el).html(renderedContent);
-            $(this.el).animate({opacity: 1}, 'slow');
+			var renderedContent = this.template();
+			$(this.el).html(renderedContent).animate({opacity: 0}, 0);
 		},
 		
 		previousPhoto: function(e) {
@@ -40,7 +40,10 @@ $(function( $ ) {
 			var that = this;
 			$(this.el).animate({opacity: 0}, 'fast', function() {
 				that.model = photo;
-				that.render();
+				$(that.el).children('img').css('background-image', 'url(assets/images/' + that.model.attributes.file + ')');
+				$(that.el).children('img').css('filter', 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/images/' + that.model.attributes.file + '",sizingMethod="scale")');
+				$(that.el).children('img').css('-ms-filter', 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/images/' + that.model.attributes.file + '",sizingMethod="scale")'); 
+	            $(that.el).animate({opacity: 1}, 'slow');
 			});
 		}
 	});

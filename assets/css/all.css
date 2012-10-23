@@ -178,6 +178,7 @@ h2, .section > span, form > span {
   #showcase img {
     width: 100%;
     background-color: #080808;
+    background-size: cover;
     -moz-box-shadow: 0 0 16px #000;
     -webkit-box-shadow: 0 0 16px #000;
     box-shadow: 0 0 16px #000; }
