@@ -27,7 +27,7 @@
 	}
 	
 	#showcase {
-		max-width: 1000px;
+		max-width: 946px;
 		display: inherit;
 		width: 100%;
 		margin-right: auto;
@@ -47,25 +47,24 @@
 		}
 	}
 	
-	.section {
-		width: 560px;
-	}
-	
 	#contactme {
 		text-align: center;
-		margin-bottom: auto;
 	}
 	
 	#side {
 		width: 100%;
 		display: inherit;
 		vertical-align: baseline;
+		
+		.section {
+			margin-left: auto;
+			margin-right: auto;
+		}
 	}
 	
 	#footer {
-		max-width: 544px;
 		text-align: center;
-		margin-top: 32px;
+		margin-top: 16px;
 		margin-left: auto;
 		margin-right: auto;
 		

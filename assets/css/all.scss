@@ -60,11 +60,32 @@ a {
 	}
 }
 
+h1 {
+	font-family: "LeagueGothicRegular", impact, sans-serif;	
+	font-size: 2.5em;
+	text-transform: lowercase;
+	font-weight: normal;
+	text-align: center;
+	margin: 0;
+	position: relative;
+	z-index: 1;
+}
+
+h2, .section > span, form > span {
+	font-family: 'SortsMillGoudyItalic', Georgia, serif;
+	font-size: 1.4em;
+	font-weight: normal;
+	width: 100%;
+	display: block;
+	margin: 0.8em 0;
+	text-align: center;
+}
+
 input, textarea, button {
 	font-family: Georgia, serif;
 	border-radius: 4px;
 	border: 0 none;
-	width: 99%;
+	width: 98%;
 	margin: 2px 0;
 	font-size: 1em;
 	padding: 2px;
@@ -100,9 +121,11 @@ button {
 	cursor: pointer;
 	background-color: $grey;
 	color: #FFFFFF;
-	width: 100%;
+	width: 176px;
 	height: 28px;
 	padding: 0;
+	margin: 0;
+	-webkit-box-sizing: initial;
 	@include easing;
 	
 	&:hover {
@@ -110,36 +133,8 @@ button {
 	}
 }
 
-h1 {
-	font-family: "LeagueGothicRegular", impact, sans-serif;	
-	font-size: 2.5em;
-	text-transform: lowercase;
-	font-weight: normal;
-	text-align: center;
-	margin: 0;
-	position: relative;
-	z-index: 1;
-}
-
-h2, .section > span, form > span {
-	font-family: 'SortsMillGoudyItalic', Georgia, serif;
-	font-size: 1.4em;
-	font-weight: normal;
-	width: 100%;
-	display: block;
-	margin: 0.8em 0;
-	text-align: center;
-}
-
 .frame {
-	padding: 8px;
-}
-
-.section, #footer {
-	max-width: 544px;
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
+	padding: 24px;
 }
 
 #menu {
@@ -147,10 +142,6 @@ h2, .section > span, form > span {
 		display: none;
 		width: 100%;
 		margin: 8px 0;
-		
-		@media screen and (max-width: 564px) {
-			display: inline;
-		}
 	}
 
 	ul {
@@ -158,10 +149,7 @@ h2, .section > span, form > span {
 		padding: 0;
 		list-style: none;
 		text-align: center;
-		
-		@media screen and (max-width: 564px) {
-			display: none;
-		}
+
 		
 		li {
 			font-size: 0.8em;
@@ -185,9 +173,19 @@ h2, .section > span, form > span {
 	}
 }
 
+
+.section {
+	max-width: 560px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 #showcase {
 	text-align: center;
 	position: relative;
+	max-width: 946px;
+	width: 100%;
 	
 	.navigation {
 		height: 100%;
@@ -204,7 +202,7 @@ h2, .section > span, form > span {
 		}
 		
 		&#left {
-			left: 4;
+			left: -16px;
 			
 			a {
 				float: left;
@@ -213,7 +211,7 @@ h2, .section > span, form > span {
 		}
 		
 		&#right {
-			right: 0;
+			right: -16px;
 			
 			a {
 				float: right;
@@ -223,19 +221,20 @@ h2, .section > span, form > span {
 		
 		a {
 			background-color: $grey;
-			width: 50px;
 			border-radius: 8px;
 			position: absolute;
-			margin-top: -25px;
 			top: 50%;
 			@include drop-shadow;
 			@include easing;
 			font-family: Georgia, serif;
-			padding: 10px 0;
+			font-size: 0.8em;
 			text-transform: lowercase;
 			opacity: 0;
 			display: block;
 			visibility: hidden;
+			padding: 20px 0;
+			width: 80px;
+			margin-top: -80px;
 		}
 	}
 
@@ -247,10 +246,8 @@ h2, .section > span, form > span {
 	}
 }
 
-/* Modernizr detects touch ability, so if touch, don't require a hover to show previous/next elements */
-html.touch #showcase .navigation a {
-	visibility: visible;
-	opacity: 1;
+#contactme {
+	text-align: center;
 }
 
 #footer {
@@ -258,8 +255,6 @@ html.touch #showcase .navigation a {
 	text-align: center;
 
 	#social-media {
-		
-	
 		img {
 			width: 32px;
 		}
@@ -278,47 +273,66 @@ html.touch #showcase .navigation a {
 	}
 }
 
-@media screen and (min-width: 592px) {
+/* Modernizr detects touch ability, so if touch, don't require a hover to show previous/next elements */
+html.touch #showcase .navigation a {
+	visibility: visible;
+	opacity: 1;
+}
+
+/* For narrow displays or phones */
+@media screen and (max-width: 560px), screen and (max-device-width: 480px) {
+	body {
+		font-size: 12px
+	}
 	
 	button {
-		width: 176px;
+		width: 98%;
+		height: 22px;
+		padding: 0 2px;
 	}
 	
 	.frame {
-		padding: 24px;
+		padding: 8px;
 	}
 	
-	.section, #watermark {
-		max-width: 560px;
-	}
-
-	#showcase {
-		max-width: 1000px;
-		width: 100%;
-		
-		.navigation {
-			&#left {
-				left: -16px;
-			}
-			
-			&#right {
-				right: -16px;
-			}
-			
-			a {
-				padding: 20px 0;
-				width: 80px;
-				margin-top: -80px;
-			}
+	#menu {
+		select {
+			display: inline;
+		}
+	
+		ul {
+			display: none;
 		}
 	}
 	
-	#contactme {
-		text-align: center;
+	.section {
+		max-width: none;
+	}
+
+	#showcase {
+		max-width: none;
+		width: auto;
+		
+		.navigation {
+			&#left {
+				left: -4px;
+			}
+			
+			&#right {
+				right: -4px;
+			}
+			
+			a {
+				padding: 10px 0;
+				width: 50px;
+				margin-top: -25px;
+			}
+		}
 	}
 }
 
-@media screen and (min-width: 1400px) {
+/* For wide displays or tablets in landscape */
+@media screen and (min-width: 1400px), screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
 
 	h1 {
 		text-align: left;
@@ -345,7 +359,7 @@ html.touch #showcase .navigation a {
 	#showcase {
 		max-width: 1896px;
 		display: inline-block;
-		width: 75%;
+		width: 70%;
 		margin-right: 32px;
 	
 		img {
@@ -355,7 +369,7 @@ html.touch #showcase .navigation a {
 
 	#details {
 		position: absolute;
-		width: 22%;
+		width: 27%;
 		display: inline-block;
 		
 		h2 {
@@ -363,19 +377,19 @@ html.touch #showcase .navigation a {
 		}
 	}
 	
-	.section {
-		width: 100%;
-	}
-	
 	#contactme {
 		text-align: left;
-		margin-bottom: 0;
 	}
 	
 	#side {
-		width: 22%;
+		width: 27%;
 		display: inline-block;
 		vertical-align: bottom;
+		
+		.section {
+			margin-left: 0;
+			margin-right: 0;
+		}
 	}
 	
 	#menu ul, #footer {
@@ -394,5 +408,45 @@ html.touch #showcase .navigation a {
 	#menu ul li {
 		padding-left: 0;
 		padding-right: 32px;
+	}
+}
+
+/* Specifically tables in landscape */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+		
+	#details, #side {
+		font-size: 0.8em;
+	}
+	
+	button {
+		width: 98%;
+		padding: 0 2px;
+		height: 22px;
+	}
+	
+	textarea {
+		height: 48px;
+	}
+	
+	.frame {
+		padding: 16px;
+	}
+	
+	#showcase {
+		margin-right: 16px;
+	
+		.navigation {
+			&#left {
+				left: -4px;
+			}
+			
+			&#right {
+				right: -4px;
+			}
+		}
+	}
+	
+	#details, #side {
+		width: 28%;
 	}
 }

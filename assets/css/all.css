@@ -28,11 +28,30 @@ a {
   a img {
     border: 0; }
 
+h1 {
+  font-family: "LeagueGothicRegular", impact, sans-serif;
+  font-size: 2.5em;
+  text-transform: lowercase;
+  font-weight: normal;
+  text-align: center;
+  margin: 0;
+  position: relative;
+  z-index: 1; }
+
+h2, .section > span, form > span {
+  font-family: 'SortsMillGoudyItalic', Georgia, serif;
+  font-size: 1.4em;
+  font-weight: normal;
+  width: 100%;
+  display: block;
+  margin: 0.8em 0;
+  text-align: center; }
+
 input, textarea, button {
   font-family: Georgia, serif;
   border-radius: 4px;
   border: 0 none;
-  width: 99%;
+  width: 98%;
   margin: 2px 0;
   font-size: 1em;
   padding: 2px;
@@ -62,9 +81,11 @@ button {
   cursor: pointer;
   background-color: #4c4c4c;
   color: #FFFFFF;
-  width: 100%;
+  width: 176px;
   height: 28px;
   padding: 0;
+  margin: 0;
+  -webkit-box-sizing: initial;
   transition: 0.3s ease;
   -moz-transition: 0.3s ease;
   -webkit-transition: 0.3s ease;
@@ -72,49 +93,18 @@ button {
   button:hover {
     color: #ffa300; }
 
-h1 {
-  font-family: "LeagueGothicRegular", impact, sans-serif;
-  font-size: 2.5em;
-  text-transform: lowercase;
-  font-weight: normal;
-  text-align: center;
-  margin: 0;
-  position: relative;
-  z-index: 1; }
-
-h2, .section > span, form > span {
-  font-family: 'SortsMillGoudyItalic', Georgia, serif;
-  font-size: 1.4em;
-  font-weight: normal;
-  width: 100%;
-  display: block;
-  margin: 0.8em 0;
-  text-align: center; }
-
 .frame {
-  padding: 8px; }
-
-.section, #footer {
-  max-width: 544px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto; }
+  padding: 24px; }
 
 #menu select {
   display: none;
   width: 100%;
   margin: 8px 0; }
-  @media screen and (max-width: 564px) {
-    #menu select {
-      display: inline; } }
 #menu ul {
   margin: 0;
   padding: 0;
   list-style: none;
   text-align: center; }
-  @media screen and (max-width: 564px) {
-    #menu ul {
-      display: none; } }
   #menu ul li {
     font-size: 0.8em;
     display: inline-block;
@@ -133,9 +123,17 @@ h2, .section > span, form > span {
     #menu ul li.active {
       color: #ffa300; }
 
+.section {
+  max-width: 560px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+
 #showcase {
   text-align: center;
-  position: relative; }
+  position: relative;
+  max-width: 946px;
+  width: 100%; }
   #showcase .navigation {
     height: 100%;
     width: 30%;
@@ -146,21 +144,19 @@ h2, .section > span, form > span {
       opacity: 1;
       visibility: visible; }
     #showcase .navigation#left {
-      left: 4; }
+      left: -16px; }
       #showcase .navigation#left a {
         float: left;
         left: -4px; }
     #showcase .navigation#right {
-      right: 0; }
+      right: -16px; }
       #showcase .navigation#right a {
         float: right;
         right: -4px; }
     #showcase .navigation a {
       background-color: #4c4c4c;
-      width: 50px;
       border-radius: 8px;
       position: absolute;
-      margin-top: -25px;
       top: 50%;
       -moz-box-shadow: 0 0 16px #000;
       -webkit-box-shadow: 0 0 16px #000;
@@ -170,11 +166,14 @@ h2, .section > span, form > span {
       -webkit-transition: 0.3s ease;
       -o-transition: 0.3s ease;
       font-family: Georgia, serif;
-      padding: 10px 0;
+      font-size: 0.8em;
       text-transform: lowercase;
       opacity: 0;
       display: block;
-      visibility: hidden; }
+      visibility: hidden;
+      padding: 20px 0;
+      width: 80px;
+      margin-top: -80px; }
   #showcase img {
     width: 100%;
     background-color: #080808;
@@ -183,10 +182,8 @@ h2, .section > span, form > span {
     -webkit-box-shadow: 0 0 16px #000;
     box-shadow: 0 0 16px #000; }
 
-/* Modernizr detects touch ability, so if touch, don't require a hover to show previous/next elements */
-html.touch #showcase .navigation a {
-  visibility: visible;
-  opacity: 1; }
+#contactme {
+  text-align: center; }
 
 #footer {
   margin-top: 16px;
@@ -202,31 +199,45 @@ html.touch #showcase .navigation a {
       vertical-align: bottom;
       margin: 0 3px; }
 
-@media screen and (min-width: 592px) {
+/* Modernizr detects touch ability, so if touch, don't require a hover to show previous/next elements */
+html.touch #showcase .navigation a {
+  visibility: visible;
+  opacity: 1; }
+
+/* For narrow displays or phones */
+@media screen and (max-width: 560px), screen and (max-device-width: 480px) {
+  body {
+    font-size: 12px; }
+
   button {
-    width: 176px; }
+    width: 98%;
+    height: 22px;
+    padding: 0 2px; }
 
   .frame {
-    padding: 24px; }
+    padding: 8px; }
 
-  .section, #watermark {
-    max-width: 560px; }
+  #menu select {
+    display: inline; }
+  #menu ul {
+    display: none; }
+
+  .section {
+    max-width: none; }
 
   #showcase {
-    max-width: 1000px;
-    width: 100%; }
+    max-width: none;
+    width: auto; }
     #showcase .navigation#left {
-      left: -16px; }
+      left: -4px; }
     #showcase .navigation#right {
-      right: -16px; }
+      right: -4px; }
     #showcase .navigation a {
-      padding: 20px 0;
-      width: 80px;
-      margin-top: -80px; }
-
-  #contactme {
-    text-align: center; } }
-@media screen and (min-width: 1400px) {
+      padding: 10px 0;
+      width: 50px;
+      margin-top: -25px; } }
+/* For wide displays or tablets in landscape */
+@media screen and (min-width: 1400px), screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   h1 {
     text-align: left; }
 
@@ -248,29 +259,28 @@ html.touch #showcase .navigation a {
   #showcase {
     max-width: 1896px;
     display: inline-block;
-    width: 75%;
+    width: 70%;
     margin-right: 32px; }
     #showcase img {
       float: left; }
 
   #details {
     position: absolute;
-    width: 22%;
+    width: 27%;
     display: inline-block; }
     #details h2 {
       margin-top: 0; }
 
-  .section {
-    width: 100%; }
-
   #contactme {
-    text-align: left;
-    margin-bottom: 0; }
+    text-align: left; }
 
   #side {
-    width: 22%;
+    width: 27%;
     display: inline-block;
     vertical-align: bottom; }
+    #side .section {
+      margin-left: 0;
+      margin-right: 0; }
 
   #menu ul, #footer {
     max-width: none;
@@ -285,3 +295,28 @@ html.touch #showcase .navigation a {
   #menu ul li {
     padding-left: 0;
     padding-right: 32px; } }
+/* Specifically tables in landscape */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  #details, #side {
+    font-size: 0.8em; }
+
+  button {
+    width: 98%;
+    padding: 0 2px;
+    height: 22px; }
+
+  textarea {
+    height: 48px; }
+
+  .frame {
+    padding: 16px; }
+
+  #showcase {
+    margin-right: 16px; }
+    #showcase .navigation#left {
+      left: -4px; }
+    #showcase .navigation#right {
+      right: -4px; }
+
+  #details, #side {
+    width: 28%; } }
