@@ -94,7 +94,9 @@ button {
     color: #ffa300; }
 
 .frame {
-  padding: 24px; }
+  padding: 24px;
+  /* This property is only to stop weird white space right of the frame from causing scaling issues on iPhone after rotating from portrait to landscape back to portrait */
+  overflow: hidden; }
 
 #menu select {
   display: none;
