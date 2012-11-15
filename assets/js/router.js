@@ -12,7 +12,7 @@ $(function( $ ) {
 
         routes: {
             '': 'index',
-            'photo/:id': 'photo'
+            ':id': 'photo'
         },
 
         initialize: function(options) {
@@ -73,7 +73,7 @@ $(function( $ ) {
           
         changePhoto: function(photo) {
         	// Change URL
-        	App.router.navigate("photo/" + photo.attributes.id);
+        	App.router.navigate(photo.attributes.id);
         	
         	// Update views
 			App.photoView.changePhoto(photo);
