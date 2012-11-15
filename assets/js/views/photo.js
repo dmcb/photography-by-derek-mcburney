@@ -15,7 +15,8 @@ $(function( $ ) {
 		
 		events: {
 			"click .navigation#left": "previousPhoto",
-			"click .navigation#right": "nextPhoto"
+			"click .navigation#right": "nextPhoto",
+			"click #focus": "fullScreen" 
 		},
 		
 		initialize: function() {
@@ -28,21 +29,58 @@ $(function( $ ) {
 			$(this.el).html(renderedContent).animate({opacity: 0}, 0);
 		},
 		
-		previousPhoto: function(e) {
+		previousPhoto: function() {
 			App.router.previousPhoto(this.model);
 		},
 		
-		nextPhoto: function(e) {
+		nextPhoto: function() {
 			App.router.nextPhoto(this.model);
+		},
+		
+		fullScreen: function(event) {
+			var target = event.currentTarget;
+/*
+			var fullscreenEnabled = document.fullScreenEnabled || document.mozScreenEnabled || document.webkitScreenEnabled;
+			
+			if (!fullscreenEnabled) {
+				if (target.requestFullScreen) {
+					target.requestFullScreen();
+				}
+				else if (target.mozRequestFullScreen) {
+					target.mozRequestFullScreen();
+				}
+				else if (target.webkitRequestFullScreen) {
+					target.webkitRequestFullScreen();
+				}
+			}
+			else {			
+				if (document.cancelFullScreen) {
+					document.cancelFullScreen();
+				} 
+				else if (document.mozCancelFullScreen) {
+					document.mozCancelFullScreen();
+				} 
+				else if (document.webkitCancelFullScreen) {
+					document.webkitCancelFullScreen();
+				}
+			}
+*/
+			var target = $(event.currentTarget);
+			if (BigScreen.enabled) {
+				BigScreen.toggle(event.currentTarget);
+			}
+			else {
+				// fallback for browsers that don't support full screen
+			}
 		},
 		
 		changePhoto: function(photo) {
 			var that = this;
 			$(this.el).animate({opacity: 0}, 'fast', function() {
 				that.model = photo;
-				$(that.el).children('img').css('background-image', 'url(assets/images/' + that.model.attributes.file + ')');
-				$(that.el).children('img').css('filter', 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/images/' + that.model.attributes.file + '",sizingMethod="scale")');
-				$(that.el).children('img').css('-ms-filter', 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/images/' + that.model.attributes.file + '",sizingMethod="scale")'); 
+				$(that.el).children('#focus').children('img').css('background-image', 'url(assets/images/' + that.model.attributes.file + ')');
+				$(that.el).children('#focus').children('img').css('filter', 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/images/' + that.model.attributes.file + '",sizingMethod="scale")');
+				$(that.el).children('#focus').children('img').css('-ms-filter', 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/images/' + that.model.attributes.file + '",sizingMethod="scale")'); 
 	            $(that.el).animate({opacity: 1}, 'slow');
 			});
 		}
