@@ -11,7 +11,8 @@ $(function( $ ) {
     App.Routers.AppRouter = Backbone.Router.extend({
 
         routes: {
-            '': 'index'
+            '': 'index',
+            'photo/:id': 'photo'
         },
 
         initialize: function(options) {
@@ -23,10 +24,20 @@ $(function( $ ) {
 			App.photoView = new App.Views.Photo();
 			App.photoDetailsView = new App.Views.PhotoDetails();
         
-        	// Load the first photo of a collection when a collection is loaded
+        	// Define collection of all photos
         	App.photos = new App.Collections.Photos();
-			App.photos.on("reset", function(collection, response){
-				App.router.changePhoto(collection.first());
+        	App.photos.url = 'assets/js/collections/photo-data.json';
+        	
+        	// Define collection of currently selected category photos
+        	App.currentPhotos = new App.Collections.Photos();
+        	App.currentPhotos.on("reset", function(collection, response){
+        		// If a specific photo in the collection is to be loaded, grab it, otherwise use first in collection
+        		var photo = App.globalState.get('photo');
+        		if (!photo) {
+	        		photo = collection.first();
+        		} 
+				App.router.changePhoto(photo);
+				App.globalState.set('photo', null);
 			});
 
 	    	// Add categories menu
@@ -34,40 +45,61 @@ $(function( $ ) {
         },
 
         index: function() {
-        	// Set the default category to weddings-engagements
-        	App.globalState.set('category', 'weddings-engagements');  
+        	// Once all photos are loaded, set the default category to weddings-engagements
+	        App.photos.on("reset", function(collection, response){
+				App.globalState.set('category', 'weddings-engagements');
+			});
+			App.photos.fetch();
+        },
+        
+        photo: function(id){
+        	// Once all photos are loaded, grab the specific photo and switch to it's respective category of photos
+        	App.photos.on("reset", function(collection, response){
+				var photo = App.photos.get(id);
+				App.globalState.set('photo', photo);
+				App.globalState.set('category', photo.attributes.category);
+			});
+			App.photos.fetch();
         },
         
         changeCollection: function(id) {
-	        App.photos.url = 'assets/js/collections/photo-data-' + id + '.json';
-	        App.photos.fetch();
+	        App.currentPhotos.reset(App.photos.filter(function(photo) {
+		        if (photo.attributes.category == id) {
+			        return true;
+		        }
+		        return false;
+	        }));
         },
           
         changePhoto: function(photo) {
+        	// Change URL
+        	App.router.navigate("photo/" + photo.attributes.id);
+        	
+        	// Update views
 			App.photoView.changePhoto(photo);
 			App.photoDetailsView.changePhoto(photo);
         },
         
         previousPhoto: function(photo) {
-			var currentIndex = App.photos.indexOf(photo);
+			var currentIndex = App.currentPhotos.indexOf(photo);
 			var newIndex;
 			if (currentIndex == 0) {
-				newIndex = App.photos.length-1;
+				newIndex = App.currentPhotos.length-1;
 			} else {
 				newIndex = currentIndex-1;
 			}
-			App.router.changePhoto(App.photos.at(newIndex));
+			App.router.changePhoto(App.currentPhotos.at(newIndex));
         },
         
         nextPhoto: function(photo) {
-			var currentIndex = App.photos.indexOf(photo);
+			var currentIndex = App.currentPhotos.indexOf(photo);
 			var newIndex;
-			if (currentIndex == App.photos.length-1) {
+			if (currentIndex == App.currentPhotos.length-1) {
 				newIndex = 0;
 			} else {
 				newIndex = currentIndex+1;
 			}
-			App.router.changePhoto(App.photos.at(newIndex));  
+			App.router.changePhoto(App.currentPhotos.at(newIndex));  
         }
     });
 });
