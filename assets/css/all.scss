@@ -224,14 +224,15 @@ button {
 		}
 		
 		a {
+			background-size: cover;
 			position: absolute;
 			top: 50%;
 			@include easing;
 			opacity: 0;
 			display: block;
 			visibility: hidden;
-			height: 66px;
-			width: 61px;
+			height: 48px;
+			width: 48px;
 			margin-top: -80px;
 		}
 	}
@@ -314,24 +315,16 @@ html.touch #showcase .navigation a {
 		.navigation {
 			&#left {
 				left: -4px;
-				
-				a {
-					background-image: url("../images/arrow-left-small.png");
-				}
 			}
 			
 			&#right {
 				right: -4px;
-				
-				a {
-					background-image: url("../images/arrow-right-small.png");
-				}
 			}
 			
 			a { 
 				margin-top: -25px;
-				height: 33px;
-				width: 30px;
+				height: 32px;
+				width: 32px;
 			}
 		}
 	}

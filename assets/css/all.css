@@ -158,6 +158,7 @@ button {
         background-repeat: none;
         right: -8px; }
     #showcase .navigation a {
+      background-size: cover;
       position: absolute;
       top: 50%;
       transition: 0.3s ease;
@@ -167,8 +168,8 @@ button {
       opacity: 0;
       display: block;
       visibility: hidden;
-      height: 66px;
-      width: 61px;
+      height: 48px;
+      width: 48px;
       margin-top: -80px; }
   #showcase img {
     width: 100%;
@@ -226,16 +227,12 @@ html.touch #showcase .navigation a {
     width: auto; }
     #showcase .navigation#left {
       left: -4px; }
-      #showcase .navigation#left a {
-        background-image: url("../images/arrow-left-small.png"); }
     #showcase .navigation#right {
       right: -4px; }
-      #showcase .navigation#right a {
-        background-image: url("../images/arrow-right-small.png"); }
     #showcase .navigation a {
       margin-top: -25px;
-      height: 33px;
-      width: 30px; } }
+      height: 32px;
+      width: 32px; } }
 /* For wide displays or tablets in landscape */
 @media screen and (min-width: 1400px), screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   h1 {

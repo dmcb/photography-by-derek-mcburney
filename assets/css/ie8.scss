@@ -1,3 +1,18 @@
 input, textarea {
 	background-color: #4c4c4c;
 }
+
+#showcase .navigation {
+
+	&#left a {
+		background-image: none;
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/images/arrow-left.png",sizingMethod="scale");
+		-ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/images/arrow-left.png",sizingMethod="scale"); 
+	}
+	
+	&#right a {
+		background-image: none;
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/images/arrow-right.png",sizingMethod="scale");
+		-ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/images/arrow-right.png",sizingMethod="scale"); 
+	}
+}
