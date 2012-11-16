@@ -207,8 +207,9 @@ button {
 			left: -16px;
 			
 			a {
-				float: left;
-				left: -4px;
+				background-image: url("../images/arrow-left.png");
+				background-repeat: none;
+				left: -8px;
 			}
 		}
 		
@@ -216,26 +217,21 @@ button {
 			right: -16px;
 			
 			a {
-				float: right;
-				right: -4px;
+				background-image: url("../images/arrow-right.png");
+				background-repeat: none;
+				right: -8px;
 			}
 		}
 		
 		a {
-			background-color: $grey;
-			border-radius: 8px;
 			position: absolute;
 			top: 50%;
-			@include drop-shadow;
 			@include easing;
-			font-family: Georgia, serif;
-			font-size: 0.8em;
-			text-transform: lowercase;
 			opacity: 0;
 			display: block;
 			visibility: hidden;
-			padding: 20px 0;
-			width: 80px;
+			height: 66px;
+			width: 61px;
 			margin-top: -80px;
 		}
 	}
@@ -282,7 +278,7 @@ html.touch #showcase .navigation a {
 }
 
 /* For narrow displays or phones */
-@media screen and (max-width: 560px), screen and (max-device-width: 480px) {
+@media screen and (max-width: 580px), screen and (max-device-width: 480px) {
 	body {
 		font-size: 12px
 	}
@@ -318,16 +314,24 @@ html.touch #showcase .navigation a {
 		.navigation {
 			&#left {
 				left: -4px;
+				
+				a {
+					background-image: url("../images/arrow-left-small.png");
+				}
 			}
 			
 			&#right {
 				right: -4px;
+				
+				a {
+					background-image: url("../images/arrow-right-small.png");
+				}
 			}
 			
-			a {
-				padding: 10px 0;
-				width: 50px;
+			a { 
 				margin-top: -25px;
+				height: 33px;
+				width: 30px;
 			}
 		}
 	}

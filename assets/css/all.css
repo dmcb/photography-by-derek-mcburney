@@ -148,33 +148,27 @@ button {
     #showcase .navigation#left {
       left: -16px; }
       #showcase .navigation#left a {
-        float: left;
-        left: -4px; }
+        background-image: url("../images/arrow-left.png");
+        background-repeat: none;
+        left: -8px; }
     #showcase .navigation#right {
       right: -16px; }
       #showcase .navigation#right a {
-        float: right;
-        right: -4px; }
+        background-image: url("../images/arrow-right.png");
+        background-repeat: none;
+        right: -8px; }
     #showcase .navigation a {
-      background-color: #4c4c4c;
-      border-radius: 8px;
       position: absolute;
       top: 50%;
-      -moz-box-shadow: 0 0 16px #000;
-      -webkit-box-shadow: 0 0 16px #000;
-      box-shadow: 0 0 16px #000;
       transition: 0.3s ease;
       -moz-transition: 0.3s ease;
       -webkit-transition: 0.3s ease;
       -o-transition: 0.3s ease;
-      font-family: Georgia, serif;
-      font-size: 0.8em;
-      text-transform: lowercase;
       opacity: 0;
       display: block;
       visibility: hidden;
-      padding: 20px 0;
-      width: 80px;
+      height: 66px;
+      width: 61px;
       margin-top: -80px; }
   #showcase img {
     width: 100%;
@@ -207,7 +201,7 @@ html.touch #showcase .navigation a {
   opacity: 1; }
 
 /* For narrow displays or phones */
-@media screen and (max-width: 560px), screen and (max-device-width: 480px) {
+@media screen and (max-width: 580px), screen and (max-device-width: 480px) {
   body {
     font-size: 12px; }
 
@@ -232,12 +226,16 @@ html.touch #showcase .navigation a {
     width: auto; }
     #showcase .navigation#left {
       left: -4px; }
+      #showcase .navigation#left a {
+        background-image: url("../images/arrow-left-small.png"); }
     #showcase .navigation#right {
       right: -4px; }
+      #showcase .navigation#right a {
+        background-image: url("../images/arrow-right-small.png"); }
     #showcase .navigation a {
-      padding: 10px 0;
-      width: 50px;
-      margin-top: -25px; } }
+      margin-top: -25px;
+      height: 33px;
+      width: 30px; } }
 /* For wide displays or tablets in landscape */
 @media screen and (min-width: 1400px), screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   h1 {
