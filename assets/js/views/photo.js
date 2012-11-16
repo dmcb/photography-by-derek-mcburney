@@ -78,7 +78,7 @@ $(function( $ ) {
 			var that = this;
 			$(this.el).animate({opacity: 0}, 'fast', function() {
 				that.model = photo;
-				$(that.el).children('#focus').children('img').css('background-image', 'url(assets/images/' + that.model.attributes.file + ')');
+				$(that.el).children('#focus').children('img').css('background-image', 'url(assets/photos/' + that.model.attributes.file + ')');
 				$(that.el).children('#focus').children('img').css('filter', 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/images/' + that.model.attributes.file + '",sizingMethod="scale")');
 				$(that.el).children('#focus').children('img').css('-ms-filter', 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/images/' + that.model.attributes.file + '",sizingMethod="scale")'); 
 	            $(that.el).animate({opacity: 1}, 'slow');
