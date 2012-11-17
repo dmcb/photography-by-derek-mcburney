@@ -70,7 +70,7 @@ $(function( $ ) {
 				BigScreen.toggle(event.currentTarget);
 			}
 			else {
-				// fallback for browsers that don't support full screen
+				// Fallback for browsers that don't support full screen
 			}
 		},
 		
@@ -106,6 +106,17 @@ $(function( $ ) {
 		
 		changePhoto: function(photo) {
 			var that = this;
+			
+			// Change meta data
+			$('meta[name="twitter:card"]').attr('content', 'photo');
+			$('meta[name="twitter:title"]').attr('content', photo.attributes.title);
+			$('meta[name="twitter:description"]').attr('content', photo.attributes.description);
+			$('meta[name="twitter:image"]').attr('content', document.domain + '/assets/photos/' + photo.attributes.file);
+			$('meta[name="og:type"]').attr('content', 'photo');
+			$('meta[name="og:title"]').attr('content', photo.attributes.title);
+			$('meta[name="og:description"]').attr('content', document.domain + '/assets/photos/' + photo.attributes.file);
+			$('meta[name="og:image"]').attr('content', photo.attributes.description);
+			
 			$(this.el).animate({opacity: 0}, 'fast', function() {
 				that.model = photo;
 				that.render();
