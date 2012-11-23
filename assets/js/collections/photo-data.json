@@ -41,6 +41,20 @@
 	"description": "Nuit Blanche, a late night public art display in downtown, hit Calgary for the first time this year and it was a blast. One of the installations was a cloud of light bulbs that people could turn on and off. It was a dazzling display that many onlookers were absorbed by and I tried to capture that story through my shots."
 },
 {
+	"id": "sensational",
+	"category": "people-events",
+	"title": "Sensational",
+	"file": "sensational.jpg",
+	"description": "We are constantly moving, but a photo only captures a still moment in time. What's captured depends on the instant: an awkward transition from one movement to next; or a moment of completely raw, unfiltered emotion. This is the latter, though the question remains, is this joy, or pain?"
+},
+{
+	"id": "the-bet",
+	"category": "people-events",
+	"title": "The Bet",
+	"file": "the-bet.jpg",
+	"description": "This is Ryan. He's undergone a bet that if he grows a beard over the course of the year, he'll handily win some cash. Such a spectacle needs to be immortalized - if only to cause him the anguish that truly makes him earn his reward - but the splattering of light and colour results in a dazzling, and less embarrassing potrait, than I hoped for."
+},
+{
 	"id": "delicate-arch-at-sunset",
 	"category": "landscapes-architecture",
 	"title": "Delicate Arch at Sunset",
@@ -60,4 +74,11 @@
 	"title": "Inside the Simmons Building",
 	"file": "simmons-building.jpg",
 	"description": "If a photographer says otherwise, they are lying: photography involves a lot of luck. The Simmons Building is a gorgeous old building in Calgary's East Village. It was open for the public to take in for Doors Open YYC, and when I arrived, the sunlight was pouring in through the windows at a perfect angle."
+},
+{
+	"id": "tacos-and-tofu",
+	"category": "landscapes-architecture",
+	"title": "Tacos and Tofu",
+	"file": "taco-tofu.jpg",
+	"description": "Near the end of Top Chef Canada Season 2, I checked out one of the finalists' restaurant: Sidedoor. This photo makes me salivate, the flavours and presentation were incredible - Jonathan Korecki and his staff did all the work, I just got the lighting right."
 }]
