@@ -1,7 +1,20 @@
-<!DOCTYPE html>
+<?php
+
+// Route to photo to populate meta data based on photo, for SEO and services like twitter
+$photos_json = file_get_contents("assets/js/collections/photo-data.json");
+$photos = json_decode($photos_json, TRUE);
+$photo_id = substr($_SERVER["REQUEST_URI"], strrpos($_SERVER["REQUEST_URI"], "/")+1);
+
+foreach ($photos as $photo) { 
+	if ($photo['id'] == $photo_id) {
+		$current_photo = $photo;
+	}
+}
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Photography by Derek McBurney</title>
+	<title><?php echo $current_photo['title'];?> | Photography by Derek McBurney</title>
 	
 	<meta name="description" content="Calgary, Alberta based photographer who loves to shoot and share weddings, engagements, events, people, landscapes and architecture." />
 	<meta name="keywords" content="photography by derek mcburney, derek mcburney, calgary, alberta, calgary photographer, wedding photography, engagement photography, event photography, people photography, landscape photography, architecture photography" />
@@ -11,18 +24,20 @@
 	
 	<meta name="twitter:site" content="@derekmcb" />
 	<meta name="twitter:creator" content="@derekmcb" />
-	<meta name="twitter:card" content="" />
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:description" content="" />
-	<meta name="twitter:image" content="" />
+	<meta name="twitter:card" content="photo" />
+	<meta name="twitter:title" content="<?php echo $current_photo['title'];?>" />
+	<meta name="twitter:description" content="<?php echo $current_photo['description'];?>" />
+	<meta name="twitter:image" content="<?php echo 'http://'.$_SERVER["SERVER_NAME"].substr($_SERVER["REQUEST_URI"], 0, strrpos($_SERVER["REQUEST_URI"], "/")).'/assets/photos/'.$current_photo['file'];?>" />
 	<meta name="twitter:image:width" content="1758" />
 	<meta name="twitter:image:height" content="1172" />
 	
 	<meta name="fb:app_id" content="" />
-	<meta name="og:type" content="" />
-	<meta name="og:title" content="" />
-	<meta name="og:image" content="" />
-	<meta name="og:description" content="" />
+	<meta name="og:type" content="photo" />
+	<meta name="og:title" content="<?php echo $current_photo['title'];?>" />
+	<meta name="og:image" content="<?php echo 'http://'.$_SERVER["SERVER_NAME"].substr($_SERVER["REQUEST_URI"], 0, strrpos($_SERVER["REQUEST_URI"], "/")).'/assets/photos/'.$current_photo['file'];?>" />
+	<meta name="og:description" content="<?php echo $current_photo['description'];?>" />
+	
+	<link rel="author" href="https://plus.google.com/109721017489855707609" />
 	
 	<link href="assets/css/all.css" rel="stylesheet"/>
 	<!--[if lt IE 9]>

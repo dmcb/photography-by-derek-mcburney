@@ -7,7 +7,8 @@ var App = App || {
 
 $(function() {
 	App.router = new App.Routers.AppRouter();
-	Backbone.history.start({pushState: true, root: "/~derekmcburney/Photography-by-Derek-McBurney/"});
+	var url = window.location.pathname;
+	Backbone.history.start({pushState: true, root: url.substring(0, url.lastIndexOf('/')) + '/'});
 	
 	$('input, textarea').placeholder();
 	

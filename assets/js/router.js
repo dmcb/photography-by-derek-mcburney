@@ -36,8 +36,8 @@ $(function( $ ) {
         		if (!photo) {
 	        		photo = collection.first();
         		} 
-				App.router.changePhoto(photo);
 				App.globalState.set('photo', null);
+				App.router.changePhoto(photo);
 			});
 
 	    	// Add categories menu
@@ -46,6 +46,7 @@ $(function( $ ) {
 
         index: function() {
         	// Once all photos are loaded, set the default category to weddings-engagements
+        	App.photos.off("reset");
 	        App.photos.on("reset", function(collection, response){
 				App.globalState.set('category', 'weddings-engagements');
 			});
@@ -54,6 +55,7 @@ $(function( $ ) {
         
         photo: function(id){
         	// Once all photos are loaded, grab the specific photo and switch to it's respective category of photos
+        	App.photos.off("reset");
         	App.photos.on("reset", function(collection, response){
 				var photo = App.photos.get(id);
 				App.globalState.set('photo', photo);
