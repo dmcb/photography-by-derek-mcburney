@@ -28,8 +28,8 @@ foreach ($photos as $photo) {
 	<meta name="twitter:title" content="<?php echo $current_photo['title'];?>" />
 	<meta name="twitter:description" content="<?php echo $current_photo['description'];?>" />
 	<meta name="twitter:image" content="<?php echo 'http://'.$_SERVER["SERVER_NAME"].substr($_SERVER["REQUEST_URI"], 0, strrpos($_SERVER["REQUEST_URI"], "/")).'/assets/photos/'.$current_photo['file'];?>" />
-	<meta name="twitter:image:width" content="1758" />
-	<meta name="twitter:image:height" content="1172" />
+	<meta name="twitter:image:width" content="1896" />
+	<meta name="twitter:image:height" content="1264" />
 	
 	<meta name="fb:app_id" content="" />
 	<meta name="og:type" content="photo" />
