@@ -35,21 +35,21 @@ $(function( $ ) {
 		changeCategory: function() {
 			var category = App.globalState.get('category');
 			$('li').removeClass('active');
-			$('#'+category).addClass('active');
+			$('#'+category.category).addClass('active');
 			$("select option").filter(function() {
-				return $(this).val() == category; 
+				return $(this).val() == category.category; 
 			}).attr('selected', true);
-			App.router.changeCollection(category);
+			App.router.changeCollection(category.category);
 		},
 		
 		selectCategoryLink: function(event) {
 			var target = $(event.currentTarget);
-			App.globalState.set('category', $(target).attr('id'));
+			App.globalState.set('category', {category:$(target).attr('id')});
 		},
 		
 		selectCategoryDropdown: function(event) {
 			var target = $(event.currentTarget);
-			App.globalState.set('category', $(target).val());
+			App.globalState.set('category', {category:$(target).val()});
 		}
 	});
 });

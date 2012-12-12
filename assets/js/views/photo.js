@@ -22,6 +22,8 @@ $(function( $ ) {
 		initialize: function() {
 			_.bindAll(this);
 			this.render();
+			
+			App.globalState.on('change:photo', this.changePhoto); 
 		},
 		
 		render: function() {
@@ -30,11 +32,25 @@ $(function( $ ) {
 		},
 		
 		previousPhoto: function() {
-			App.router.previousPhoto(this.model);
+			var currentIndex = App.currentPhotos.indexOf(this.model);
+			var newIndex;
+			if (currentIndex == 0) {
+				newIndex = App.currentPhotos.length-1;
+			} else {
+				newIndex = currentIndex-1;
+			}
+			App.globalState.set('photo', App.currentPhotos.at(newIndex));
 		},
 		
 		nextPhoto: function() {
-			App.router.nextPhoto(this.model);
+			var currentIndex = App.currentPhotos.indexOf(this.model);
+			var newIndex;
+			if (currentIndex == App.currentPhotos.length-1) {
+				newIndex = 0;
+			} else {
+				newIndex = currentIndex+1;
+			}
+			App.globalState.set('photo', App.currentPhotos.at(newIndex));
 		},
 		
 		fullScreen: function(event) {
@@ -74,7 +90,8 @@ $(function( $ ) {
 			}
 		},
 		
-		changePhoto: function(photo) {
+		changePhoto: function() {
+			var photo = App.globalState.get('photo');
 			var that = this;
 			$(this.el).animate({opacity: 0}, 'fast', function() {
 				that.model = photo;
@@ -96,6 +113,8 @@ $(function( $ ) {
 		
 		initialize: function() {
 			_.bindAll(this);
+			
+			App.globalState.on('change:photo', this.changePhoto); 
 		},
 		
 		render: function() {
@@ -104,7 +123,8 @@ $(function( $ ) {
 			$(this.el).animate({opacity: 1}, 'slow');
 		},
 		
-		changePhoto: function(photo) {
+		changePhoto: function() {
+			var photo = App.globalState.get('photo');
 			var that = this;
 			
 			// Change meta data

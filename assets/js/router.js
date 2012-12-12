@@ -32,23 +32,28 @@ $(function( $ ) {
         	App.currentPhotos = new App.Collections.Photos();
         	App.currentPhotos.on("reset", function(collection, response){
         		// If a specific photo in the collection is to be loaded, grab it, otherwise use first in collection
-        		var photo = App.globalState.get('photo');
-        		if (!photo) {
-	        		photo = collection.first();
-        		} 
-				App.globalState.set('photo', null);
-				App.router.changePhoto(photo);
+        		var category = App.globalState.get('category');
+        		if (category.photo) {
+        			App.globalState.set('photo', category.photo);
+        			App.globalState.set('category', {category:category.category}, {silent: true});
+        		}
+        		else {
+	        		App.globalState.set('photo', collection.first());
+        		}
 			});
 
 	    	// Add categories menu
 	    	App.categoriesView = new App.Views.Categories();
+	    	
+	    	// Update routing on photo change
+	    	App.globalState.on('change:photo', this.changePhoto); 
         },
 
         index: function() {
         	// Once all photos are loaded, set the default category to weddings-engagements
         	App.photos.off("reset");
 	        App.photos.on("reset", function(collection, response){
-				App.globalState.set('category', 'weddings-engagements');
+				App.globalState.set('category', {category:'weddings-engagements'});
 			});
 			App.photos.fetch();
         },
@@ -58,8 +63,7 @@ $(function( $ ) {
         	App.photos.off("reset");
         	App.photos.on("reset", function(collection, response){
 				var photo = App.photos.get(id);
-				App.globalState.set('photo', photo);
-				App.globalState.set('category', photo.attributes.category);
+				App.globalState.set('category', {category:photo.attributes.category, photo:photo});
 			});
 			App.photos.fetch();
         },
@@ -73,35 +77,10 @@ $(function( $ ) {
 	        }));
         },
           
-        changePhoto: function(photo) {
+        changePhoto: function() {
         	// Change URL
+        	var photo = App.globalState.get('photo');
         	App.router.navigate(photo.attributes.id);
-        	
-        	// Update views
-			App.photoView.changePhoto(photo);
-			App.photoDetailsView.changePhoto(photo);
-        },
-        
-        previousPhoto: function(photo) {
-			var currentIndex = App.currentPhotos.indexOf(photo);
-			var newIndex;
-			if (currentIndex == 0) {
-				newIndex = App.currentPhotos.length-1;
-			} else {
-				newIndex = currentIndex-1;
-			}
-			App.router.changePhoto(App.currentPhotos.at(newIndex));
-        },
-        
-        nextPhoto: function(photo) {
-			var currentIndex = App.currentPhotos.indexOf(photo);
-			var newIndex;
-			if (currentIndex == App.currentPhotos.length-1) {
-				newIndex = 0;
-			} else {
-				newIndex = currentIndex+1;
-			}
-			App.router.changePhoto(App.currentPhotos.at(newIndex));  
         }
     });
 });
