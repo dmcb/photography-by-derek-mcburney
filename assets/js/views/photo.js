@@ -108,14 +108,7 @@ $(function( $ ) {
 			var that = this;
 			
 			// Change meta data
-			$('meta[name="twitter:card"]').attr('content', 'photo');
-			$('meta[name="twitter:title"]').attr('content', photo.attributes.title);
-			$('meta[name="twitter:description"]').attr('content', photo.attributes.description);
-			$('meta[name="twitter:image"]').attr('content', document.domain + '/assets/photos/' + photo.attributes.file);
-			$('meta[name="og:type"]').attr('content', 'photo');
-			$('meta[name="og:title"]').attr('content', photo.attributes.title);
-			$('meta[name="og:description"]').attr('content', document.domain + '/assets/photos/' + photo.attributes.file);
-			$('meta[name="og:image"]').attr('content', photo.attributes.description);
+			document.title = photo.attributes.title + ' | Photography by Derek McBurney';
 			
 			$(this.el).animate({opacity: 0}, 'fast', function() {
 				that.model = photo;
