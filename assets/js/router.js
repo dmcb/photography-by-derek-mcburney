@@ -63,9 +63,9 @@ $(function( $ ) {
 			App.photos.fetch();
         },
         
-        changeCollection: function(id) {
+        changeCollection: function(collection) {
 	        App.currentPhotos.reset(App.photos.filter(function(photo) {
-		        if (photo.attributes.category == id) {
+		        if (photo.attributes.category == collection) {
 			        return true;
 		        }
 		        return false;
