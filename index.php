@@ -14,7 +14,7 @@ foreach ($photos as $photo) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-	<title><?php echo $current_photo['title'];?> | Photography by Derek McBurney</title>
+	<title><?php if (isset($current_photo)) echo $current_photo['title'].' | ';?>Photography by Derek McBurney</title>
 	
 	<meta name="description" content="Calgary, Alberta based photographer who loves to shoot and share weddings, engagements, events, people, landscapes and architecture." />
 	<meta name="keywords" content="photography by derek mcburney, derek mcburney, calgary, alberta, calgary photographer, wedding photography, engagement photography, event photography, people photography, landscape photography, architecture photography" />
@@ -25,17 +25,17 @@ foreach ($photos as $photo) {
 	<meta name="twitter:site" content="@derekmcb" />
 	<meta name="twitter:creator" content="@derekmcb" />
 	<meta name="twitter:card" content="photo" />
-	<meta name="twitter:title" content="<?php echo $current_photo['title'];?>" />
-	<meta name="twitter:description" content="<?php echo $current_photo['description'];?>" />
-	<meta name="twitter:image" content="<?php echo 'http://'.$_SERVER["SERVER_NAME"].substr($_SERVER["REQUEST_URI"], 0, strrpos($_SERVER["REQUEST_URI"], "/")).'/assets/photos/'.$current_photo['file'];?>" />
+	<meta name="twitter:title" content="<?php if (isset($current_photo)) echo $current_photo['title'];?>" />
+	<meta name="twitter:description" content="<?php if (isset($current_photo)) echo $current_photo['description'];?>" />
+	<meta name="twitter:image" content="<?php if (isset($current_photo)) echo 'http://'.$_SERVER["SERVER_NAME"].substr($_SERVER["REQUEST_URI"], 0, strrpos($_SERVER["REQUEST_URI"], "/")).'/assets/photos/'.$current_photo['file'];?>" />
 	<meta name="twitter:image:width" content="1896" />
 	<meta name="twitter:image:height" content="1264" />
 	
 	<meta name="fb:app_id" content="" />
 	<meta name="og:type" content="photo" />
-	<meta name="og:title" content="<?php echo $current_photo['title'];?>" />
-	<meta name="og:image" content="<?php echo 'http://'.$_SERVER["SERVER_NAME"].substr($_SERVER["REQUEST_URI"], 0, strrpos($_SERVER["REQUEST_URI"], "/")).'/assets/photos/'.$current_photo['file'];?>" />
-	<meta name="og:description" content="<?php echo $current_photo['description'];?>" />
+	<meta name="og:title" content="<?php if (isset($current_photo)) echo $current_photo['title'];?>" />
+	<meta name="og:image" content="<?php if (isset($current_photo)) echo 'http://'.$_SERVER["SERVER_NAME"].substr($_SERVER["REQUEST_URI"], 0, strrpos($_SERVER["REQUEST_URI"], "/")).'/assets/photos/'.$current_photo['file'];?>" />
+	<meta name="og:description" content="<?php if (isset($current_photo)) echo $current_photo['description'];?>" />
 	
 	<link rel="author" href="https://plus.google.com/109721017489855707609" />
 	
