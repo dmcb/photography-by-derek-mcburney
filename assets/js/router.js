@@ -47,6 +47,9 @@ $(function( $ ) {
 	    	
 	    	// Update routing on photo change
 	    	App.globalState.on('change:photo', this.changePhoto); 
+	    	
+	    	// Update collection on category change
+	    	App.globalState.on('change:category', this.changeCategory); 
         },
 
         index: function() {
@@ -68,9 +71,10 @@ $(function( $ ) {
 			App.photos.fetch();
         },
         
-        changeCollection: function(collection) {
+        changeCategory: function() {
+        	var category = App.globalState.get('category');
 	        App.currentPhotos.reset(App.photos.filter(function(photo) {
-		        if (photo.attributes.category == collection) {
+		        if (photo.attributes.category == category.category) {
 			        return true;
 		        }
 		        return false;

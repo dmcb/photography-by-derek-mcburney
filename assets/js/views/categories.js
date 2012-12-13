@@ -39,7 +39,6 @@ $(function( $ ) {
 			$("select option").filter(function() {
 				return $(this).val() == category.category; 
 			}).attr('selected', true);
-			App.router.changeCollection(category.category);
 		},
 		
 		selectCategoryLink: function(event) {
