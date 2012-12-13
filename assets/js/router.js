@@ -35,7 +35,6 @@ $(function( $ ) {
         		var category = App.globalState.get('category');
         		if (category.photo) {
         			App.globalState.set('photo', category.photo);
-        			App.globalState.set('category', {category:category.category}, {silent: true});
         		}
         		else {
 	        		App.globalState.set('photo', collection.first());
