@@ -27,6 +27,13 @@
 	"description": "When Adam and Mary told me they were having their wedding at the Rimrock Hotel in Banff, I knew it was going to be beautiful. All I had to do for great shots was account for the changing light conditions as the couple was lucky enough to have the clouds turn to bright blue sky just in time for the ceremony."
 },
 {
+	"id": "art-goers",
+	"category": "people-events",
+	"title": "Art-Goers",
+	"file": "art-goers.jpg",
+	"description": "I love capturing a feeling. The Calgary Museum of Contemporary Art had a late-night exhibition, and due to its open glass nature, the light drew in many passer-bys. The energy of the scene was immediately visible from the outside looking in, and that's what I captured."
+},
+{
 	"id": "candle-lighting",
 	"category": "people-events",
 	"title": "Candle Lighting",
@@ -60,6 +67,13 @@
 	"title": "The Canyonlands",
 	"file": "canyonlands.jpg",
 	"description": "Serving as the inspiration behind the scenic alien worlds in Calvin and Hobbes and countless other depictions in art and film, the Canyonlands in Utah are like nowhere else. I could visit every day and be treated to a completely different painting of sky and rock, but on this trip I was given a rare wet day and this was the capture I took."
+},
+{
+	"id": "the-cellar",
+	"category": "landscapes-architecture",
+	"title": "The Cellar",
+	"file": "the-cellar.jpg",
+	"description": "'The best camera is the one you have with you' proved true for me at the Mission Hill Winery cellar. I didn't have my SLR, but I did have a compact camera and little Joby tri-pod to grab this long exposure. The compact enhanced this shot as it was easier to have the entire scene in focus so I could show off the light and shadow draping this beautiful cellar."
 },
 {
 	"id": "delicate-arch-at-sunset",
