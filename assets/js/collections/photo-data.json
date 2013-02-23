@@ -38,7 +38,7 @@
 	"category": "people-events",
 	"title": "Candle Lighting",
 	"file": "candle-lighting.jpg",
-	"description": "My fiance Hailey would be the first to say that I never listen, and she'd be right. I distinctly recall her here telling me she didn't want me to shoot a photo in this moment, but in my defence, she couldn't see what I saw. The vivid colours and contrast of light and shadow highlights the intimacy of this personal moment. She forgave my indiscretion when she saw the photo."
+	"description": "My wife Hailey would be the first to say that I never listen, and she'd be right. I distinctly recall her here telling me she didn't want me to shoot a photo in this moment, but in my defence, she couldn't see what I saw. The vivid colours and contrast of light and shadow highlights the intimacy of this personal moment. She forgave my indiscretion when she saw the photo."
 },
 {
 	"id": "cloud-seeding",
@@ -67,6 +67,13 @@
 	"title": "Winter Sun on the Peace Bridge",
 	"file": "wintersun.jpg",
 	"description": "Being a tourist in your own town is fun, and it's nice that Calgary has grown into a city where this is a lot more possible. I've shot the bridge before, but never on such a beautifully lit day. The geometry has always been stunning, but it's the shadows they cast that set this picture apart."
+},
+{
+	"id": "wonderland",
+	"category": "landscapes-architecture",
+	"title": "Wonderland",
+	"file": "wonderland.jpg",
+	"description": "Wonderland is a brand new public art piece in Calgary by the creator of the Crown Fountain in Chicago. It doesn't look real when you first look upon it. Its scale and detail make for interesting photographs. I decided to capture it at night where its contrast upon the scene was the greatest, and at a side view to highlight the contours of the face."
 },
 {
 	"id": "the-canyonlands",
