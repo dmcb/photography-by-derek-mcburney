@@ -27,6 +27,13 @@
 	"description": "When Adam and Mary told me they were having their wedding at the Rimrock Hotel in Banff, I knew it was going to be beautiful. All I had to do for great shots was account for the changing light conditions as the couple was lucky enough to have the clouds turn to bright blue sky just in time for the ceremony."
 },
 {
+	"id": "urban-wanderer",
+	"category": "people-events",
+	"title": "Urban Wanderer",
+	"file": "urban-wanderer.jpg",
+	"description": "I was having fun photographing all the lines and lighting in one of Calgary's latest train stations and the photos I was creating were kind of interesting, but I noticed the lines created a focal point and taking advantage of that made this photo magic."
+},
+{
 	"id": "art-goers",
 	"category": "people-events",
 	"title": "Art-Goers",
@@ -60,6 +67,13 @@
 	"title": "The Bet",
 	"file": "the-bet.jpg",
 	"description": "This is Ryan. He's undergone a bet that if he grows a beard over the course of the year, he'll handily win some cash. Such a spectacle needs to be immortalized - if only to cause him the anguish that truly makes him earn his reward - but the splattering of light and colour results in a dazzling, and less embarrassing potrait, than I hoped for."
+},
+{
+	"id": "stone-bench",
+	"category": "landscapes-architecture",
+	"title": "Stone Bench",
+	"file": "stone-bench.jpg",
+	"description": "I had been by this park a few times but never got the shots I wanted. I returned and waited for the sun to set to pour soft lighting into the trees. This got rid of the harsh shadows plaguging my shots before and gave me the tone I was looking for."
 },
 {
 	"id": "winter-sun",
@@ -109,11 +123,4 @@
 	"title": "Inside the Simmons Building",
 	"file": "simmons-building.jpg",
 	"description": "If a photographer says otherwise, they are lying: photography involves a lot of luck. The Simmons Building is a gorgeous old building in Calgary's East Village. It was open for the public to take in for Doors Open YYC, and when I arrived, the sunlight was pouring in through the windows at a perfect angle."
-},
-{
-	"id": "tacos-and-tofu",
-	"category": "landscapes-architecture",
-	"title": "Tacos and Tofu",
-	"file": "taco-tofu.jpg",
-	"description": "Near the end of Top Chef Canada Season 2, I checked out one of the finalists' restaurants: Sidedoor. This photo makes me salivate, the flavours and presentation were incredible - Jonathan Korecki and his staff did all the work, I just got the lighting right."
 }]
