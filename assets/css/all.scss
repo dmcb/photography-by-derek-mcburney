@@ -2,6 +2,7 @@ $dark-grey: #222;
 $grey: #4c4c4c;
 $grey-highlight: #8c8c8c;
 $orange: #ffa300;
+$pink: #dea7cc;
 
 @mixin drop-shadow {
 	-moz-box-shadow: 0 0 16px #000;
@@ -48,7 +49,7 @@ body {
 }
 
 a {
-	color: $orange;
+	color: $pink;
 	text-decoration: none;
 	
 	&:hover {
@@ -94,12 +95,12 @@ input, textarea, button {
 	border: 2px solid transparent;
 	
 	&.error {
-		border: 2px solid $orange;
+		border: 2px solid $pink;
 	}
 }
 
 label.error {
-	color: $orange;
+	color: $pink;
 	width: 100%;
 	text-align: right;
 	display: none;
@@ -129,7 +130,7 @@ button {
 	@include easing;
 	
 	&:hover {
-		color: $orange;
+		color: $pink;
 	}
 }
 
@@ -165,11 +166,11 @@ button {
 			zoom: 1;
 		
 			&:hover {
-				color: $orange;
+				color: $pink;
 			}
 			
 			&.active {
-				color: $orange;	
+				color: $pink;	
 			}
 		}
 	}

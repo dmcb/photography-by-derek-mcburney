@@ -21,7 +21,7 @@ body {
   font-family: Georgia, serif; }
 
 a {
-  color: #ffa300;
+  color: #dea7cc;
   text-decoration: none; }
   a:hover {
     text-decoration: none; }
@@ -39,7 +39,7 @@ h1 {
   z-index: 1; }
 
 h2, .section > span, form > span {
-  font-family: 'SortsMillGoudyItalic', Georgia, serif;
+  font-family: "SortsMillGoudyItalic", Georgia, serif;
   font-size: 1.4em;
   font-weight: normal;
   width: 100%;
@@ -59,10 +59,10 @@ input, textarea, button {
   color: #FFF;
   border: 2px solid transparent; }
   input.error, textarea.error, button.error {
-    border: 2px solid #ffa300; }
+    border: 2px solid #dea7cc; }
 
 label.error {
-  color: #ffa300;
+  color: #dea7cc;
   width: 100%;
   text-align: right;
   display: none;
@@ -76,7 +76,7 @@ textarea {
   color: #8c8c8c; }
 
 button {
-  font-family: 'SortsMillGoudyItalic', Georgia, serif;
+  font-family: "SortsMillGoudyItalic", Georgia, serif;
   font-size: 1.2em;
   cursor: pointer;
   background-color: #4c4c4c;
@@ -91,7 +91,7 @@ button {
   -webkit-transition: 0.3s ease;
   -o-transition: 0.3s ease; }
   button:hover {
-    color: #ffa300; }
+    color: #dea7cc; }
 
 .frame {
   padding: 24px;
@@ -121,9 +121,9 @@ button {
     *display: inline;
     zoom: 1; }
     #menu ul li:hover {
-      color: #ffa300; }
+      color: #dea7cc; }
     #menu ul li.active {
-      color: #ffa300; }
+      color: #dea7cc; }
 
 .section {
   max-width: 560px;
@@ -175,9 +175,9 @@ button {
     width: 100%;
     background-color: #080808;
     background-size: cover;
-    -moz-box-shadow: 0 0 16px #000;
-    -webkit-box-shadow: 0 0 16px #000;
-    box-shadow: 0 0 16px #000; }
+    -moz-box-shadow: 0 0 16px black;
+    -webkit-box-shadow: 0 0 16px black;
+    box-shadow: 0 0 16px black; }
 
 #contactme {
   text-align: center; }
