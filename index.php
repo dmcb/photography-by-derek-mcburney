@@ -131,7 +131,7 @@ foreach ($photos as $photo) {
 	<!-- Javascripts -->
 	<script type="text/javascript" src="assets/js/lib/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript" src="assets/js/lib/underscore-1.4.0.min.js"></script>
-	<script type="text/javascript" src="assets/js/lib/backbone-0.9.2.min.js"></script>
+	<script type="text/javascript" src="assets/js/lib/backbone-1.0.min.js"></script>
 	<script type="text/javascript" src="assets/js/lib/modernizr.2.6.2.min.js"></script>
 	<script type="text/javascript" src="assets/js/lib/respond.min.js"></script>
 	<script type="text/javascript" src="assets/js/lib/jquery.placeholder.min.js"></script>
