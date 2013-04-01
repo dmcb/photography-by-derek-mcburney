@@ -57,7 +57,7 @@ $(function( $ ) {
 	        App.photos.on("reset", function(collection, response){
 				App.globalState.set('category', {category:'weddings-engagements'});
 			});
-			App.photos.fetch();
+			App.photos.fetch({reset: true});
         },
         
         photo: function(id){
@@ -67,7 +67,7 @@ $(function( $ ) {
 				var photo = App.photos.get(id);
 				App.globalState.set('category', {category:photo.attributes.category, photo:photo});
 			});
-			App.photos.fetch();
+			App.photos.fetch({reset: true});
         },
         
         changeCategory: function() {
