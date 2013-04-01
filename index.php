@@ -129,19 +129,19 @@ foreach ($photos as $photo) {
 	</script>
 	
 	<!-- Javascripts -->
-	<script type="text/javascript" src="assets/js/lib/jquery-1.8.2.min.js"></script>
-	<script type="text/javascript" src="assets/js/lib/underscore-1.4.0.min.js"></script>
-	<script type="text/javascript" src="assets/js/lib/backbone-1.0.min.js"></script>
-	<script type="text/javascript" src="assets/js/lib/modernizr.2.6.2.min.js"></script>
-	<script type="text/javascript" src="assets/js/lib/respond.min.js"></script>
-	<script type="text/javascript" src="assets/js/lib/jquery.placeholder.min.js"></script>
-	<script type="text/javascript" src="assets/js/lib/bigscreen.min.js"></script>
-	
-    <script type="text/javascript" src="assets/js/models/photo.js"></script>
-    <script type="text/javascript" src="assets/js/collections/photos.js"></script>
-    <script type="text/javascript" src="assets/js/views/categories.js"></script>
-    <script type="text/javascript" src="assets/js/views/photo.js"></script>
-    <script type="text/javascript" src="assets/js/router.js"></script>
-    <script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript" src="assets/js/lib/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/lib/underscore-amd/underscore-min.js"></script>
+	<script type="text/javascript" src="assets/js/lib/backbone-amd/backbone-min.js"></script>
+	<script type="text/javascript" src="assets/js/lib/modernizr/modernizr.js"></script>
+	<script type="text/javascript" src="assets/js/lib/respond/respond.min.js"></script>
+	<script type="text/javascript" src="assets/js/lib/jquery-placeholder/jquery.placeholder.min.js"></script>
+	<script type="text/javascript" src="assets/js/lib/bigscreen/bigscreen.min.js"></script>
+
+	<script type="text/javascript" src="assets/js/models/photo.js"></script>
+	<script type="text/javascript" src="assets/js/collections/photos.js"></script>
+	<script type="text/javascript" src="assets/js/views/categories.js"></script>
+	<script type="text/javascript" src="assets/js/views/photo.js"></script>
+	<script type="text/javascript" src="assets/js/router.js"></script>
+	<script type="text/javascript" src="assets/js/app.js"></script>
 </body>
 </html>
