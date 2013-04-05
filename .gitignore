@@ -1,5 +1,7 @@
-# Ignore OS and SASS garbage
+# Ignore OS, SASS, Bower and Node output
 .DS_Store*
 Thumbs.db
 .sass-cache
 assets/js/lib
+node_modules
+npm-debug.log
