@@ -21,6 +21,10 @@
 		{
 			echo json_encode(array("error" => "Email failed to send. Please contact Derek directly at <a href=\"mailto:derek@photographybyderek.com\">derek@photographybyderek.com</a>."));
 		}
+		else
+		{
+			echo json_encode(array("success" => "Success"));
+		}
 	}
 	else
 	{
