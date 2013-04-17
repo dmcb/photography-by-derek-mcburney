@@ -1,7 +1,9 @@
 <?php
 
 // Route to photo to populate meta data based on photo, for SEO and services like twitter
-$photos_json = file_get_contents("assets/js/collections/photo-data.json");
+ob_start();
+include "assets/php/facebook_grabber.php";
+$photos_json = ob_get_clean();
 $photos = json_decode($photos_json, TRUE);
 $photo_id = substr($_SERVER["REQUEST_URI"], strrpos($_SERVER["REQUEST_URI"], "/")+1);
 
@@ -27,14 +29,14 @@ foreach ($photos as $photo) {
 	<meta name="twitter:card" content="photo" />
 	<meta name="twitter:title" content="<?php if (isset($current_photo)) echo $current_photo['title'];?>" />
 	<meta name="twitter:description" content="<?php if (isset($current_photo)) echo $current_photo['description'];?>" />
-	<meta name="twitter:image" content="<?php if (isset($current_photo)) echo 'http://'.$_SERVER["SERVER_NAME"].substr($_SERVER["REQUEST_URI"], 0, strrpos($_SERVER["REQUEST_URI"], "/")).'/assets/photos/'.$current_photo['file'];?>" />
+	<meta name="twitter:image" content="<?php if (isset($current_photo)) echo $current_photo['file'];?>" />
 	<meta name="twitter:image:width" content="1896" />
 	<meta name="twitter:image:height" content="1264" />
 	
 	<meta name="fb:app_id" content="" />
 	<meta name="og:type" content="photo" />
 	<meta name="og:title" content="<?php if (isset($current_photo)) echo $current_photo['title'];?>" />
-	<meta name="og:image" content="<?php if (isset($current_photo)) echo 'http://'.$_SERVER["SERVER_NAME"].substr($_SERVER["REQUEST_URI"], 0, strrpos($_SERVER["REQUEST_URI"], "/")).'/assets/photos/'.$current_photo['file'];?>" />
+	<meta name="og:image" content="<?php if (isset($current_photo)) echo $current_photo['file'];?>" />
 	<meta name="og:description" content="<?php if (isset($current_photo)) echo $current_photo['description'];?>" />
 	
 	<link rel="author" href="https://plus.google.com/109721017489855707609" />
