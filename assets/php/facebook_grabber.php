@@ -1,9 +1,18 @@
 <?php
-function process_photos(&$photos, $category, $url) {
-	$data = json_decode(file_get_contents("http://graph.facebook.com/" . $url . "/photos"));
-	foreach ($data->{'data'} as $photo) {
-		$photo = get_object_vars($photo);
 
+// Load and configure Facebook API
+require_once("lib/facebook.php");
+require_once("facebook_app_id.php");
+$config = array();
+$config['appId'] = $appId;
+$config['secret'] = $secret;
+$facebook = new Facebook($config);
+
+function process_photos(&$photos, $category, $id) {
+	global $facebook;
+	$data = $facebook->api("/{$id}/photos");
+
+	foreach ($data['data'] as $photo) {
 		// Format Facebook data into what I want the data to look like
 		$processed_photo = array();
 
@@ -17,7 +26,7 @@ function process_photos(&$photos, $category, $url) {
 		    $processed_photo['description'] = $name_parts[2];
 
 		    // Use largest Facebook phpoto as file
-		    $processed_photo['file'] = $photo['images'][0]->{'source'};
+		    $processed_photo['file'] = $photo['images'][0]['source'];
 
 		    // Set category based on facebook album
 		    $processed_photo['category'] = $category;
@@ -34,8 +43,8 @@ $categories = array(
 	'people-events' => '367195056732596',
 	'landscapes-architecture' => '367195726732529');
 
-foreach ($categories as $category => $url) {
-	process_photos($photos, $category, $url);
+foreach ($categories as $category => $id) {
+	process_photos($photos, $category, $id);
 }
 
-print_r(json_encode($photos));
+print json_encode($photos);

@@ -5,3 +5,6 @@ Thumbs.db
 assets/js/lib
 node_modules
 npm-debug.log
+
+# Ignore Facebook app information
+assets/php/facebook_app_id.php
