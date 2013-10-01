@@ -8,3 +8,6 @@ npm-debug.log
 
 # Ignore Facebook app information
 assets/php/facebook_app_id.php
+
+# Ignore site specific information
+assets/php/site_settings.php

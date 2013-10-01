@@ -3,6 +3,7 @@
 // Load and configure Facebook API
 require_once("lib/facebook.php");
 require_once("facebook_app_id.php");
+
 $config = array();
 $config['appId'] = $appId;
 $config['secret'] = $secret;
@@ -37,12 +38,8 @@ function process_album(&$photos, $category, $id) {
 	}
 }
 
-function process_photos() {
+function process_photos($categories) {
 	$photos = array();
-	$categories = array(
-		'weddings-engagements' => '367177626734339',
-		'people-events' => '367195056732596',
-		'landscapes-architecture' => '367195726732529');
 
 	foreach ($categories as $category => $id) {
 		process_album($photos, $category, $id);
