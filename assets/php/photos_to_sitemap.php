@@ -16,7 +16,7 @@ print '<?xml version="1.0" encoding="UTF-8"?>';
 	foreach ($photos as $photo) {
 ?>
 	<url>
-		<loc><?php echo $base_url.$photo['id'];?></loc>
+		<loc><?php echo $base_url.'/'.$photo['id'];?></loc>
 		<lastmod><?php echo $photo['date'];?></lastmod>
 	</url>
 <?php
