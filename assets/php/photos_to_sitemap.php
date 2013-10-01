@@ -14,10 +14,11 @@ print '<?xml version="1.0" encoding="UTF-8"?>';
 <?php
 	$photos = process_photos($categories);
 	foreach ($photos as $photo) {
+		$date = explode("T", $photo['date']);
 ?>
 	<url>
 		<loc><?php echo $base_url.'/'.$photo['id'];?></loc>
-		<lastmod><?php echo $photo['date'];?></lastmod>
+		<lastmod><?php echo $date[0];?></lastmod>
 	</url>
 <?php
 	}
