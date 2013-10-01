@@ -26,8 +26,11 @@ function process_album(&$photos, $category, $id) {
 		    $processed_photo['title'] = $name_parts[0];
 		    $processed_photo['description'] = $name_parts[2];
 
-		    // Use largest Facebook phpoto as file
+		    // Use largest Facebook photo as file
 		    $processed_photo['file'] = $photo['images'][0]['source'];
+
+		    // Grab photo date
+		    $processed_photo['date'] = $photo['updated_time'];
 
 		    // Set category based on facebook album
 		    $processed_photo['category'] = $category;

@@ -15,7 +15,7 @@ require_once("site_settings.php");
 ?>
 	<url>
 		<loc><?php echo $base_url.$photo['id'];?></loc>
-		<lastmod></lastmod>
+		<lastmod><?php echo $photo['date'];?></lastmod>
 	</url>
 <?php
 	}
