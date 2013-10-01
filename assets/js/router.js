@@ -26,7 +26,7 @@ $(function( $ ) {
         
         	// Define collection of all photos
         	App.photos = new App.Collections.Photos();
-            App.photos.url = 'assets/php/facebook_grabber.php';
+            App.photos.url = 'assets/php/photos_to_json.php';
         	
         	// Define collection of currently selected category photos
         	App.currentPhotos = new App.Collections.Photos();

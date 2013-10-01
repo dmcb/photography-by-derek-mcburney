@@ -2,7 +2,7 @@
 
 // Route to photo to populate meta data based on photo, for SEO and services like twitter
 ob_start();
-include "assets/php/facebook_grabber.php";
+include "assets/php/photos_to_json.php";
 $photos_json = ob_get_clean();
 $photos = json_decode($photos_json, TRUE);
 $photo_id = substr($_SERVER["REQUEST_URI"], strrpos($_SERVER["REQUEST_URI"], "/")+1);

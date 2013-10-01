@@ -8,7 +8,7 @@ $config['appId'] = $appId;
 $config['secret'] = $secret;
 $facebook = new Facebook($config);
 
-function process_photos(&$photos, $category, $id) {
+function process_album(&$photos, $category, $id) {
 	global $facebook;
 	$data = $facebook->api("/{$id}/photos");
 
@@ -37,14 +37,16 @@ function process_photos(&$photos, $category, $id) {
 	}
 }
 
-$photos = array();
-$categories = array(
-	'weddings-engagements' => '367177626734339',
-	'people-events' => '367195056732596',
-	'landscapes-architecture' => '367195726732529');
+function process_photos() {
+	$photos = array();
+	$categories = array(
+		'weddings-engagements' => '367177626734339',
+		'people-events' => '367195056732596',
+		'landscapes-architecture' => '367195726732529');
 
-foreach ($categories as $category => $id) {
-	process_photos($photos, $category, $id);
+	foreach ($categories as $category => $id) {
+		process_album($photos, $category, $id);
+	}
+
+	return $photos;
 }
-
-print json_encode($photos);
