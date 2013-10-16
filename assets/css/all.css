@@ -179,8 +179,10 @@ button {
     -webkit-box-shadow: 0 0 16px #000;
     box-shadow: 0 0 16px #000; }
 
-#details p img {
-  vertical-align: middle; }
+#details h2 img {
+  vertical-align: middle;
+  padding-left: 4px;
+  padding-bottom: 4px; }
 
 #contactme {
   text-align: center; }

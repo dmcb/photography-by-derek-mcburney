@@ -126,10 +126,11 @@ foreach ($photos as $photo) {
 	<script id="photo-details" type="text/template">
 		<h2>
 			<%= title %>
+		<a href="//www.pinterest.com/pin/create/button/?url=http://photographybyderek.com/<% print(encodeURI(id)); %>&media=<%= file %>&description=<% print(encodeURI(title)); %>" data-pin-do="buttonPin" data-pin-config="none" target="_blank"><img src="assets/images/pin_it_button.png" /></a>
+
 		</h2>
 		<p>
 			<%= description %>
-			<a href="//www.pinterest.com/pin/create/button/?url=http://photographybyderek.com/<% print(encodeURI(id)); %>&media=<%= file %>&description=<% print(encodeURI(title)); %>" data-pin-do="buttonPin" data-pin-config="none" target="_blank"><img src="assets/images/pin_it_button.png" /></a>
 		</p>
 	</script>
 	
