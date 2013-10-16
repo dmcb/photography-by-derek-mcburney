@@ -129,7 +129,7 @@ foreach ($photos as $photo) {
 		</h2>
 		<p>
 			<%= description %>
-			<a href="//www.pinterest.com/pin/create/button/?url=http://photographybyderek.com/<%= id %>&media=<%= file %>&description=<%= title %>" data-pin-do="buttonPin" data-pin-config="none"><img src="assets/images/pin_it_button.png" /></a>
+			<a href="//www.pinterest.com/pin/create/button/?url=http://photographybyderek.com/<% print(encodeURI(id)); %>&media=<%= file %>&description=<% print(encodeURI(title)); %>" data-pin-do="buttonPin" data-pin-config="none" target="_blank"><img src="assets/images/pin_it_button.png" /></a>
 		</p>
 	</script>
 	
@@ -148,7 +148,5 @@ foreach ($photos as $photo) {
 	<script type="text/javascript" src="assets/js/views/photo.js"></script>
 	<script type="text/javascript" src="assets/js/router.js"></script>
 	<script type="text/javascript" src="assets/js/app.js"></script>
-
-	<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
 </body>
 </html>
