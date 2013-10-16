@@ -39,7 +39,7 @@ h1 {
   z-index: 1; }
 
 h2, .section > span, form > span {
-  font-family: "SortsMillGoudyItalic", Georgia, serif;
+  font-family: 'SortsMillGoudyItalic', Georgia, serif;
   font-size: 1.4em;
   font-weight: normal;
   width: 100%;
@@ -76,7 +76,7 @@ textarea {
   color: #8c8c8c; }
 
 button {
-  font-family: "SortsMillGoudyItalic", Georgia, serif;
+  font-family: 'SortsMillGoudyItalic', Georgia, serif;
   font-size: 1.2em;
   cursor: pointer;
   background-color: #4c4c4c;
@@ -175,9 +175,12 @@ button {
     width: 100%;
     background-color: #080808;
     background-size: cover;
-    -moz-box-shadow: 0 0 16px black;
-    -webkit-box-shadow: 0 0 16px black;
-    box-shadow: 0 0 16px black; }
+    -moz-box-shadow: 0 0 16px #000;
+    -webkit-box-shadow: 0 0 16px #000;
+    box-shadow: 0 0 16px #000; }
+
+#details p img {
+  vertical-align: middle; }
 
 #contactme {
   text-align: center; }

@@ -124,9 +124,12 @@ foreach ($photos as $photo) {
 	</script>
 	
 	<script id="photo-details" type="text/template">
-		<h2><%= title %></h2>
+		<h2>
+			<%= title %>
+		</h2>
 		<p>
 			<%= description %>
+			<a href="//www.pinterest.com/pin/create/button/?url=http://photographybyderek.com/<%= id %>&media=<%= file %>&description=<%= title %>" data-pin-do="buttonPin" data-pin-config="none"><img src="assets/images/pin_it_button.png" /></a>
 		</p>
 	</script>
 	
@@ -145,5 +148,7 @@ foreach ($photos as $photo) {
 	<script type="text/javascript" src="assets/js/views/photo.js"></script>
 	<script type="text/javascript" src="assets/js/router.js"></script>
 	<script type="text/javascript" src="assets/js/app.js"></script>
+
+	<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
 </body>
 </html>
