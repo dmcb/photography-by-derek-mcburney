@@ -71,13 +71,15 @@ $(function( $ ) {
         },
         
         changeCategory: function() {
-        	var category = App.globalState.get('category');
-	        App.currentPhotos.reset(App.photos.filter(function(photo) {
-		        if (photo.attributes.category == category.category) {
-			        return true;
-		        }
-		        return false;
-	        }));
+            var category = App.globalState.get('category');
+            if (category.category != "blog") {
+    	        App.currentPhotos.reset(App.photos.filter(function(photo) {
+    		        if (photo.attributes.category == category.category) {
+    			        return true;
+    		        }
+    		        return false;
+    	        }));
+            }
         },
           
         changePhoto: function() {

@@ -34,11 +34,16 @@ $(function( $ ) {
 		
 		changeCategory: function() {
 			var category = App.globalState.get('category');
-			$('li').removeClass('active');
-			$('#'+category.category).addClass('active');
-			$("select option").filter(function() {
-				return $(this).val() == category.category; 
-			}).attr('selected', true);
+			if (category.category == "blog") {
+				window.location.assign('blog');
+			}
+			else {
+				$('li').removeClass('active');
+				$('#'+category.category).addClass('active');
+				$("select option").filter(function() {
+					return $(this).val() == category.category; 
+				}).attr('selected', true);
+			}
 		},
 		
 		selectCategoryLink: function(event) {

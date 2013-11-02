@@ -107,11 +107,13 @@ foreach ($photos as $photo) {
 			<option value="weddings-engagements">Weddings/Engagements</option>
 			<option value="people-events">People/Events</option>
 			<option value="landscapes-architecture">Landscapes/Architecture</option>
+			<option value="blog">Blog</option>
 		</select>
 		<ul class="menu">
 			<li id="weddings-engagements">Weddings/Engagements</li>
 			<li id="people-events">People/Events</li>
 			<li id="landscapes-architecture">Landscapes/Architecture</li>
+			<li id="blog">Blog</li>
 		</ul>
 	</script>
 	
