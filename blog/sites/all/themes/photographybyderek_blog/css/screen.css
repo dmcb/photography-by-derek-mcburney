@@ -1,0 +1,141 @@
+/* Fonts, in order of appearance */
+@font-face {
+  font-family: 'LeagueGothicRegular';
+  src: url("../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.eot");
+  src: url("../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.woff") format("woff"), url("../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.ttf") format("truetype"), url("../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.svg#LeagueGothicRegular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'SortsMillGoudyItalic';
+  src: url("../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.eot");
+  src: url("../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.woff") format("woff"), url("../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.ttf") format("truetype"), url("../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.svg#SortsMillGoudyItalic") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/* Colors */
+/* General styling */
+body {
+  margin: 0;
+  color: #454545;
+  font-size: 16px;
+  font-family: Georgia, serif; }
+  @media screen and (max-width: 580px), screen and (max-device-width: 480px) {
+    body {
+      font-size: 0.75em; } }
+
+/* Page elements */
+#page-wrapper a {
+  text-decoration: none;
+  color: #dea7cc; }
+  #page-wrapper a:hover {
+    text-decoration: underline;
+    -moz-transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease; }
+#page-wrapper ul {
+  padding-left: 0; }
+  #page-wrapper ul > li {
+    margin-left: 1.2em; }
+
+/* General layout */
+.section {
+  max-width: 960px;
+  margin: 0 auto; }
+
+/* Specific layout */
+#page-wrapper {
+  padding: 24px; }
+  @media screen and (max-width: 580px), screen and (max-device-width: 480px) {
+    #page-wrapper {
+      padding: 8px; } }
+
+#header #name-and-slogan, #header .region-header {
+  max-width: 544px;
+  margin: 0 auto; }
+#header #site-name {
+  font-size: 2.5em;
+  margin: 0;
+  position: relative;
+  text-align: center;
+  font-family: "LeagueGothicRegular", impact, sans-serif;
+  font-weight: normal;
+  text-transform: lowercase; }
+  #header #site-name a {
+    color: #454545; }
+    #header #site-name a:hover {
+      text-decoration: none; }
+#header select.tinynav {
+  display: none;
+  width: 100%;
+  margin: 8px 0; }
+  @media screen and (max-width: 580px), screen and (max-device-width: 480px) {
+    #header select.tinynav {
+      display: block; } }
+#header ul.menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center; }
+  #header ul.menu li {
+    font-size: 0.9em;
+    display: inline-block;
+    text-align: center;
+    padding: 8px 16px; }
+    #header ul.menu li a {
+      transition: 0.3s ease;
+      -moz-transition: 0.3s ease;
+      -webkit-transition: 0.3s ease;
+      -o-transition: 0.3s ease;
+      color: #666666; }
+      #header ul.menu li a:hover {
+        color: #dea7cc;
+        text-decoration: none; }
+      #header ul.menu li a.active {
+        color: #dea7cc; }
+  @media screen and (max-width: 580px), screen and (max-device-width: 480px) {
+    #header ul.menu {
+      display: none; } }
+
+#breadcrumb {
+  display: none; }
+
+#main {
+  margin-top: 3em; }
+  @media screen and (max-width: 580px), screen and (max-device-width: 480px) {
+    #main {
+      margin-top: 1em; } }
+  #main #page-title, #main #user-login, #main .profile, #main .tabs {
+    max-width: 544px;
+    margin-left: auto;
+    margin-right: auto; }
+  #main .node h2, #main #page-title {
+    font-family: 'SortsMillGoudyItalic', Georgia, serif;
+    font-size: 1.4em;
+    font-weight: normal;
+    width: 100%;
+    display: block;
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+    text-align: center; }
+    #main .node h2 a, #main #page-title a {
+      color: #454545; }
+      #main .node h2 a:hover, #main #page-title a:hover {
+        text-decoration: none; }
+  #main .node > .content .field-item > p, #main .node > .content .field-item > ol, #main .node > .content .field-item > ul, #main .node > .content .field-item > blockquote {
+    max-width: 544px;
+    margin-left: auto;
+    margin-right: auto; }
+  #main .node > .content .field-name-field-meta ul {
+    background-color: #fff;
+    padding: 0.75em;
+    box-sizing: border-box;
+    border: 1px solid #efefef;
+    -moz-box-shadow: 0px 0px 10px #eee;
+    -webkit-box-shadow: 0px 0px 10px #eee;
+    -ms-box-shadow: 0px 0px 10px #eee;
+    -o-box-shadow: 0px 0px 10px #eee;
+    box-shadow: 0px 0px 10px #eee;
+    list-style-type: none;
+    font-family: 'SortsMillGoudyItalic', Georgia, serif; }

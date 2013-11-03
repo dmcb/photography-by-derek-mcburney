@@ -11,3 +11,12 @@ assets/php/facebook_app_id.php
 
 # Ignore site specific information
 assets/php/site_settings.php
+
+# Drupal .gitignore
+# Ignore configuration files that may contain sensitive information.
+blog/sites/*/settings*.php
+
+# Ignore paths that contain user-generated content.
+blog/.htaccess
+blog/sites/*/files
+blog/sites/*/private

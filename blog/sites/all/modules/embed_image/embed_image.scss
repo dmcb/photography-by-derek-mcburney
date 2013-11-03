@@ -1,0 +1,94 @@
+$max-width: 960;
+
+// Picture width for responsive designs
+@mixin picture-width($number_of_pictures) {
+	$margin: 4;
+	$margin-percentage: percentage($margin/$max-width);
+	max-width: ($max-width - ($margin * 2 * $number_of_pictures)) / $number_of_pictures + 0px;
+	// max-height: $max-height/$max-width * ($max-width - ($margin * 2 * $number_of_pictures)) / $number_of_pictures + 0px;
+	width: percentage(1/$number_of_pictures) - 2 * $margin-percentage;
+	margin-left: $margin-percentage;
+	margin-right: $margin-percentage;
+}
+
+// Pictures from embed images
+div.pictures {
+	max-width: 100%;
+	text-align: center;
+
+	div.picture {
+		@include picture-width(1);
+		display: inline-block;
+		margin-bottom: 1em;
+
+		img.picture {
+			background-color: #fff;
+			padding: 0.75em;
+			box-sizing: border-box;
+			border: 1px solid #efefef;
+			width: 100%;
+			-moz-transition: -moz-transform 0.3s ease;
+			-webkit-transition: -webkit-transform 0.3s ease;
+			-o-transition: -o-transform 0.3s ease;
+			transition: transform 0.3s ease;
+			-moz-box-shadow: 0px 0px 10px #eee;
+			-webkit-box-shadow: 0px 0px 10px #eee;
+			-ms-box-shadow: 0px 0px 10px #eee;
+			-o-box-shadow: 0px 0px 10px #eee;
+			box-shadow: 0px 0px 10px #eee;
+
+			@media screen and (max-width: 480px), screen and (max-device-width: 480px) {
+				padding: 0.25em;
+			}
+		}
+
+		a:hover img.picture {
+			-moz-transform: scale(1.02);
+			-webkit-transform: scale(1.02);
+			-o-transform: scale(1.02);
+			transform: scale(1.02);
+
+			@media screen and (max-width: 480px), screen and (max-device-width: 480px) {
+				-moz-transform: none;
+				-webkit-transform: none;
+				-o-transform: none;
+				transform: none;
+			}			
+		}
+	}
+
+	&.count-1 div.picture.vertical {
+		max-width: 0.5px*$max-width;
+	}
+
+	&.count-2 div.picture {
+		@include picture-width(2);
+	}
+
+	&.count-3 div.picture {
+		@include picture-width(3);
+	}
+
+	&.count-4 div.picture {
+		@include picture-width(4);
+	}
+
+	ul.metadata {
+		list-style-type: none;
+		padding: 0;
+		margin-top: 0;
+		display: inline;
+
+		li {
+			display: inline;
+			padding: 0 0.3em;
+			font-size: 0.7em;
+			color: #aaa;
+			margin-left: 0;
+		}
+	}
+
+	img.pinit {
+		vertical-align: middle;
+	}
+}

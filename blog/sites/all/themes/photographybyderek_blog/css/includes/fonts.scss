@@ -1,0 +1,23 @@
+/* Fonts, in order of appearance */
+
+@font-face {
+    font-family: 'LeagueGothicRegular';
+    src: url('../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.eot');
+    src: url('../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.woff') format('woff'),
+         url('../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.ttf') format('truetype'),
+         url('../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SortsMillGoudyItalic';
+    src: url('../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.eot');
+    src: url('../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.woff') format('woff'),
+         url('../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.ttf') format('truetype'),
+         url('../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.svg#SortsMillGoudyItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

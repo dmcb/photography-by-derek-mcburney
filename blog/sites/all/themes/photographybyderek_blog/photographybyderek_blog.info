@@ -1,0 +1,16 @@
+name = Photography by Derek Blog
+description = The theme for use with the Photography by Derek Blog.
+version = VERSION
+core = 7.x
+
+stylesheets[all][] = css/screen.css
+scripts[] = js/lib/jquery.dmcb.tinynav.js
+scripts[] = js/lib/modernizr.custom.10809.js
+scripts[] = js/lib/respond.min.js
+scripts[] = js/script.min.js
+
+regions[header] = Header
+regions[content] = Content
+regions[sidebar_first] = Sidebar first
+regions[sidebar_second] = Sidebar second
+regions[highlighted] = Highlighted

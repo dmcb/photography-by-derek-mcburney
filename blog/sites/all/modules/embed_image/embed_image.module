@@ -1,0 +1,219 @@
+<?php
+
+/**
+ * Implementation of hook_theme().
+ */
+function embed_image_theme($existing, $type, $theme, $path) {
+    return array(
+		'embed_image' => array(
+			'variables' => array(
+				'uri' => NULL,
+				'alt' => NULL,
+				'title' => NULL,
+			),
+			'template' => 'templates/embed_image'
+		),
+		'embed_fancybox' => array(
+			'variables' => array(
+				'uri' => NULL,
+				'title' => NULL,
+				'group' => NULL,
+				'img_markup' => NULL,
+			),
+			'template' => 'templates/embed_fancybox'
+		),
+		'embed_metadata' => array(
+			'variables' => array(
+				'image_meta' => NULL,
+			),
+			'template' => 'templates/embed_metadata'
+		),
+		'embed_pinterest' => array(
+			'variables' => array(
+				'uri' => NULL,
+				'title' => NULL,
+			),
+			'template' => 'templates/embed_pinterest'
+		),
+		'embed_image_wrapper' => array(
+			'variables' => array(
+				'img_markup' => NULL,
+				'meta_markup' => NULL,
+			),
+			'template' => 'templates/embed_image_wrapper'
+		),
+		'embed_images_wrapper' => array(
+			'variables' => array(
+				'image_count' => NULL,
+				'imgs_markup' => NULL,
+			),
+			'template' => 'templates/embed_images_wrapper'
+		),
+    );
+}
+
+/**
+ * Implementation of hook_node_view().
+ */
+function embed_image_node_view($node, $view_mode) {
+	$current_node = $node->nid;
+	if (isset($node->content['body'])) {
+		$text = $node->content['body'][0]['#markup'];
+
+		if (preg_match_all("/(\[image:\d+(:\d+)?\]\h*)+/i", $text, $matches)) {
+			drupal_add_css(drupal_get_path('module', 'embed_image') . '/embed_image.css');
+			for ($i=0; $i<sizeof($matches[0]); $i++) {
+
+				preg_match_all("/\[image:(\d+)(:(\d+))?\]/i", $matches[0][$i], $image_matches);
+				$processed_images = array();
+
+				for ($j=0; $j<sizeof($image_matches[1]); $j++) {
+					// Support [image:nodeid:imagenumber] and [image:imagenumber] formats
+					if ($image_matches[3][$j]) {
+						$node_index = $image_matches[1][$j];
+						$image_index = $image_matches[3][$j];
+					}
+					else {
+						$node_index = $current_node;
+						$image_index = $image_matches[1][$j];
+					}
+
+					// Load node, grab it's content type, load its fields, and see what field is associated with embed image
+					$field = $fancybox = $metadata = $pinterest = NULL;
+					$node = node_load($node_index);
+					$field = variable_get('embed_field_' . $node->type, 0);
+					$fancybox = variable_get('embed_fancybox_' . $node->type, NULL);
+					$metadata = variable_get('embed_metadata_' . $node->type, NULL);
+					$pinterest = variable_get('embed_pinterest_' . $node->type, NULL);
+
+					// Load only a valid node, as the user may specify a node outside the range
+					if ($node && $field) {
+						$node_images = field_get_items('node', $node, $field);
+						if ($node_images) {
+							// Load only valid images, as the user may specify an image outside the range
+							if (isset($node_images[$image_index-1])) {
+								$image = $node_images[$image_index-1];
+
+								$aspect_ratio = "vertical";
+								list($width, $height) = getimagesize($image['uri']);
+								if ($width > $height) {
+									$aspect_ratio = "horizontal";
+								}
+
+								$img_markup = theme('embed_image', array('uri' => file_create_url($image['uri']), 'alt' => $image['alt'], 'title' => $image['title']));
+
+								if ($fancybox) {
+									$img_markup = theme('embed_fancybox', array('uri' => file_create_url($image['uri']), 'title' => $image['title'], 'group' => $current_node, 'img_markup' => $img_markup));
+								}
+
+								$meta_markup = NULL;
+								if ($metadata) {
+									$image_meta = array();
+									$image_meta_data = false;
+									$exif_ifd0 = read_exif_data($image['uri'] ,'IFD0' ,0);
+
+									if (isset($exif_ifd0['FocalLength'])) {
+										$focal_length = explode("/", $exif_ifd0['FocalLength']);
+		            					$image_meta['focal_length'] = $focal_length[0]."mm";
+		            					$image_meta_data = true;
+									}
+									if (isset($exif_ifd0['ISOSpeedRatings'])) {
+										$image_meta['iso'] = 'ISO '.$exif_ifd0['ISOSpeedRatings'];
+										$image_meta_data = true;
+									}
+									if (isset($exif_ifd0['COMPUTED']) && isset($exif_ifd0['COMPUTED']['ApertureFNumber'])) {
+										$image_meta['aperture'] = $exif_ifd0['COMPUTED']['ApertureFNumber'];
+										$image_meta_data = true;
+									}
+									if (isset($exif_ifd0['ExposureTime'])) {
+										$image_meta['shutter_speed'] = $exif_ifd0['ExposureTime'];
+										$image_meta_data = true;
+									}
+
+									if ($image_meta_data) {
+										$meta_markup = theme('embed_metadata', array('image_meta' => $image_meta));
+									}
+								}
+
+								$pinterest_markup = NULL;
+								if ($pinterest) {
+									$pinterest_markup = theme('embed_pinterest', array('uri' => file_create_url($image['uri']), 'title' => $image['title']));
+								}
+
+								array_push($processed_images, theme('embed_image_wrapper', array('img_markup' => $img_markup, 'meta_markup' => $meta_markup, 'pinterest_markup' => $pinterest_markup, 'aspect_ratio' => $aspect_ratio)));
+							}
+						}
+					}
+				}
+
+				$html = theme('embed_images_wrapper', array('image_count' => sizeof($processed_images), 'img_markup' => implode($processed_images)));
+				$text = str_replace($matches[0][$i], $html, $text);
+			}
+		}
+
+		$node->content['body'][0]['#markup'] = $text;
+		return $node;
+	}
+}
+
+/**
+ * Implementation of hook_form_alter() on node_type form.
+ */
+function embed_image_form_node_type_form_alter(&$form, $form_state) {
+	if (isset($form['type'])) {
+
+		$field_choices = array('0' => 'No field');
+		$node_fields = field_info_instances("node", $form['#node_type']->type);
+		foreach ($node_fields as $node_field_title => $node_field) {
+			if ($node_field['widget']['type'] == 'image_image') {
+				$field_choices[$node_field_title] = $node_field_title;
+			}
+		}
+
+		$form['embed_image'] = array(
+			'#type' => 'fieldset',
+			'#title' => t('Embed image'),
+			'#collapsible' => TRUE,
+			'#collapsed' => TRUE,
+			'#group' => 'additional_settings',
+		);
+
+		$form['embed_image']['embed_field'] = array(
+			'#type' => 'select',
+			'#title' => t('Enable embed button'),
+			'#default_value' => variable_get('embed_field_' . $form['#node_type']->type, 0),
+			'#description' => t('Select the image field to embed images from (must be an \'image\' widget ).'),
+			'#options' => $field_choices,
+		);
+
+		$form['embed_image']['embed_fancybox'] = array(
+			'#type' => 'checkbox',
+			'#title' => t('Fancybox'),
+			'#default_value' => variable_get('embed_fancybox_' . $form['#node_type']->type, NULL),
+			'#description' => t('Wrap images in a Fancybox.'),
+		);
+
+		$form['embed_image']['embed_metadata'] = array(
+			'#type' => 'checkbox',
+			'#title' => t('Photo metadata'),
+			'#default_value' => variable_get('embed_metadata_' . $form['#node_type']->type, NULL),
+			'#description' => t('Show photo metadata.'),
+		);
+
+		$form['embed_image']['embed_pinterest'] = array(
+			'#type' => 'checkbox',
+			'#title' => t('Pinterest \'pin it\' button'),
+			'#default_value' => variable_get('embed_pinterest_' . $form['#node_type']->type, NULL),
+			'#description' => t('Show a Pinterest \'pin it\' button by the image.'),
+		);
+	}
+}
+
+/**
+ * Implementation of hook_form_alter() on node form.
+ */
+function embed_image_form_node_form_alter(&$form, $form_state) {
+	$field = variable_get('embed_field_' . $form['type']['#value'], 0);
+	drupal_add_js(array('embed_image' => array('field' => str_replace("_", "-", $field))), 'setting');
+	drupal_add_js(drupal_get_path('module', 'embed_image') . '/embed_image.js');
+}
