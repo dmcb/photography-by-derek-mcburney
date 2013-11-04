@@ -23,12 +23,6 @@
 
       if ($nav.is('ul,ol')) {
 
-        if (settings.header !== '') {
-          $select.append(
-            $('<option/>').text(settings.header)
-          );
-        }
-
         // Build options
         var options = '';
 
@@ -56,6 +50,21 @@
             .find(':eq(' + $(l_namespace_i + ' li a')
             .index($(l_namespace_i + ' li a.' + settings.active)) + ')')
             .attr('selected', true);
+        }
+
+        // if (settings.header !== '') {
+        //   $select.append(
+        //     $('<option/>').text(settings.header)
+        //   );
+        // }
+        // dmcb - add a header even if one isn't specified, if the current page doesn't exist in the menu
+        if (settings.header !== '' || $(l_namespace_i + ' li a').index($(l_namespace_i + ' li a.' + settings.active)) < 0) {
+          if (settings.header === '') {
+            settings.header = "Menu";
+          }
+          $select.prepend(
+            $('<option/>').text(settings.header).attr('selected', true)
+          );
         }
 
         // Change window location
