@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Photography by Derek Blog feature.
+ */
+
+include_once 'photography_by_derek_blog.features.inc';
