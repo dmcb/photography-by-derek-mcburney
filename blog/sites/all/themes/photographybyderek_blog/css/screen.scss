@@ -13,6 +13,7 @@ $grey: #666;
 /* General styling */
 
 body {
+	background-color: #FCFCF9;
 	margin: 0;
 	color: $dark-grey;
 	font-size: 16px;
@@ -202,6 +203,10 @@ body {
 				box-shadow: 0px 0px 10px #eee;
 				list-style-type: none;
 				font-family: 'SortsMillGoudyItalic', Georgia, serif;
+
+				li {
+					margin-left: 0;
+				}
 			}
 		}
 
@@ -209,6 +214,10 @@ body {
 			max-width: 544px;
 			margin-left: auto;
 			margin-right: auto;
+		}
+
+		.links {
+			display: block;
 		}
 	}
 }

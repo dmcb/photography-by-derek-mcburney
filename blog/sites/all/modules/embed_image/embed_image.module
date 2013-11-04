@@ -106,34 +106,26 @@ function embed_image_node_view($node, $view_mode) {
 									$img_markup = theme('embed_fancybox', array('uri' => file_create_url($image['uri']), 'title' => $image['title'], 'group' => $current_node, 'img_markup' => $img_markup));
 								}
 
-								$meta_markup = NULL;
+								$image_meta = array();
 								if ($metadata) {
-									$image_meta = array();
-									$image_meta_data = false;
 									$exif_ifd0 = read_exif_data($image['uri'] ,'IFD0' ,0);
 
 									if (isset($exif_ifd0['FocalLength'])) {
 										$focal_length = explode("/", $exif_ifd0['FocalLength']);
 		            					$image_meta['focal_length'] = $focal_length[0]."mm";
-		            					$image_meta_data = true;
 									}
 									if (isset($exif_ifd0['ISOSpeedRatings'])) {
 										$image_meta['iso'] = 'ISO '.$exif_ifd0['ISOSpeedRatings'];
-										$image_meta_data = true;
 									}
 									if (isset($exif_ifd0['COMPUTED']) && isset($exif_ifd0['COMPUTED']['ApertureFNumber'])) {
 										$image_meta['aperture'] = $exif_ifd0['COMPUTED']['ApertureFNumber'];
-										$image_meta_data = true;
 									}
 									if (isset($exif_ifd0['ExposureTime'])) {
 										$image_meta['shutter_speed'] = $exif_ifd0['ExposureTime'];
-										$image_meta_data = true;
-									}
-
-									if ($image_meta_data) {
-										$meta_markup = theme('embed_metadata', array('image_meta' => $image_meta));
 									}
 								}
+
+								$meta_markup = theme('embed_metadata', array('title' => $image['title'], 'image_meta' => $image_meta));
 
 								$pinterest_markup = NULL;
 								if ($pinterest) {

@@ -20,6 +20,8 @@ $max-width: 960;
 		@include picture-width(1);
 		display: inline-block;
 		margin-bottom: 1em;
+		color: #aaa;
+		font-size: 0.85em;
 
 		img.picture {
 			background-color: #fff;
@@ -55,6 +57,29 @@ $max-width: 960;
 				transform: none;
 			}			
 		}
+
+		p {
+			margin: 0.5em auto;
+			max-width: 0.5px*$max-width;
+		}
+
+		ul {
+			list-style-type: none;
+			padding: 0;
+			margin-top: 0;
+			display: inline;
+
+			li {
+				display: inline;
+				padding: 0 0.3em;
+				margin-left: 0;
+				font-size: 0.8235em;
+			}
+		}
+
+		img.pinit {
+			vertical-align: middle;
+		}
 	}
 
 	&.count-1 div.picture.vertical {
@@ -71,24 +96,5 @@ $max-width: 960;
 
 	&.count-4 div.picture {
 		@include picture-width(4);
-	}
-
-	ul.metadata {
-		list-style-type: none;
-		padding: 0;
-		margin-top: 0;
-		display: inline;
-
-		li {
-			display: inline;
-			padding: 0 0.3em;
-			font-size: 0.7em;
-			color: #aaa;
-			margin-left: 0;
-		}
-	}
-
-	img.pinit {
-		vertical-align: middle;
 	}
 }
