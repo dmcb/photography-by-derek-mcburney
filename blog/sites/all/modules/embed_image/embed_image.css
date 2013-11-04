@@ -1,14 +1,14 @@
-div.pictures {
+#main .node > .content div.pictures {
   max-width: 100%;
   text-align: center; }
-  div.pictures div.picture {
+  #main .node > .content div.pictures div.picture {
     max-width: 952px;
     width: 99.16667%;
     margin-left: 0.41667%;
     margin-right: 0.41667%;
     display: inline-block;
     margin-bottom: 1em; }
-    div.pictures div.picture img.picture {
+    #main .node > .content div.pictures div.picture img.picture {
       background-color: #fff;
       padding: 0.75em;
       box-sizing: border-box;
@@ -24,46 +24,46 @@ div.pictures {
       -o-box-shadow: 0px 0px 10px #eee;
       box-shadow: 0px 0px 10px #eee; }
       @media screen and (max-width: 480px), screen and (max-device-width: 480px) {
-        div.pictures div.picture img.picture {
+        #main .node > .content div.pictures div.picture img.picture {
           padding: 0.25em; } }
-    div.pictures div.picture a:hover img.picture {
+    #main .node > .content div.pictures div.picture a:hover img.picture {
       -moz-transform: scale(1.02);
       -webkit-transform: scale(1.02);
       -o-transform: scale(1.02);
       transform: scale(1.02); }
       @media screen and (max-width: 480px), screen and (max-device-width: 480px) {
-        div.pictures div.picture a:hover img.picture {
+        #main .node > .content div.pictures div.picture a:hover img.picture {
           -moz-transform: none;
           -webkit-transform: none;
           -o-transform: none;
           transform: none; } }
-  div.pictures.count-1 div.picture.vertical {
+  #main .node > .content div.pictures.count-1 div.picture.vertical {
     max-width: 480px; }
-  div.pictures.count-2 div.picture {
+  #main .node > .content div.pictures.count-2 div.picture {
     max-width: 472px;
     width: 49.16667%;
     margin-left: 0.41667%;
     margin-right: 0.41667%; }
-  div.pictures.count-3 div.picture {
+  #main .node > .content div.pictures.count-3 div.picture {
     max-width: 312px;
     width: 32.5%;
     margin-left: 0.41667%;
     margin-right: 0.41667%; }
-  div.pictures.count-4 div.picture {
+  #main .node > .content div.pictures.count-4 div.picture {
     max-width: 232px;
     width: 24.16667%;
     margin-left: 0.41667%;
     margin-right: 0.41667%; }
-  div.pictures ul.metadata {
+  #main .node > .content div.pictures ul.metadata {
     list-style-type: none;
     padding: 0;
     margin-top: 0;
     display: inline; }
-    div.pictures ul.metadata li {
+    #main .node > .content div.pictures ul.metadata li {
       display: inline;
       padding: 0 0.3em;
       font-size: 0.7em;
       color: #aaa;
       margin-left: 0; }
-  div.pictures img.pinit {
+  #main .node > .content div.pictures img.pinit {
     vertical-align: middle; }

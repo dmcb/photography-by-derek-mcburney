@@ -12,7 +12,7 @@ $max-width: 960;
 }
 
 // Pictures from embed images
-div.pictures {
+#main .node > .content div.pictures {
 	max-width: 100%;
 	text-align: center;
 
