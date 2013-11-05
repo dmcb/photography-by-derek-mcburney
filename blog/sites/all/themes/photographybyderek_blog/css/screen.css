@@ -80,7 +80,7 @@ body {
     font-size: 0.9em;
     display: inline-block;
     text-align: center;
-    padding: 8px 16px; }
+    padding: 8px 10px; }
     #header ul.menu li a {
       transition: 0.3s ease;
       -moz-transition: 0.3s ease;
