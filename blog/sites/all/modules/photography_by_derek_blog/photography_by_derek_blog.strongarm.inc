@@ -28,14 +28,14 @@ function photography_by_derek_blog_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_photo_article';
-  $strongarm->value = 0;
+  $strongarm->value = '0';
   $export['comment_anonymous_photo_article'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_photo_blog';
-  $strongarm->value = 0;
+  $strongarm->value = '0';
   $export['comment_anonymous_photo_blog'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -84,14 +84,14 @@ function photography_by_derek_blog_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_photo_article';
-  $strongarm->value = '2';
+  $strongarm->value = '1';
   $export['comment_photo_article'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_photo_blog';
-  $strongarm->value = '0';
+  $strongarm->value = '1';
   $export['comment_photo_blog'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -599,93 +599,6 @@ node/*/edit',
   $strongarm->api_version = 1;
   $strongarm->name = 'xmlsitemap_settings_node_photo_article';
   $strongarm->value = array(
-    'entity' => 'node',
-    'bundle' => 'article',
-    'info' => array(
-      'label' => 'Article',
-      'admin' => array(
-        'path' => 'admin/structure/types/manage/%node_type',
-        'real path' => 'admin/structure/types/manage/article',
-        'bundle argument' => 4,
-        'access arguments' => array(
-          0 => 'administer content types',
-        ),
-      ),
-      'rdf_mapping' => array(
-        'field_image' => array(
-          'predicates' => array(
-            0 => 'og:image',
-            1 => 'rdfs:seeAlso',
-          ),
-          'type' => 'rel',
-        ),
-        'field_tags' => array(
-          'predicates' => array(
-            0 => 'dc:subject',
-          ),
-          'type' => 'rel',
-        ),
-        'rdftype' => array(
-          0 => 'sioc:Item',
-          1 => 'foaf:Document',
-        ),
-        'title' => array(
-          'predicates' => array(
-            0 => 'dc:title',
-          ),
-        ),
-        'created' => array(
-          'predicates' => array(
-            0 => 'dc:date',
-            1 => 'dc:created',
-          ),
-          'datatype' => 'xsd:dateTime',
-          'callback' => 'date_iso8601',
-        ),
-        'changed' => array(
-          'predicates' => array(
-            0 => 'dc:modified',
-          ),
-          'datatype' => 'xsd:dateTime',
-          'callback' => 'date_iso8601',
-        ),
-        'body' => array(
-          'predicates' => array(
-            0 => 'content:encoded',
-          ),
-        ),
-        'uid' => array(
-          'predicates' => array(
-            0 => 'sioc:has_creator',
-          ),
-          'type' => 'rel',
-        ),
-        'name' => array(
-          'predicates' => array(
-            0 => 'foaf:name',
-          ),
-        ),
-        'comment_count' => array(
-          'predicates' => array(
-            0 => 'sioc:num_replies',
-          ),
-          'datatype' => 'xsd:integer',
-        ),
-        'last_activity' => array(
-          'predicates' => array(
-            0 => 'sioc:last_activity_date',
-          ),
-          'datatype' => 'xsd:dateTime',
-          'callback' => 'date_iso8601',
-        ),
-      ),
-      'xmlsitemap' => array(
-        'entity' => 'node',
-        'bundle' => 'article',
-        'status' => '1',
-        'priority' => '0.5',
-      ),
-    ),
     'status' => '1',
     'priority' => '0.5',
   );
