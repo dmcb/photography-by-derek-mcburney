@@ -12,6 +12,70 @@ function photography_by_derek_blog_default_fe_block_settings() {
 
   $export['version'] = '2.0';
 
+  $export['comment-recent'] = array(
+    'cache' => 1,
+    'custom' => 0,
+    'delta' => 'recent',
+    'module' => 'comment',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'photographybyderek_blog' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'photographybyderek_blog',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => 'dashboard_inactive',
+        'status' => 1,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['node-recent'] = array(
+    'cache' => 1,
+    'custom' => 0,
+    'delta' => 'recent',
+    'module' => 'node',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'photographybyderek_blog' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'photographybyderek_blog',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => 'dashboard_main',
+        'status' => 1,
+        'theme' => 'seven',
+        'weight' => 10,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
   $export['search-form'] = array(
     'cache' => -1,
     'custom' => 0,

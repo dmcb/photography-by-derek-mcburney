@@ -10,23 +10,6 @@
 function photography_by_derek_blog_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: main-menu_about-derek:node/2
-  $menu_links['main-menu_about-derek:node/2'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'node/2',
-    'router_path' => 'node/%',
-    'link_title' => 'About Derek',
-    'options' => array(
-      'identifier' => 'main-menu_about-derek:node/2',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -48,
-    'customized' => 1,
-  );
   // Exported menu link: main-menu_blog:<front>
   $menu_links['main-menu_blog:<front>'] = array(
     'menu_name' => 'main-menu',
@@ -69,7 +52,6 @@ function photography_by_derek_blog_menu_default_menu_links() {
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('About Derek');
   t('Blog');
   t('Return to portfolio');
 
