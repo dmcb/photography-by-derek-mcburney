@@ -229,14 +229,17 @@ function photography_by_derek_blog_metatag_export_default() {
       'og:description' => array(
         'value' => '[node:summary]',
       ),
-      'twitter:card' => array(
-        'value' => 'summary',
+      'og:image' => array(
+        'value' => '[node:representative_image]',
+      ),
+      'twitter:title' => array(
+        'value' => '[node:title]',
       ),
       'twitter:description' => array(
         'value' => '[node:summary]',
       ),
-      'twitter:title' => array(
-        'value' => '[node:title]',
+      'twitter:image' => array(
+        'value' => '[node:representative_image]',
       ),
     ),
   );
@@ -244,7 +247,14 @@ function photography_by_derek_blog_metatag_export_default() {
   // Exported Metatag config instance: node:photo_blog.
   $config['node:photo_blog'] = array(
     'instance' => 'node:photo_blog',
-    'config' => array(),
+    'config' => array(
+      'og:type' => array(
+        'value' => 'blog',
+      ),
+      'twitter:card' => array(
+        'value' => 'photo',
+      ),
+    ),
   );
 
   // Exported Metatag config instance: taxonomy_term.

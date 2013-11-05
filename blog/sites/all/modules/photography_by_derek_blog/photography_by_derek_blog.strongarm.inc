@@ -522,6 +522,62 @@ node/*/edit',
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'representative_image';
+  $strongarm->value = array(
+    'comment' => array(
+      'comment_node_article' => '',
+      'comment_node_page' => '',
+      'comment_node_photo_article' => '',
+      'comment_node_photo_blog' => '',
+    ),
+    'node' => array(
+      'article' => 0,
+      'page' => '',
+      'photo_article' => 'field_image',
+      'photo_blog' => 'field_pictures',
+    ),
+    'taxonomy_term' => array(
+      'tags' => '',
+    ),
+    'user' => array(
+      'user' => '',
+    ),
+  );
+  $export['representative_image'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'representative_image_default';
+  $strongarm->value = 'first';
+  $export['representative_image_default'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'representative_image_field_node_photo_article';
+  $strongarm->value = 'field_image';
+  $export['representative_image_field_node_photo_article'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'representative_image_field_node_photo_blog';
+  $strongarm->value = 'field_pictures';
+  $export['representative_image_field_node_photo_blog'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'representative_image_photo_blog';
+  $strongarm->value = array(
+    0 => 'node',
+  );
+  $export['representative_image_photo_blog'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'site_default_country';
   $strongarm->value = 'CA';
   $export['site_default_country'] = $strongarm;
