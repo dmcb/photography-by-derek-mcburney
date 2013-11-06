@@ -376,6 +376,9 @@ node/*/edit',
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -384,6 +387,12 @@ node/*/edit',
         ),
         'path' => array(
           'weight' => '1',
+        ),
+        'metatags' => array(
+          'weight' => '8',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '7',
         ),
       ),
       'display' => array(),
@@ -541,7 +550,7 @@ node/*/edit',
       'article' => 0,
       'page' => '',
       'photo_article' => 'field_image',
-      'photo_blog' => 'field_pictures',
+      'photo_blog' => 'field_cover_photo',
     ),
     'taxonomy_term' => array(
       'tags' => '',
@@ -556,7 +565,7 @@ node/*/edit',
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'representative_image_default';
-  $strongarm->value = 'first';
+  $strongarm->value = 'first_or_logo';
   $export['representative_image_default'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -570,7 +579,7 @@ node/*/edit',
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'representative_image_field_node_photo_blog';
-  $strongarm->value = 'field_pictures';
+  $strongarm->value = 'field_cover_photo';
   $export['representative_image_field_node_photo_blog'] = $strongarm;
 
   $strongarm = new stdClass();
