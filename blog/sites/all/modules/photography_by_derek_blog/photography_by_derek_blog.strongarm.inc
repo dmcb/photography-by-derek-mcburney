@@ -126,7 +126,7 @@ function photography_by_derek_blog_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'disqus_developer';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['disqus_developer'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -156,6 +156,7 @@ function photography_by_derek_blog_strongarm() {
   $strongarm->name = 'disqus_nodetypes';
   $strongarm->value = array(
     'photo_blog' => 'photo_blog',
+    'photo_article' => 0,
     'article' => 0,
     'page' => 0,
   );
