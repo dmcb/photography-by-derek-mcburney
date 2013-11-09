@@ -60,7 +60,7 @@ $max-width: 960;
 
 		p {
 			margin: 0.5em auto;
-			max-width: 0.5px*$max-width;
+			max-width: 0.4535px*$max-width;
 		}
 
 		ul {
@@ -83,7 +83,7 @@ $max-width: 960;
 	}
 
 	&.count-1 div.picture.vertical {
-		max-width: 0.5px*$max-width;
+		max-width: 0.4535px*$max-width;
 	}
 
 	&.count-2 div.picture {

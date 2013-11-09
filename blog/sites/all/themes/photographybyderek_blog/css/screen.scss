@@ -48,7 +48,6 @@ body {
 /* General layout */
 
 .section {
-	max-width: 960px;
 	margin: 0 auto;
 }
 
@@ -174,6 +173,8 @@ body {
 
 	.node {
 		> .content {
+			text-align: center;
+
 			ul {
 				display: block;
 				padding-left: 0;
@@ -185,6 +186,7 @@ body {
 
 			.field-item {
 				> p, > ol, >ul, > blockquote {
+					text-align: left;
 					max-width: 544px;
 					margin-left: auto;
 					margin-right: auto;
@@ -207,6 +209,11 @@ body {
 				li {
 					margin-left: 0;
 				}
+			}
+
+			.pictures.count-1 {
+				display: inline-block;
+				vertical-align: top;
 			}
 		}
 
