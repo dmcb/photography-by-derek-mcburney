@@ -96,7 +96,10 @@ function embed_image_node_view($node, $view_mode) {
 
 								$aspect_ratio = "vertical";
 								list($width, $height) = getimagesize($image['uri']);
-								if ($width > $height) {
+								if (($width / $height) > 2) {
+									$aspect_ratio = "panorama";
+								}
+								else if ($width > $height) {
 									$aspect_ratio = "horizontal";
 								}
 

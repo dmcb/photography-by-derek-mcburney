@@ -55,6 +55,11 @@
         font-size: 0.8235em; }
     #main .node > .content div.pictures div.picture img.pinit {
       vertical-align: middle; }
+    #main .node > .content div.pictures div.picture.panorama {
+      max-width: 1896px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto; }
     #main .node > .content div.pictures div.picture.vertical {
       max-width: 435.36px; }
   #main .node > .content div.pictures.count-2 div.picture {

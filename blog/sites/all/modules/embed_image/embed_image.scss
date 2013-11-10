@@ -82,6 +82,13 @@ $max-width: 960;
 			vertical-align: middle;
 		}
 
+		&.panorama {
+			max-width: 1896px;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
 		&.vertical {
 			max-width: 0.4535px*$max-width;
 		}
