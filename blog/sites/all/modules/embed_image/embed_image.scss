@@ -19,6 +19,7 @@ $max-width: 960;
 	div.picture {
 		@include picture-width(1);
 		display: inline-block;
+		vertical-align: top;
 		margin-bottom: 1em;
 		color: #aaa;
 		font-size: 0.85em;
@@ -80,10 +81,10 @@ $max-width: 960;
 		img.pinit {
 			vertical-align: middle;
 		}
-	}
 
-	&.count-1 div.picture.vertical {
-		max-width: 0.4535px*$max-width;
+		&.vertical {
+			max-width: 0.4535px*$max-width;
+		}
 	}
 
 	&.count-2 div.picture {

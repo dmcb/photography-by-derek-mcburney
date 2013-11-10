@@ -120,35 +120,29 @@ body {
       color: #454545; }
       #main .node h2 a:hover, #main #page-title a:hover {
         text-decoration: none; }
-  #main .node > .content {
-    text-align: center; }
-    #main .node > .content ul {
-      display: block;
-      padding-left: 0; }
-      #main .node > .content ul > li {
-        margin-left: 1.2em; }
-    #main .node > .content .field-item > p, #main .node > .content .field-item > ol, #main .node > .content .field-item > ul, #main .node > .content .field-item > blockquote {
-      text-align: left;
-      max-width: 544px;
-      margin-left: auto;
-      margin-right: auto; }
-    #main .node > .content .field-name-field-meta ul {
-      background-color: #fff;
-      padding: 0.75em;
-      box-sizing: border-box;
-      border: 1px solid #efefef;
-      -moz-box-shadow: 0px 0px 10px #eee;
-      -webkit-box-shadow: 0px 0px 10px #eee;
-      -ms-box-shadow: 0px 0px 10px #eee;
-      -o-box-shadow: 0px 0px 10px #eee;
-      box-shadow: 0px 0px 10px #eee;
-      list-style-type: none;
-      font-family: 'SortsMillGoudyItalic', Georgia, serif; }
-      #main .node > .content .field-name-field-meta ul li {
-        margin-left: 0; }
-    #main .node > .content .pictures.count-1 {
-      display: inline-block;
-      vertical-align: top; }
+  #main .node > .content ul {
+    display: block;
+    padding-left: 0; }
+    #main .node > .content ul > li {
+      margin-left: 1.2em; }
+  #main .node > .content .field-item > p, #main .node > .content .field-item > ol, #main .node > .content .field-item > ul, #main .node > .content .field-item > blockquote {
+    max-width: 544px;
+    margin-left: auto;
+    margin-right: auto; }
+  #main .node > .content .field-name-field-meta ul {
+    background-color: #fff;
+    padding: 0.75em;
+    box-sizing: border-box;
+    border: 1px solid #efefef;
+    -moz-box-shadow: 0px 0px 10px #eee;
+    -webkit-box-shadow: 0px 0px 10px #eee;
+    -ms-box-shadow: 0px 0px 10px #eee;
+    -o-box-shadow: 0px 0px 10px #eee;
+    box-shadow: 0px 0px 10px #eee;
+    list-style-type: none;
+    font-family: 'SortsMillGoudyItalic', Georgia, serif; }
+    #main .node > .content .field-name-field-meta ul li {
+      margin-left: 0; }
   #main .node .submitted, #main .node .links, #main .node #disqus_thread {
     max-width: 544px;
     margin-left: auto;

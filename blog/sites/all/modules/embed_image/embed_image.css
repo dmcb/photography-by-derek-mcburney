@@ -7,6 +7,7 @@
     margin-left: 0.41667%;
     margin-right: 0.41667%;
     display: inline-block;
+    vertical-align: top;
     margin-bottom: 1em;
     color: #aaa;
     font-size: 0.85em; }
@@ -54,8 +55,8 @@
         font-size: 0.8235em; }
     #main .node > .content div.pictures div.picture img.pinit {
       vertical-align: middle; }
-  #main .node > .content div.pictures.count-1 div.picture.vertical {
-    max-width: 435.36px; }
+    #main .node > .content div.pictures div.picture.vertical {
+      max-width: 435.36px; }
   #main .node > .content div.pictures.count-2 div.picture {
     max-width: 472px;
     width: 49.16667%;
