@@ -111,21 +111,25 @@ function embed_image_node_view($node, $view_mode) {
 					// If we have a valid image specified from the embed image code, grab it and process it
 					if ($current_images && isset($image_index) && isset($current_images[$image_index-1])) {
 						$node_image = $current_images[$image_index-1];
-						array_push($processed_images, embed_image_process_image($node->nid, $node_image, $settings));
+						array_push($processed_images, embed_image_image_processing($node->nid, $node_image, $settings));
 					}
 				}
 
-				$html = theme('embed_images_wrapper', array('image_count' => sizeof($processed_images), 'img_markup' => implode($processed_images)));
-				$text = str_replace($matches[0][$i], $html, $text);
+				if (sizeof($processed_images)) {
+					$html = theme('embed_images_wrapper', array('image_count' => sizeof($processed_images), 'img_markup' => implode($processed_images)));
+					$text = str_replace($matches[0][$i], $html, $text);
+				}
 			}
 		}
 		else {
 			// If no embed image matches were found in the body content, but there are images, append them all to the body
 			$processed_images = array();
 			foreach ($node_images as $node_image) {
-				array_push($processed_images, embed_image_process_image($node->nid, $node_image, $settings));
+				array_push($processed_images, embed_image_image_processing($node->nid, $node_image, $settings));
 			}
-			$text .= theme('embed_images_wrapper', array('image_count' => sizeof($processed_images), 'img_markup' => implode($processed_images)));
+			if (sizeof($processed_images)) {
+				$text .= theme('embed_images_wrapper', array('image_count' => sizeof($processed_images), 'img_markup' => implode($processed_images)));
+			}
 		}
 
 		$node->content['body'][0]['#markup'] = $text;
@@ -136,7 +140,7 @@ function embed_image_node_view($node, $view_mode) {
 /**
  * Function to process embed image markup.
  */
-function embed_image_process_image($node_id, $node_image, $settings) {
+function embed_image_image_processing($node_id, $node_image, $settings) {
 
     $aspect_ratio = "vertical";
     list($width, $height) = getimagesize($node_image['uri']);
@@ -153,34 +157,26 @@ function embed_image_process_image($node_id, $node_image, $settings) {
 		$img_markup = theme('embed_fancybox', array('uri' => file_create_url($node_image['uri']), 'title' => $node_image['title'], 'group' => $node_id, 'img_markup' => $img_markup));
 	}
 
-	$meta_markup = NULL;
-	if ($settings['metadata']) {
-		$image_meta = array();
-		$image_meta_data = false;
-		$exif_ifd0 = read_exif_data($node_image['uri'], 'IFD0', 0);
+	$image_meta = array();
 
+	if ($settings['metadata']) {
+		$exif_ifd0 = read_exif_data($node_image['uri'] ,'IFD0' ,0);
 		if (isset($exif_ifd0['FocalLength'])) {
 			$focal_length = explode("/", $exif_ifd0['FocalLength']);
 			$image_meta['focal_length'] = $focal_length[0]."mm";
-			$image_meta_data = true;
 		}
 		if (isset($exif_ifd0['ISOSpeedRatings'])) {
 			$image_meta['iso'] = 'ISO '.$exif_ifd0['ISOSpeedRatings'];
-			$image_meta_data = true;
 		}
 		if (isset($exif_ifd0['COMPUTED']) && isset($exif_ifd0['COMPUTED']['ApertureFNumber'])) {
 			$image_meta['aperture'] = $exif_ifd0['COMPUTED']['ApertureFNumber'];
-			$image_meta_data = true;
 		}
 		if (isset($exif_ifd0['ExposureTime'])) {
 			$image_meta['shutter_speed'] = $exif_ifd0['ExposureTime'];
-			$image_meta_data = true;
-		}
-
-		if ($image_meta_data) {
-			$meta_markup = theme('embed_metadata', array('image_meta' => $image_meta));
 		}
 	}
+
+	$meta_markup = theme('embed_metadata', array('title' => $node_image['title'], 'image_meta' => $image_meta));
 
 	$pinterest_markup = NULL;
 	if ($settings['pinterest']) {
