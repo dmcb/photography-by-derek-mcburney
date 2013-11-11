@@ -151,6 +151,7 @@
 
     <div id="footer"><div class="section">
       <?php print render($page['footer']); ?>
+      &copy; <?php print date("Y");?>, Derek McBurney. All photographs (except where noted otherwise) are copyright of Derek McBurney and can not be used without permission for any purpose. <a href="http://photographybyderek.com/">Get in touch with me to request a license to use my photography!</a>
     </div></div> <!-- /.section, /#footer -->
 
   </div></div> <!-- /#page, /#page-wrapper -->

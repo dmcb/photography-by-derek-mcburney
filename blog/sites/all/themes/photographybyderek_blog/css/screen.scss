@@ -221,3 +221,16 @@ body {
 		}
 	}
 }
+
+#footer {
+	max-width: 544px;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 0.9em;
+	margin-top: 3em;
+	color: $grey;
+
+	@media screen and (max-width: 580px), screen and (max-device-width: 480px) {
+		margin-top: 1em;
+	}
+}
