@@ -6,3 +6,4 @@ core = 7.x
 dependencies[] = fancybox
 dependencies[] = imagemagick
 dependencies[] = lazyloader
+dependencies[] = modernizr

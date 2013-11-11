@@ -248,3 +248,14 @@ function embed_image_form_node_form_alter(&$form, $form_state) {
 	drupal_add_js(array('embed_image' => array('field' => str_replace("_", "-", $field))), 'setting');
 	drupal_add_js(drupal_get_path('module', 'embed_image') . '/embed_image.js');
 }
+
+/**
+ * Implementation of hook_modernizr_load() on node form.
+ */
+function embed_image_modernizr_load(&$load = null) {
+	$load[] = array(
+		'test' => 'Modernizr.touch',
+		'yep' => array(drupal_get_path('module', 'embed_image') . '/embed_image_no_fancybox.js'),
+	);
+	return $load;
+}
