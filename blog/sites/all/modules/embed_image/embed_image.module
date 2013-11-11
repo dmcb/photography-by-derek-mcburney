@@ -56,89 +56,62 @@ function embed_image_theme($existing, $type, $theme, $path) {
  * Implementation of hook_node_view().
  */
 function embed_image_node_view($node, $view_mode) {
-	$current_node = $node->nid;
-	if (isset($node->content['body'])) {
+	// Grab field dedicated for images to embed
+	$embed_field = variable_get('embed_field_' . $node->type, 0);
+
+	// If this content type has an images field set for embedding, and the node has a body, see if we can embed images
+	if (isset($embed_field) && isset($node->content['body'])) {
 		$text = $node->content['body'][0]['#markup'];
 
-		if (preg_match_all("/(\[image:\d+(:\d+)?\]\h*\n?\h*)+/i", $text, $matches)) {
-			drupal_add_css(drupal_get_path('module', 'embed_image') . '/embed_image.css');
+		// Add CSS
+		drupal_add_css(drupal_get_path('module', 'embed_image') . '/embed_image.css');
+
+		// Grab embed image field settings
+		$settings = array();
+		$settings['fancybox'] = variable_get('embed_fancybox_' . $node->type, NULL);
+		$settings['metadata'] = variable_get('embed_metadata_' . $node->type, NULL);
+		$settings['pinterest'] = variable_get('embed_pinterest_' . $node->type, NULL);
+
+		// Grab node images
+		$node_images = field_get_items('node', $node, $embed_field);
+
+		// Grab content
+		$text = $node->content['body'][0]['#markup'];
+
+		// Look for embed image matches in the content
+		preg_match_all("/(\[image:\d+(:\d+)?\]\h*\n?\h*)+/i", $text, $matches);
+		if (sizeof($matches[0])) {
 			for ($i=0; $i<sizeof($matches[0]); $i++) {
 
 				preg_match_all("/\[image:(\d+)(:(\d+))?\]/i", $matches[0][$i], $image_matches);
 				$processed_images = array();
 
 				for ($j=0; $j<sizeof($image_matches[1]); $j++) {
-					// Support [image:nodeid:imagenumber] and [image:imagenumber] formats
-					if ($image_matches[3][$j]) {
+
+					$current_images = $node_images;
+
+					if ($image_matches[3][$j]) { // [image:nodeid:imagenumber]
 						$node_index = $image_matches[1][$j];
-						$image_index = $image_matches[3][$j];
+
+						// If node specified is different than the current node
+						if ($node_index != $node->nid) {
+							$parent_node = node_load($node_index);
+
+							// Node specified must exist and must be of same content type
+							if (isset($parent_node->nid) && $parent_node->type == $node->type) {
+								$current_images = field_get_items('node', $parent_node, $embed_field);
+								$image_index = $image_matches[3][$j];
+							}
+						}
 					}
-					else {
-						$node_index = $current_node;
+					else { // [image:imagenumber]
 						$image_index = $image_matches[1][$j];
 					}
 
-					// Load node, grab it's content type, load its fields, and see what field is associated with embed image
-					$field = $fancybox = $metadata = $pinterest = NULL;
-					$node = node_load($node_index);
-					$field = variable_get('embed_field_' . $node->type, 0);
-					$fancybox = variable_get('embed_fancybox_' . $node->type, NULL);
-					$metadata = variable_get('embed_metadata_' . $node->type, NULL);
-					$pinterest = variable_get('embed_pinterest_' . $node->type, NULL);
-
-					// Load only a valid node, as the user may specify a node outside the range
-					if ($node && $field) {
-						$node_images = field_get_items('node', $node, $field);
-						if ($node_images) {
-							// Load only valid images, as the user may specify an image outside the range
-							if (isset($node_images[$image_index-1])) {
-								$image = $node_images[$image_index-1];
-
-								$aspect_ratio = "vertical";
-								list($width, $height) = getimagesize($image['uri']);
-								if (($width / $height) > 2) {
-									$aspect_ratio = "panorama";
-								}
-								else if ($width > $height) {
-									$aspect_ratio = "horizontal";
-								}
-
-								$img_markup = theme('embed_image', array('uri' => file_create_url($image['uri']), 'alt' => $image['alt'], 'title' => $image['title']));
-
-								if ($fancybox) {
-									$img_markup = theme('embed_fancybox', array('uri' => file_create_url($image['uri']), 'title' => $image['title'], 'group' => $current_node, 'img_markup' => $img_markup));
-								}
-
-								$image_meta = array();
-								if ($metadata) {
-									$exif_ifd0 = read_exif_data($image['uri'] ,'IFD0' ,0);
-
-									if (isset($exif_ifd0['FocalLength'])) {
-										$focal_length = explode("/", $exif_ifd0['FocalLength']);
-		            					$image_meta['focal_length'] = $focal_length[0]."mm";
-									}
-									if (isset($exif_ifd0['ISOSpeedRatings'])) {
-										$image_meta['iso'] = 'ISO '.$exif_ifd0['ISOSpeedRatings'];
-									}
-									if (isset($exif_ifd0['COMPUTED']) && isset($exif_ifd0['COMPUTED']['ApertureFNumber'])) {
-										$image_meta['aperture'] = $exif_ifd0['COMPUTED']['ApertureFNumber'];
-									}
-									if (isset($exif_ifd0['ExposureTime'])) {
-										$image_meta['shutter_speed'] = $exif_ifd0['ExposureTime'];
-									}
-								}
-
-								$meta_markup = theme('embed_metadata', array('title' => $image['title'], 'image_meta' => $image_meta));
-
-								$pinterest_markup = NULL;
-								if ($pinterest) {
-									$path = $GLOBALS['base_url'].'/'.drupal_get_path_alias("node/".$current_node);
-									$pinterest_markup = theme('embed_pinterest', array('path' => $path, 'uri' => file_create_url($image['uri']), 'title' => $image['title']));
-								}
-
-								array_push($processed_images, theme('embed_image_wrapper', array('img_markup' => $img_markup, 'meta_markup' => $meta_markup, 'pinterest_markup' => $pinterest_markup, 'aspect_ratio' => $aspect_ratio)));
-							}
-						}
+					// If we have a valid image specified from the embed image code, grab it and process it
+					if ($current_images && isset($image_index) && isset($current_images[$image_index-1])) {
+						$node_image = $current_images[$image_index-1];
+						array_push($processed_images, embed_image_process_image($node->nid, $node_image, $settings));
 					}
 				}
 
@@ -146,10 +119,76 @@ function embed_image_node_view($node, $view_mode) {
 				$text = str_replace($matches[0][$i], $html, $text);
 			}
 		}
+		else {
+			// If no embed image matches were found in the body content, but there are images, append them all to the body
+			$processed_images = array();
+			foreach ($node_images as $node_image) {
+				array_push($processed_images, embed_image_process_image($node->nid, $node_image, $settings));
+			}
+			$text .= theme('embed_images_wrapper', array('image_count' => sizeof($processed_images), 'img_markup' => implode($processed_images)));
+		}
 
 		$node->content['body'][0]['#markup'] = $text;
 		return $node;
 	}
+}
+
+/**
+ * Function to process embed image markup.
+ */
+function embed_image_process_image($node_id, $node_image, $settings) {
+
+    $aspect_ratio = "vertical";
+    list($width, $height) = getimagesize($node_image['uri']);
+    if (($width / $height) > 2) {
+            $aspect_ratio = "panorama";
+    }
+    else if ($width > $height) {
+            $aspect_ratio = "horizontal";
+    }
+
+	$img_markup = theme('embed_image', array('uri' => file_create_url($node_image['uri']), 'alt' => $node_image['alt'], 'title' => $node_image['title']));
+
+	if ($settings['fancybox']) {
+		$img_markup = theme('embed_fancybox', array('uri' => file_create_url($node_image['uri']), 'title' => $node_image['title'], 'group' => $node_id, 'img_markup' => $img_markup));
+	}
+
+	$meta_markup = NULL;
+	if ($settings['metadata']) {
+		$image_meta = array();
+		$image_meta_data = false;
+		$exif_ifd0 = read_exif_data($node_image['uri'], 'IFD0', 0);
+
+		if (isset($exif_ifd0['FocalLength'])) {
+			$focal_length = explode("/", $exif_ifd0['FocalLength']);
+			$image_meta['focal_length'] = $focal_length[0]."mm";
+			$image_meta_data = true;
+		}
+		if (isset($exif_ifd0['ISOSpeedRatings'])) {
+			$image_meta['iso'] = 'ISO '.$exif_ifd0['ISOSpeedRatings'];
+			$image_meta_data = true;
+		}
+		if (isset($exif_ifd0['COMPUTED']) && isset($exif_ifd0['COMPUTED']['ApertureFNumber'])) {
+			$image_meta['aperture'] = $exif_ifd0['COMPUTED']['ApertureFNumber'];
+			$image_meta_data = true;
+		}
+		if (isset($exif_ifd0['ExposureTime'])) {
+			$image_meta['shutter_speed'] = $exif_ifd0['ExposureTime'];
+			$image_meta_data = true;
+		}
+
+		if ($image_meta_data) {
+			$meta_markup = theme('embed_metadata', array('image_meta' => $image_meta));
+		}
+	}
+
+	$pinterest_markup = NULL;
+	if ($settings['pinterest']) {
+		$path = $GLOBALS['base_url'].'/'.drupal_get_path_alias("node/".$node_id);
+        $pinterest_markup = theme('embed_pinterest', array('path' => $path, 'uri' => file_create_url($node_image['uri']), 'title' => $node_image['title']));
+	}
+
+	return theme('embed_image_wrapper', array('img_markup' => $img_markup, 'meta_markup' => $meta_markup, 'pinterest_markup' => $pinterest_markup, 'aspect_ratio' => $aspect_ratio));
 }
 
 /**
