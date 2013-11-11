@@ -95,6 +95,7 @@ foreach ($photos as $photo) {
 				<div id="social-media">
 					<a href="https://www.facebook.com/PhotographyByDerek"><img src="assets/images/facebook-icon.png" alt="photography by derek facebook page" /></a>
 					<a href="https://twitter.com/derekmcb"><img src="assets/images/twitter-icon.png" alt="derek's twitter page" /></a>
+					<a href="https://500px.com/derekmcb"><img src="assets/images/500px-icon.png" alt="derek's 500px page" /></a>
 				</div>
 				<a href="http://dmcbdesign.com/" id="watermark"><span>website by</span> <img src="assets/images/dmcb_design.png" alt="dmcb design" /> <span>design</span></a>
 			</div>

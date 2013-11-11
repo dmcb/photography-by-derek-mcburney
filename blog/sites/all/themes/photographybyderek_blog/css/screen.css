@@ -157,6 +157,11 @@ body {
   font-size: 0.9em;
   margin-top: 3em;
   color: #666666; }
+  #footer #social-media {
+    margin-bottom: 0.5em; }
+    #footer #social-media img {
+      width: 32px;
+      height: 32px; }
   @media screen and (max-width: 580px), screen and (max-device-width: 480px) {
     #footer {
       margin-top: 1em; } }

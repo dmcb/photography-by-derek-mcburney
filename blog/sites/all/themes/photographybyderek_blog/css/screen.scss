@@ -230,6 +230,15 @@ body {
 	margin-top: 3em;
 	color: $grey;
 
+	#social-media {
+		margin-bottom: 0.5em;
+
+		img {
+			width: 32px;
+			height: 32px;
+		}
+	}
+
 	@media screen and (max-width: 580px), screen and (max-device-width: 480px) {
 		margin-top: 1em;
 	}
