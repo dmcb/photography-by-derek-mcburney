@@ -22,7 +22,7 @@ foreach ($photos as $photo) {
 	<meta name="keywords" content="photography by derek mcburney, derek mcburney, calgary, alberta, calgary photographer, wedding photography, engagement photography, event photography, people photography, landscape photography, architecture photography" />
 	<meta name="robots" content="ALL" />
 	<meta name="author" content="Derek McBurney" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	
 	<meta name="twitter:site" content="@derekmcb" />
 	<meta name="twitter:creator" content="@derekmcb" />
