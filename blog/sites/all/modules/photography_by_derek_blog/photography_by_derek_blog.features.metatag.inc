@@ -18,13 +18,13 @@ function photography_by_derek_blog_metatag_export_default() {
         'value' => '[current-page:title] | [site:name]',
       ),
       'description' => array(
-        'value' => '',
+        'value' => 'Calgary, Alberta based photographer who loves to shoot and share weddings, engagements, events, people, landscapes and architecture.',
       ),
       'abstract' => array(
         'value' => '',
       ),
       'keywords' => array(
-        'value' => '',
+        'value' => 'photography by derek mcburney, derek mcburney, calgary, alberta, calgary photographer, wedding photography, engagement photography, event photography, people photography, landscape photography, architecture photography',
       ),
       'robots' => array(
         'value' => array(
