@@ -156,7 +156,10 @@
         <a href="https://twitter.com/derekmcb"><img src="<?php echo $GLOBALS['base_url'].'/'.drupal_get_path('theme', 'photographybyderek_blog'); ?>/images/twitter-icon.png" alt="derek's twitter page" /></a>
         <a href="https://500px.com/derekmcb"><img src="<?php echo $GLOBALS['base_url'].'/'.drupal_get_path('theme', 'photographybyderek_blog'); ?>/images/500px-icon.png" alt="derek's 500px page" /></a>
       </div>
-      &copy; <?php print date("Y");?>, Derek McBurney. All photographs (except where noted otherwise) are copyright of Derek McBurney and can not be used without permission for any purpose. <a href="http://photographybyderek.com/">Get in touch with me to request a license to use my photography!</a>
+      <p id="copyright">
+        &copy; <?php print date("Y");?>, Derek McBurney. All photographs (except where noted otherwise) are copyright of Derek McBurney and can not be used without permission for any purpose. <a href="http://photographybyderek.com/">Get in touch with me to request a license to use my photography!</a>
+      </p>
+      <a href="http://dmcbdesign.com/" id="watermark"><span>website by</span> <img src="<?php echo $GLOBALS['base_url'].'/'.drupal_get_path('theme', 'photographybyderek_blog'); ?>/images/dmcb_design.png" alt="dmcb" /> <span>design</span></a>
     </div></div> <!-- /.section, /#footer -->
 
   </div></div> <!-- /#page, /#page-wrapper -->

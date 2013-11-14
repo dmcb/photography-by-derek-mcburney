@@ -97,7 +97,10 @@ foreach ($photos as $photo) {
 					<a href="https://twitter.com/derekmcb"><img src="assets/images/twitter-icon.png" alt="derek's twitter page" /></a>
 					<a href="https://500px.com/derekmcb"><img src="assets/images/500px-icon.png" alt="derek's 500px page" /></a>
 				</div>
-				<a href="http://dmcbdesign.com/" id="watermark"><span>website by</span> <img src="assets/images/dmcb_design.png" alt="dmcb design" /> <span>design</span></a>
+				<p id="copyright">
+					&copy; <?php print date("Y");?>, Derek McBurney. All photographs (except where noted otherwise) are copyright of Derek McBurney and can not be used without permission for any purpose. Get in touch with me to request a license to use my photography!
+				</p>
+				<a href="http://dmcbdesign.com/" id="watermark"><span>website by</span> <img src="assets/images/dmcb_design.png" alt="dmcb" /> <span>design</span></a>
 			</div>
 		</div>
 	</div>

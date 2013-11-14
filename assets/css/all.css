@@ -188,18 +188,30 @@ button {
   text-align: center; }
 
 #footer {
-  margin-top: 16px;
-  text-align: center; }
-  #footer #social-media img {
-    width: 32px; }
+  max-width: 544px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 3em;
+  color: #4c4c4c; }
+  #footer #social-media {
+    margin-bottom: 0.5em; }
+    #footer #social-media img {
+      width: 32px;
+      height: 32px; }
   #footer #watermark {
+    display: block;
     font-size: 0.8em;
     text-align: center;
     margin-top: 8px;
     color: #4c4c4c; }
     #footer #watermark img {
       vertical-align: bottom;
-      margin: 0 3px; }
+      margin: 0 3px;
+      width: 43px;
+      height: 30px; }
+    #footer #watermark:hover {
+      text-decoration: none; }
 
 /* Modernizr detects touch ability, so if touch, don't require a hover to show previous/next elements */
 html.touch #showcase .navigation a {
@@ -296,8 +308,14 @@ html.touch #showcase .navigation a {
 
   #menu ul li {
     padding-left: 0;
-    padding-right: 32px; } }
-/* Specifically tables in landscape */
+    padding-right: 32px; }
+
+  #footer {
+    max-width: 544px;
+    text-align: left; }
+    #footer #watermark {
+      text-align: left; } }
+/* Specifically tablets in landscape */
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   #details, #side {
     font-size: 0.8em; }

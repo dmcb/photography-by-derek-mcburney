@@ -28,7 +28,7 @@ body {
 /* Page elements */
 #page-wrapper a {
   text-decoration: none;
-  color: #dea7cc; }
+  color: #d984bd; }
   #page-wrapper a:hover {
     text-decoration: underline;
     -moz-transition: all 0.2s ease;
@@ -88,10 +88,10 @@ body {
       -o-transition: 0.3s ease;
       color: #666666; }
       #header ul.menu li a:hover {
-        color: #dea7cc;
+        color: #d984bd;
         text-decoration: none; }
       #header ul.menu li a.active {
-        color: #dea7cc; }
+        color: #d984bd; }
   @media screen and (max-width: 580px), screen and (max-device-width: 480px) {
     #header ul.menu {
       display: none; } }
@@ -166,3 +166,15 @@ body {
   @media screen and (max-width: 580px), screen and (max-device-width: 480px) {
     #footer {
       margin-top: 1em; } }
+  #footer #watermark {
+    display: block;
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: 8px; }
+    #footer #watermark img {
+      vertical-align: bottom;
+      margin: 0 3px;
+      width: 43px;
+      height: 30px; }
+    #footer #watermark:hover {
+      text-decoration: none; }

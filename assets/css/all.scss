@@ -257,16 +257,24 @@ button {
 }
 
 #footer {
-	margin-top: 16px;
+	max-width: 544px;
+	margin: 0 auto;
 	text-align: center;
+	font-size: 0.9em;
+	margin-top: 3em;
+	color: $grey;
 
 	#social-media {
+		margin-bottom: 0.5em;
+
 		img {
 			width: 32px;
+			height: 32px;
 		}
 	}
 	
 	#watermark {
+		display: block;
 		font-size: 0.8em;
 		text-align: center;
 		margin-top: 8px;
@@ -275,6 +283,12 @@ button {
 		img {
 			vertical-align: bottom;
 			margin: 0 3px;
+			width: 43px;
+			height: 30px;
+		}
+
+		&:hover {
+			text-decoration: none;
 		}
 	}
 }
@@ -415,9 +429,18 @@ html.touch #showcase .navigation a {
 		padding-left: 0;
 		padding-right: 32px;
 	}
+
+	#footer {
+		max-width: 544px;
+		text-align: left;
+
+		#watermark {
+			text-align: left;
+		}
+	}
 }
 
-/* Specifically tables in landscape */
+/* Specifically tablets in landscape */
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
 		
 	#details, #side {

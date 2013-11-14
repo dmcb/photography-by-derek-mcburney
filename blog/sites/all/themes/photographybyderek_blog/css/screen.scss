@@ -5,7 +5,7 @@
 /* Colors */
 
 $dark-grey: #454545;
-$pink: #dea7cc;
+$pink: #d984bd;
 $grey: #666;
 
 
@@ -242,5 +242,23 @@ body {
 
 	@media screen and (max-width: 580px), screen and (max-device-width: 480px) {
 		margin-top: 1em;
+	}
+
+	#watermark {
+		display: block;
+		font-size: 0.8em;
+		text-align: center;
+		margin-top: 8px;
+		
+		img {
+			vertical-align: bottom;
+			margin: 0 3px;
+			width: 43px;
+			height: 30px;
+		}
+
+		&:hover {
+			text-decoration: none;
+		}
 	}
 }
