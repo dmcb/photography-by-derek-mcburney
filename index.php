@@ -6,11 +6,20 @@ include "assets/php/photos_to_json.php";
 $photos_json = ob_get_clean();
 $photos = json_decode($photos_json, TRUE);
 $photo_id = substr($_SERVER["REQUEST_URI"], strrpos($_SERVER["REQUEST_URI"], "/")+1);
+$categories = array();
 
 foreach ($photos as $photo) { 
+	if(!array_key_exists($photo['category'], $categories)){
+		$categories[$photo['category']] = $photo;
+	}
 	if ($photo['id'] == $photo_id) {
 		$current_photo = $photo;
 	}
+}
+
+# If no photo was found from URL, default to first
+if (!isset($current_photo) && sizeof($photos)) {
+	$current_photo = $photos[0];
 }
 
 ?><!DOCTYPE html>
@@ -67,11 +76,38 @@ foreach ($photos as $photo) {
 		<div class="frame">
 			<h1>Photography by Derek McBurney</h1>
 			
-			<div id="menu"></div>
+			<div id="menu">
+				<select class="menu">
+					<?php foreach($categories as $category => $photo) {
+						print '<option value="'.$category.'">'.str_replace(" / ", "/", ucwords(str_replace("-", " / ", $category))).'</option> ';
+					}?>
+					<option value="blog">Blog</option>
+				</select>
+				<ul class="menu">
+					<?php foreach($categories as $category => $photo) {
+						print '<li><a href="'.$photo['id'].'" id="'.$category.'">'.str_replace(" / ", "/", ucwords(str_replace("-", " / ", $category))).'</a></li> ';
+					}?>
+					<li><a href="blog" id="blog">Blog</a></li>
+				</ul>
+			</div>
 			
-			<div id="showcase" class="section"></div>
+			<div id="showcase" class="section">
+				<div class="navigation" id="left"><a></a></div>
+				<div class="navigation" id="right"><a></a></div> 
+				<div id="focus">
+					<img src="assets/images/placeholder.png"/>
+				</div>
+			</div>
 
-			<div id="details" class="section"></div>
+			<div id="details" class="section">
+				<h2>
+					<?php if (isset($current_photo)) echo $current_photo['title'];?>
+					<a href="//www.pinterest.com/pin/create/button/?url=http://photographybyderek.com/<% print(encodeURI(id)); %>&media=<%= file %>&description=<% print(encodeURI(title)); %>" data-pin-do="buttonPin" data-pin-config="none" target="_blank"><img src="assets/images/pin_it_button.png" /></a>
+				</h2>
+				<p>
+					<?php if (isset($current_photo)) echo $current_photo['description'];?>
+				</p>
+			</div>
 			
 			<div id="side">
 				<div id="aboutme" class="section">
@@ -108,16 +144,16 @@ foreach ($photos as $photo) {
 	<!-- Templates -->
 	<script id="photo-categories" type="text/template">
 		<select class="menu">
-			<option value="weddings-engagements">Weddings/Engagements</option>
-			<option value="people-events">People/Events</option>
-			<option value="landscapes-architecture">Landscapes/Architecture</option>
+			<?php foreach($categories as $category => $photo) {
+				print '<option value="'.$category.'">'.str_replace(" / ", "/", ucwords(str_replace("-", " / ", $category))).'</option> ';
+			}?>
 			<option value="blog">Blog</option>
 		</select>
 		<ul class="menu">
-			<li id="weddings-engagements">Weddings/Engagements</li>
-			<li id="people-events">People/Events</li>
-			<li id="landscapes-architecture">Landscapes/Architecture</li>
-			<li id="blog">Blog</li>
+			<?php foreach($categories as $category => $photo) {
+				print '<li><a href="'.$photo['id'].'" id="'.$category.'">'.str_replace(" / ", "/", ucwords(str_replace("-", " / ", $category))).'</a></li> ';
+			}?>
+			<li><a href="blog" id="blog">Blog</a></li>
 		</ul>
 	</script>
 	
@@ -132,8 +168,7 @@ foreach ($photos as $photo) {
 	<script id="photo-details" type="text/template">
 		<h2>
 			<%= title %>
-		<a href="//www.pinterest.com/pin/create/button/?url=http://photographybyderek.com/<% print(encodeURI(id)); %>&media=<%= file %>&description=<% print(encodeURI(title)); %>" data-pin-do="buttonPin" data-pin-config="none" target="_blank"><img src="assets/images/pin_it_button.png" /></a>
-
+			<a href="//www.pinterest.com/pin/create/button/?url=http://photographybyderek.com/<% print(encodeURI(id)); %>&media=<%= file %>&description=<% print(encodeURI(title)); %>" data-pin-do="buttonPin" data-pin-config="none" target="_blank"><img src="assets/images/pin_it_button.png" /></a>
 		</h2>
 		<p>
 			<%= description %>

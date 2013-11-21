@@ -108,22 +108,22 @@ button {
   list-style: none;
   text-align: center; }
   #menu ul li {
+    list-style: none;
     font-size: 0.9em;
     display: inline-block;
     text-align: center;
-    padding: 8px 10px;
-    cursor: pointer;
-    color: #8c8c8c;
-    transition: 0.3s ease;
-    -moz-transition: 0.3s ease;
-    -webkit-transition: 0.3s ease;
-    -o-transition: 0.3s ease;
-    *display: inline;
-    zoom: 1; }
-    #menu ul li:hover {
-      color: #dea7cc; }
-    #menu ul li.active {
-      color: #dea7cc; }
+    padding: 8px 10px; }
+    #menu ul li a {
+      transition: 0.3s ease;
+      -moz-transition: 0.3s ease;
+      -webkit-transition: 0.3s ease;
+      -o-transition: 0.3s ease;
+      color: #8c8c8c; }
+      #menu ul li a:hover {
+        color: #dea7cc;
+        text-decoration: none; }
+      #menu ul li a.active {
+        color: #dea7cc; }
 
 .section {
   max-width: 560px;
