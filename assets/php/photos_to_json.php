@@ -14,6 +14,6 @@ $cache_file = "cache/cache.json";
 $json = @file_get_contents($cache_file);
 if ($json === false || time() - filemtime($cache_file) > 86400) {
 	$json = json_encode(process_photos($categories));
-	file_put_contents($cache_file, $json);
+	@file_put_contents($cache_file, $json);
 }
 print $json;
