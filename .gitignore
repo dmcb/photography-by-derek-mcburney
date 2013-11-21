@@ -12,6 +12,9 @@ assets/php/facebook_app_id.php
 # Ignore site specific information
 assets/php/site_settings.php
 
+# Ignore Facebook json cache
+assets/php/cache/cache.json
+
 # Drupal .gitignore
 # Ignore configuration files that may contain sensitive information.
 blog/sites/*/settings*.php
