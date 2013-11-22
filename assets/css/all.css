@@ -142,22 +142,22 @@ button {
     position: absolute;
     cursor: pointer;
     background-image: url("../images/transparent.gif"); }
-    #showcase .navigation:hover a {
+    #showcase .navigation:hover span {
       opacity: 1;
       visibility: visible; }
     #showcase .navigation#left {
       left: -16px; }
-      #showcase .navigation#left a {
+      #showcase .navigation#left span {
         background-image: url("../images/arrow-left.png");
         background-repeat: none;
         left: -8px; }
     #showcase .navigation#right {
       right: -16px; }
-      #showcase .navigation#right a {
+      #showcase .navigation#right span {
         background-image: url("../images/arrow-right.png");
         background-repeat: none;
         right: -8px; }
-    #showcase .navigation a {
+    #showcase .navigation span {
       background-size: cover;
       position: absolute;
       top: 50%;
@@ -246,7 +246,7 @@ html.touch #showcase .navigation a {
       left: -4px; }
     #showcase .navigation#right {
       right: -4px; }
-    #showcase .navigation a {
+    #showcase .navigation span {
       margin-top: -25px;
       height: 32px;
       width: 32px; } }

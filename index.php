@@ -9,9 +9,7 @@ $photo_id = substr($_SERVER["REQUEST_URI"], strrpos($_SERVER["REQUEST_URI"], "/"
 $categories = array();
 
 foreach ($photos as $photo) { 
-	if(!array_key_exists($photo['category'], $categories)){
-		$categories[$photo['category']] = $photo;
-	}
+	$categories[$photo['category']][] = $photo;
 	if ($photo['id'] == $photo_id) {
 		$current_photo = $photo;
 	}
@@ -20,6 +18,13 @@ foreach ($photos as $photo) {
 # If no photo was found from URL, default to first
 if (!isset($current_photo) && sizeof($photos)) {
 	$current_photo = $photos[0];
+}
+
+# Get neighbouring photos
+if (isset($current_photo)) {
+	$current_photo_category = $categories[$current_photo['category']];
+	$previous_photo = $current_photo_category[array_search($current_photo, $current_photo_category) + count($current_photo_category) - 1 % count($current_photo_category)];
+	$next_photo = $current_photo_category[array_search($current_photo, $current_photo_category) + 1 % count($current_photo_category)];
 }
 
 ?><!DOCTYPE html>
@@ -78,22 +83,26 @@ if (!isset($current_photo) && sizeof($photos)) {
 			
 			<div id="menu">
 				<select class="menu">
-					<?php foreach($categories as $category => $photo) {
-						print '<option value="'.$category.'">'.str_replace(" / ", "/", ucwords(str_replace("-", " / ", $category))).'</option> ';
+					<?php foreach($categories as $category => $photos) {
+						if (sizeof($photos)) {
+							print '<option value="'.$category.'">'.str_replace(" / ", "/", ucwords(str_replace("-", " / ", $category))).'</option> ';
+						}
 					}?>
 					<option value="blog">Blog</option>
 				</select>
 				<ul class="menu">
-					<?php foreach($categories as $category => $photo) {
-						print '<li><a href="'.$photo['id'].'" id="'.$category.'">'.str_replace(" / ", "/", ucwords(str_replace("-", " / ", $category))).'</a></li> ';
+					<?php foreach($categories as $category => $photos) {
+						if (sizeof($photos)) {
+							print '<li><a href="'.$photos[0]['id'].'" id="'.$category.'">'.str_replace(" / ", "/", ucwords(str_replace("-", " / ", $category))).'</a></li> ';
+						}
 					}?>
 					<li><a href="blog" id="blog">Blog</a></li>
 				</ul>
 			</div>
 			
 			<div id="showcase" class="section">
-				<div class="navigation" id="left"><a></a></div>
-				<div class="navigation" id="right"><a></a></div> 
+				<a class="navigation" id="left" href="<?php if (isset($previous_photo)) print $previous_photo['id']; ?>"><span></span></a>
+				<a class="navigation" id="right" href="<?php if (isset($next_photo)) print $next_photo['id']; ?>"><span></span></a> 
 				<div id="focus">
 					<img src="assets/images/placeholder.png"/>
 				</div>
@@ -144,22 +153,26 @@ if (!isset($current_photo) && sizeof($photos)) {
 	<!-- Templates -->
 	<script id="photo-categories" type="text/template">
 		<select class="menu">
-			<?php foreach($categories as $category => $photo) {
-				print '<option value="'.$category.'">'.str_replace(" / ", "/", ucwords(str_replace("-", " / ", $category))).'</option> ';
+			<?php foreach($categories as $category => $photos) {
+				if (sizeof($photos)) {
+					print '<option value="'.$category.'">'.str_replace(" / ", "/", ucwords(str_replace("-", " / ", $category))).'</option> ';
+				}
 			}?>
 			<option value="blog">Blog</option>
 		</select>
 		<ul class="menu">
-			<?php foreach($categories as $category => $photo) {
-				print '<li><a href="'.$photo['id'].'" id="'.$category.'">'.str_replace(" / ", "/", ucwords(str_replace("-", " / ", $category))).'</a></li> ';
+			<?php foreach($categories as $category => $photos) {
+				if (sizeof($photos)) {
+					print '<li><a href="'.$photos[0]['id'].'" id="'.$category.'">'.str_replace(" / ", "/", ucwords(str_replace("-", " / ", $category))).'</a></li> ';
+				}
 			}?>
 			<li><a href="blog" id="blog">Blog</a></li>
 		</ul>
 	</script>
 	
 	<script id="photo-showcase" type="text/template">
-		<div class="navigation" id="left"><a></a></div>
-		<div class="navigation" id="right"><a></a></div> 
+		<a class="navigation" id="left"><span></span></a>
+		<a class="navigation" id="right"><span></span></a> 
 		<div id="focus">
 			<img src="assets/images/placeholder.png"/>
 		</div>

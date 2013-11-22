@@ -14,8 +14,7 @@ $(function( $ ) {
 		template: _.template($('#photo-showcase').html()),
 		
 		events: {
-			"click .navigation#left": "previousPhoto",
-			"click .navigation#right": "nextPhoto",
+			"click .navigation": "swapPhoto",
 			"click #focus": "fullScreen" 
 		},
 		
@@ -31,25 +30,17 @@ $(function( $ ) {
 			$(this.el).html(renderedContent).animate({opacity: 0}, 0);
 		},
 		
-		previousPhoto: function() {
+		swapPhoto: function(event) {
+			event.preventDefault();
+			var target = $(event.currentTarget);
 			var currentIndex = App.currentPhotos.indexOf(this.model);
 			var newIndex;
-			if (currentIndex == 0) {
-				newIndex = App.currentPhotos.length-1;
+			if ($(target).attr('id') == "left") {
+				newIndex = (currentIndex + App.currentPhotos.length - 1) % (App.currentPhotos.length);
 			} else {
-				newIndex = currentIndex-1;
+				newIndex = (currentIndex + 1) % (App.currentPhotos.length);
 			}
-			App.globalState.set('photo', App.currentPhotos.at(newIndex));
-		},
-		
-		nextPhoto: function() {
-			var currentIndex = App.currentPhotos.indexOf(this.model);
-			var newIndex;
-			if (currentIndex == App.currentPhotos.length-1) {
-				newIndex = 0;
-			} else {
-				newIndex = currentIndex+1;
-			}
+			console.log(newIndex + " afsd " + (App.currentPhotos.length));
 			App.globalState.set('photo', App.currentPhotos.at(newIndex));
 		},
 		

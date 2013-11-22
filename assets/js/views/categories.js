@@ -47,8 +47,8 @@ $(function( $ ) {
 		},
 		
 		selectCategoryLink: function(event) {
-			var target = $(event.currentTarget);
 			event.preventDefault();
+			var target = $(event.currentTarget);
 			App.globalState.set('category', {category:$(target).attr('id')});
 		},
 		

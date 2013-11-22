@@ -203,7 +203,7 @@ button {
 		background-image: url("../images/transparent.gif");
 		
 		&:hover {	
-			a {
+			span {
 				opacity: 1;
 				visibility: visible;
 			}
@@ -212,7 +212,7 @@ button {
 		&#left {
 			left: -16px;
 			
-			a {
+			span {
 				background-image: url("../images/arrow-left.png");
 				background-repeat: none;
 				left: -8px;
@@ -222,14 +222,14 @@ button {
 		&#right {
 			right: -16px;
 			
-			a {
+			span {
 				background-image: url("../images/arrow-right.png");
 				background-repeat: none;
 				right: -8px;
 			}
 		}
 		
-		a {
+		span {
 			background-size: cover;
 			position: absolute;
 			top: 50%;
@@ -347,7 +347,7 @@ html.touch #showcase .navigation a {
 				right: -4px;
 			}
 			
-			a { 
+			span { 
 				margin-top: -25px;
 				height: 32px;
 				width: 32px;
