@@ -23,8 +23,8 @@ if (!isset($current_photo) && sizeof($photos)) {
 # Get neighbouring photos
 if (isset($current_photo)) {
 	$current_photo_category = $categories[$current_photo['category']];
-	$previous_photo = $current_photo_category[array_search($current_photo, $current_photo_category) + count($current_photo_category) - 1 % count($current_photo_category)];
-	$next_photo = $current_photo_category[array_search($current_photo, $current_photo_category) + 1 % count($current_photo_category)];
+	$previous_photo = $current_photo_category[(array_search($current_photo, $current_photo_category) + count($current_photo_category) - 1) % count($current_photo_category)];
+	$next_photo = $current_photo_category[(array_search($current_photo, $current_photo_category) + 1) % count($current_photo_category)];
 }
 
 ?><!DOCTYPE html>
@@ -104,7 +104,7 @@ if (isset($current_photo)) {
 				<a class="navigation" id="left" href="<?php if (isset($previous_photo)) print $previous_photo['id']; ?>"><span></span></a>
 				<a class="navigation" id="right" href="<?php if (isset($next_photo)) print $next_photo['id']; ?>"><span></span></a> 
 				<div id="focus">
-					<img src="assets/images/placeholder.png"/>
+					<img src="assets/images/placeholder.png" style="background-image: url(<?php if (isset($current_photo)) print $current_photo['file']; ?>); filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<?php if (isset($current_photo)) print $current_photo['file']; ?>',sizingMethod="scale"); -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='<?php if (isset($current_photo)) print $current_photo['file']; ?>',sizingMethod="scale"); "/>
 				</div>
 			</div>
 
