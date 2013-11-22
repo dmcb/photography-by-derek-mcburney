@@ -4,13 +4,13 @@ input, textarea {
 
 #showcase .navigation {
 
-	&#left a {
+	&#left span {
 		background-image: none;
 		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/images/arrow-left.png",sizingMethod="scale");
 		-ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/images/arrow-left.png",sizingMethod="scale"); 
 	}
 	
-	&#right a {
+	&#right span {
 		background-image: none;
 		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/images/arrow-right.png",sizingMethod="scale");
 		-ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="assets/images/arrow-right.png",sizingMethod="scale"); 
