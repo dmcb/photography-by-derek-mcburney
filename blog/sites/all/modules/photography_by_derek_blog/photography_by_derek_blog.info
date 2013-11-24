@@ -82,6 +82,7 @@ features[field_instance][] = node-photo_blog-field_meta
 features[field_instance][] = node-photo_blog-field_pictures
 features[filter][] = markdown
 features[hierarchical_select][] = taxonomy-1
+features[image][] = blog_thumbnail
 features[menu_custom][] = main-menu
 features[menu_links][] = main-menu_blog:<front>
 features[menu_links][] = main-menu_return-to-portfolio:http://photographybyderek.com

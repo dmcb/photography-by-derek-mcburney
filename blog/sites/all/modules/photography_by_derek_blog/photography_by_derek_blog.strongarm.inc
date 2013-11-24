@@ -444,7 +444,7 @@ node/*/edit',
     'enabled' => 1,
     'distance' => '0',
     'placeholder' => '',
-    'loader_icon' => '4',
+    'loader_icon' => '0',
     'exclude' => '',
   );
   $export['lazyloader'] = $strongarm;

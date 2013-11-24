@@ -30,7 +30,18 @@ function photography_by_derek_blog_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'infinite_scroll';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Cover photo */
+  $handler->display->display_options['fields']['field_cover_photo']['id'] = 'field_cover_photo';
+  $handler->display->display_options['fields']['field_cover_photo']['table'] = 'field_data_field_cover_photo';
+  $handler->display->display_options['fields']['field_cover_photo']['field'] = 'field_cover_photo';
+  $handler->display->display_options['fields']['field_cover_photo']['label'] = '';
+  $handler->display->display_options['fields']['field_cover_photo']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_cover_photo']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_cover_photo']['settings'] = array(
+    'image_style' => 'blog_thumbnail',
+    'image_link' => 'content',
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
