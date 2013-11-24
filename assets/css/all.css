@@ -214,7 +214,7 @@ button {
       text-decoration: none; }
 
 /* Modernizr detects touch ability, so if touch, don't require a hover to show previous/next elements */
-html.touch #showcase .navigation a {
+html.touch #showcase .navigation span {
   visibility: visible;
   opacity: 1; }
 
