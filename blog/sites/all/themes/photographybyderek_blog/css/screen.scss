@@ -18,6 +18,11 @@ body {
 	color: $dark-grey;
 	font-size: 16px;
 	font-family: Georgia, serif;
+	background: radial-gradient(center center, 50% 70%, #FCFCF9 70%, #F1F1EA);
+	background: -webkit-radial-gradient(center center, 50% 70%, #FCFCF9 70%, #F1F1EA);
+	background: -o-radial-gradient(center center, 50% 70%, #FCFCF9 70%, #F1F1EA);
+	background: -ms-radial-gradient(center center, 50% 70%, #FCFCF9 70%, #F1F1EA);
+	background-attachment: fixed;
 
 	@media screen and (max-width: 580px), screen and (max-device-width: 480px) {
 		font-size: 0.75em;

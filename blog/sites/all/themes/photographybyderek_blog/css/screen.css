@@ -20,7 +20,12 @@ body {
   margin: 0;
   color: #454545;
   font-size: 16px;
-  font-family: Georgia, serif; }
+  font-family: Georgia, serif;
+  background: radial-gradient(center center, 50% 70%, #fcfcf9 70%, #f1f1ea);
+  background: -webkit-radial-gradient(center center, 50% 70%, #fcfcf9 70%, #f1f1ea);
+  background: -o-radial-gradient(center center, 50% 70%, #fcfcf9 70%, #f1f1ea);
+  background: -ms-radial-gradient(center center, 50% 70%, #fcfcf9 70%, #f1f1ea);
+  background-attachment: fixed; }
   @media screen and (max-width: 580px), screen and (max-device-width: 480px) {
     body {
       font-size: 0.75em; } }
