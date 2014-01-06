@@ -62,7 +62,7 @@ body {
 /* Specific layout */
 
 #page-wrapper {
-	padding: 24px;
+	padding: 24px 0;
 
 	@media screen and (max-width: 580px), screen and (max-device-width: 480px) {
 		padding: 8px;

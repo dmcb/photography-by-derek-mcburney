@@ -1,9 +1,9 @@
-$max-width: 960;
+$max-width: 640;
+$margin: 4;
 
 // Picture width for responsive designs
 @mixin picture-width($number_of_pictures) {
-	$margin: 4;
-	$margin-percentage: percentage($margin/$max-width);
+	$margin-percentage: percentage($margin * 0.5 /$max-width);
 	max-width: ($max-width - ($margin * 2 * $number_of_pictures)) / $number_of_pictures + 0px;
 	// max-height: $max-height/$max-width * ($max-width - ($margin * 2 * $number_of_pictures)) / $number_of_pictures + 0px;
 	width: percentage(1/$number_of_pictures) - 2 * $margin-percentage;
@@ -13,8 +13,35 @@ $max-width: 960;
 
 // Pictures from embed images
 #main .node > .content div.pictures {
-	max-width: 100%;
+	$number_of_pictures: 2;
+	max-width: ($max-width * $number_of_pictures) + 0px;
 	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+
+	&.panorama {
+		max-width: 100%;
+
+		div.picture {
+			width: 100%;
+			margin-left: 0;
+			margin-right: 0;
+			margin-top: 1em;
+			margin-bottom: 2em;
+
+			img.picture {
+				padding-left: 0;
+				padding-right: 0;
+				border-left: 0;
+				border-right: 0;
+
+				@media screen and (max-width: 480px), screen and (max-device-width: 480px) {
+					padding-left: 0;
+					padding-right: 0;
+				}
+			}
+		}
+	}
 
 	div.picture {
 		@include picture-width(1);
@@ -83,7 +110,7 @@ $max-width: 960;
 		}
 
 		&.panorama {
-			max-width: 1896px;
+			max-width: 100%;
 			display: block;
 			margin-left: auto;
 			margin-right: auto;
@@ -92,17 +119,5 @@ $max-width: 960;
 		&.vertical {
 			max-width: 0.4535px*$max-width;
 		}
-	}
-
-	&.count-2 div.picture {
-		@include picture-width(2);
-	}
-
-	&.count-3 div.picture {
-		@include picture-width(3);
-	}
-
-	&.count-4 div.picture {
-		@include picture-width(4);
 	}
 }

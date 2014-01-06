@@ -49,6 +49,13 @@ function embed_image_theme($existing, $type, $theme, $path) {
 			),
 			'template' => 'templates/embed_images_wrapper'
 		),
+		'embed_panorama_image_wrapper' => array(
+			'variables' => array(
+				'image_count' => NULL,
+				'imgs_markup' => NULL,
+			),
+			'template' => 'templates/embed_panorama_image_wrapper'
+		),
     );
 }
 
@@ -111,13 +118,12 @@ function embed_image_node_view($node, $view_mode) {
 					// If we have a valid image specified from the embed image code, grab it and process it
 					if ($current_images && isset($image_index) && isset($current_images[$image_index-1])) {
 						$node_image = $current_images[$image_index-1];
-						array_push($processed_images, embed_image_image_processing($node->nid, $node_image, $settings));
+						array_push($processed_images, embed_image_process_image($node->nid, $node_image, $settings));
 					}
 				}
 
 				if (sizeof($processed_images)) {
-					$html = theme('embed_images_wrapper', array('image_count' => sizeof($processed_images), 'img_markup' => implode($processed_images)));
-					$text = str_replace($matches[0][$i], $html, $text);
+					$text = str_replace($matches[0][$i], embed_image_process_images($processed_images), $text);
 				}
 			}
 		}
@@ -125,10 +131,10 @@ function embed_image_node_view($node, $view_mode) {
 			// If no embed image matches were found in the body content, but there are images, append them all to the body
 			$processed_images = array();
 			foreach ($node_images as $node_image) {
-				array_push($processed_images, embed_image_image_processing($node->nid, $node_image, $settings));
+				array_push($processed_images, embed_image_process_image($node->nid, $node_image, $settings));
 			}
 			if (sizeof($processed_images)) {
-				$text .= theme('embed_images_wrapper', array('image_count' => sizeof($processed_images), 'img_markup' => implode($processed_images)));
+				$text .= embed_image_process_images($processed_images);
 			}
 		}
 
@@ -138,9 +144,35 @@ function embed_image_node_view($node, $view_mode) {
 }
 
 /**
+ * Function to process embed image markup for many images.
+ */
+function embed_image_process_images($processed_images) {
+	$markup = "";
+	$image_count = 0;
+	$wrapped_images = array();
+	// Loop through images, if there's a panorama-style image found, split groups
+	foreach ($processed_images as $processed_image) {
+		if ($processed_image['aspect_ratio'] == "panorama") {
+			$markup .= theme('embed_images_wrapper', array('image_count' => $image_count, 'img_markup' => implode($wrapped_images)));
+			$markup .= theme('embed_panorama_image_wrapper', array('img_markup' => $processed_image['markup']));
+			$wrapped_images = array();
+			$image_count=0;
+		}
+		else {
+			$image_count++;
+			array_push($wrapped_images, $processed_image['markup']);
+		}
+	}
+	if (sizeof($wrapped_images)) {
+		$markup .= theme('embed_images_wrapper', array('image_count' => $image_count, 'img_markup' => implode($wrapped_images)));
+	}
+	return $markup;
+}
+
+/**
  * Function to process embed image markup.
  */
-function embed_image_image_processing($node_id, $node_image, $settings) {
+function embed_image_process_image($node_id, $node_image, $settings) {
 
     $aspect_ratio = "vertical";
     list($width, $height) = getimagesize($node_image['uri']);
@@ -153,7 +185,7 @@ function embed_image_image_processing($node_id, $node_image, $settings) {
 
 	$img_markup = theme('embed_image', array('uri' => file_create_url($node_image['uri']), 'alt' => $node_image['alt'], 'title' => $node_image['title']));
 
-	if ($settings['fancybox']) {
+	if ($settings['fancybox'] && $aspect_ratio != "panorama") {
 		$img_markup = theme('embed_fancybox', array('uri' => file_create_url($node_image['uri']), 'title' => $node_image['title'], 'group' => $node_id, 'img_markup' => $img_markup));
 	}
 
@@ -184,7 +216,7 @@ function embed_image_image_processing($node_id, $node_image, $settings) {
         $pinterest_markup = theme('embed_pinterest', array('path' => $path, 'uri' => file_create_url($node_image['uri']), 'title' => $node_image['title']));
 	}
 
-	return theme('embed_image_wrapper', array('img_markup' => $img_markup, 'meta_markup' => $meta_markup, 'pinterest_markup' => $pinterest_markup, 'aspect_ratio' => $aspect_ratio));
+	return array('aspect_ratio' => $aspect_ratio, 'markup' => theme('embed_image_wrapper', array('img_markup' => $img_markup, 'meta_markup' => $meta_markup, 'pinterest_markup' => $pinterest_markup, 'aspect_ratio' => $aspect_ratio)));
 }
 
 /**
