@@ -43,8 +43,7 @@ body {
 
 /* General layout */
 .section {
-  margin: 0 auto;
-  max-width: 1938px; }
+  margin: 0 auto; }
 
 /* Specific layout */
 #page-wrapper {
