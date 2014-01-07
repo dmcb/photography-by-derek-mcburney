@@ -29,6 +29,12 @@ $margin: 4;
 			margin-top: 1em;
 			margin-bottom: 2em;
 
+			@media screen and (max-width: 480px), screen and (max-device-width: 480px) {
+				margin-top: 0;
+				margin-bottom: 1em;
+				@include picture-width(1);
+			}
+
 			img.picture {
 				padding-left: 0;
 				padding-right: 0;
@@ -36,8 +42,8 @@ $margin: 4;
 				border-right: 0;
 
 				@media screen and (max-width: 480px), screen and (max-device-width: 480px) {
-					padding-left: 0;
-					padding-right: 0;
+					padding: 0.25em;
+					border: 1px;
 				}
 			}
 		}

@@ -176,7 +176,7 @@ function embed_image_process_image($node_id, $node_image, $settings = null) {
 	if (isset($settings)) {
 	    $aspect_ratio = "vertical";
 	    list($width, $height) = getimagesize($node_image['uri']);
-	    if (($width / $height) > 2) {
+	    if (($width / $height) > 2 && $width > 1440) {
 	            $aspect_ratio = "panorama";
 	    }
 	    else if ($width > $height) {

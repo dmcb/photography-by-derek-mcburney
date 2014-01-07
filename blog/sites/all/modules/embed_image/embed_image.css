@@ -11,6 +11,14 @@
       margin-right: 0;
       margin-top: 1em;
       margin-bottom: 2em; }
+      @media screen and (max-width: 480px), screen and (max-device-width: 480px) {
+        #main .node > .content div.pictures.panorama div.picture {
+          margin-top: 0;
+          margin-bottom: 1em;
+          max-width: 632px;
+          width: 99.375%;
+          margin-left: 0.3125%;
+          margin-right: 0.3125%; } }
       #main .node > .content div.pictures.panorama div.picture img.picture {
         padding-left: 0;
         padding-right: 0;
@@ -18,8 +26,8 @@
         border-right: 0; }
         @media screen and (max-width: 480px), screen and (max-device-width: 480px) {
           #main .node > .content div.pictures.panorama div.picture img.picture {
-            padding-left: 0;
-            padding-right: 0; } }
+            padding: 0.25em;
+            border: 1px; } }
   #main .node > .content div.pictures div.picture {
     max-width: 632px;
     width: 99.375%;
