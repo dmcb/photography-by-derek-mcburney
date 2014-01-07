@@ -26,7 +26,7 @@
         border-right: 0; }
         @media screen and (max-width: 480px), screen and (max-device-width: 480px) {
           #main .node > .content div.pictures.panorama div.picture img.picture {
-            padding: 0.25em;
+            padding: 3px;
             border: 1px; } }
   #main .node > .content div.pictures div.picture {
     max-width: 632px;
@@ -40,7 +40,7 @@
     font-size: 0.85em; }
     #main .node > .content div.pictures div.picture img.picture {
       background-color: #fff;
-      padding: 0.75em;
+      padding: 10px;
       box-sizing: border-box;
       border: 1px solid #efefef;
       width: 100%;
@@ -55,7 +55,7 @@
       box-shadow: 0px 0px 10px #eee; }
       @media screen and (max-width: 480px), screen and (max-device-width: 480px) {
         #main .node > .content div.pictures div.picture img.picture {
-          padding: 0.25em; } }
+          padding: 3px; } }
     #main .node > .content div.pictures div.picture a.fancybox:hover img.picture {
       -moz-transform: scale(1.02);
       -webkit-transform: scale(1.02);
@@ -88,4 +88,4 @@
       margin-left: auto;
       margin-right: auto; }
     #main .node > .content div.pictures div.picture.vertical {
-      max-width: 290.24px; }
+      max-width: 293.11111px; }

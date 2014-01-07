@@ -1,9 +1,12 @@
 $max-width: 640;
 $margin: 4;
+$margin-percentage: percentage($margin * 0.5 /$max-width);
+$padding: 10px;
+$padding-mobile: 3px;
+$border-size: 1px;
 
 // Picture width for responsive designs
 @mixin picture-width($number_of_pictures) {
-	$margin-percentage: percentage($margin * 0.5 /$max-width);
 	max-width: ($max-width - ($margin * 2 * $number_of_pictures)) / $number_of_pictures + 0px;
 	// max-height: $max-height/$max-width * ($max-width - ($margin * 2 * $number_of_pictures)) / $number_of_pictures + 0px;
 	width: percentage(1/$number_of_pictures) - 2 * $margin-percentage;
@@ -42,8 +45,8 @@ $margin: 4;
 				border-right: 0;
 
 				@media screen and (max-width: 480px), screen and (max-device-width: 480px) {
-					padding: 0.25em;
-					border: 1px;
+					padding: $padding-mobile;
+					border: $border-size;
 				}
 			}
 		}
@@ -59,9 +62,9 @@ $margin: 4;
 
 		img.picture {
 			background-color: #fff;
-			padding: 0.75em;
+			padding: $padding;
 			box-sizing: border-box;
-			border: 1px solid #efefef;
+			border: $border-size solid #efefef;
 			width: 100%;
 			-moz-transition: -moz-transform 0.3s ease;
 			-webkit-transition: -webkit-transform 0.3s ease;
@@ -74,7 +77,7 @@ $margin: 4;
 			box-shadow: 0px 0px 10px #eee;
 
 			@media screen and (max-width: 480px), screen and (max-device-width: 480px) {
-				padding: 0.25em;
+				padding: $padding-mobile;
 			}
 		}
 
@@ -123,7 +126,9 @@ $margin: 4;
 		}
 
 		&.vertical {
-			max-width: 0.4535px*$max-width;
+			$picture-width: $max-width - ($margin * 2) - ($padding * 2) - ($border-size * 2);
+			$picture-height: $picture-width / 1.5;
+			max-width: $picture-height / 1.5 + $padding * 2 + 2px;
 		}
 	}
 }
