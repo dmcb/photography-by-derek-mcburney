@@ -172,51 +172,52 @@ function embed_image_process_images($processed_images) {
 /**
  * Function to process embed image markup.
  */
-function embed_image_process_image($node_id, $node_image, $settings) {
+function embed_image_process_image($node_id, $node_image, $settings = null) {
+	if (isset($settings)) {
+	    $aspect_ratio = "vertical";
+	    list($width, $height) = getimagesize($node_image['uri']);
+	    if (($width / $height) > 2) {
+	            $aspect_ratio = "panorama";
+	    }
+	    else if ($width > $height) {
+	            $aspect_ratio = "horizontal";
+	    }
 
-    $aspect_ratio = "vertical";
-    list($width, $height) = getimagesize($node_image['uri']);
-    if (($width / $height) > 2) {
-            $aspect_ratio = "panorama";
-    }
-    else if ($width > $height) {
-            $aspect_ratio = "horizontal";
-    }
+		$img_markup = theme('embed_image', array('uri' => file_create_url($node_image['uri']), 'alt' => $node_image['alt'], 'title' => $node_image['title']));
 
-	$img_markup = theme('embed_image', array('uri' => file_create_url($node_image['uri']), 'alt' => $node_image['alt'], 'title' => $node_image['title']));
+		if ($settings['fancybox'] && $aspect_ratio != "panorama") {
+			$img_markup = theme('embed_fancybox', array('uri' => file_create_url($node_image['uri']), 'title' => $node_image['title'], 'group' => $node_id, 'img_markup' => $img_markup));
+		}
 
-	if ($settings['fancybox'] && $aspect_ratio != "panorama") {
-		$img_markup = theme('embed_fancybox', array('uri' => file_create_url($node_image['uri']), 'title' => $node_image['title'], 'group' => $node_id, 'img_markup' => $img_markup));
+		$image_meta = array();
+
+		if ($settings['metadata']) {
+			$exif_ifd0 = read_exif_data($node_image['uri'] ,'IFD0' ,0);
+			if (isset($exif_ifd0['FocalLength'])) {
+				$focal_length = explode("/", $exif_ifd0['FocalLength']);
+				$image_meta['focal_length'] = $focal_length[0]."mm";
+			}
+			if (isset($exif_ifd0['ISOSpeedRatings'])) {
+				$image_meta['iso'] = 'ISO '.$exif_ifd0['ISOSpeedRatings'];
+			}
+			if (isset($exif_ifd0['COMPUTED']) && isset($exif_ifd0['COMPUTED']['ApertureFNumber'])) {
+				$image_meta['aperture'] = $exif_ifd0['COMPUTED']['ApertureFNumber'];
+			}
+			if (isset($exif_ifd0['ExposureTime'])) {
+				$image_meta['shutter_speed'] = $exif_ifd0['ExposureTime'];
+			}
+		}
+
+		$meta_markup = theme('embed_metadata', array('title' => $node_image['title'], 'image_meta' => $image_meta));
+
+		$pinterest_markup = NULL;
+		if ($settings['pinterest']) {
+			$path = $GLOBALS['base_url'].'/'.drupal_get_path_alias("node/".$node_id);
+	        $pinterest_markup = theme('embed_pinterest', array('path' => $path, 'uri' => file_create_url($node_image['uri']), 'title' => $node_image['title']));
+		}
+
+		return array('aspect_ratio' => $aspect_ratio, 'markup' => theme('embed_image_wrapper', array('img_markup' => $img_markup, 'meta_markup' => $meta_markup, 'pinterest_markup' => $pinterest_markup, 'aspect_ratio' => $aspect_ratio)));
 	}
-
-	$image_meta = array();
-
-	if ($settings['metadata']) {
-		$exif_ifd0 = read_exif_data($node_image['uri'] ,'IFD0' ,0);
-		if (isset($exif_ifd0['FocalLength'])) {
-			$focal_length = explode("/", $exif_ifd0['FocalLength']);
-			$image_meta['focal_length'] = $focal_length[0]."mm";
-		}
-		if (isset($exif_ifd0['ISOSpeedRatings'])) {
-			$image_meta['iso'] = 'ISO '.$exif_ifd0['ISOSpeedRatings'];
-		}
-		if (isset($exif_ifd0['COMPUTED']) && isset($exif_ifd0['COMPUTED']['ApertureFNumber'])) {
-			$image_meta['aperture'] = $exif_ifd0['COMPUTED']['ApertureFNumber'];
-		}
-		if (isset($exif_ifd0['ExposureTime'])) {
-			$image_meta['shutter_speed'] = $exif_ifd0['ExposureTime'];
-		}
-	}
-
-	$meta_markup = theme('embed_metadata', array('title' => $node_image['title'], 'image_meta' => $image_meta));
-
-	$pinterest_markup = NULL;
-	if ($settings['pinterest']) {
-		$path = $GLOBALS['base_url'].'/'.drupal_get_path_alias("node/".$node_id);
-        $pinterest_markup = theme('embed_pinterest', array('path' => $path, 'uri' => file_create_url($node_image['uri']), 'title' => $node_image['title']));
-	}
-
-	return array('aspect_ratio' => $aspect_ratio, 'markup' => theme('embed_image_wrapper', array('img_markup' => $img_markup, 'meta_markup' => $meta_markup, 'pinterest_markup' => $pinterest_markup, 'aspect_ratio' => $aspect_ratio)));
 }
 
 /**
