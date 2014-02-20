@@ -119,7 +119,7 @@ $(function( $ ) {
 			var that = this;
 			
 			// Change meta data
-			document.title = photo.attributes.title + ' | Photography by Derek McBurney';
+			document.title = photo.attributes.title + ' | Calgary Photography by Derek McBurney';
 			
 			$(this.el).animate({opacity: 0}, 'fast', function() {
 				that.model = photo;
