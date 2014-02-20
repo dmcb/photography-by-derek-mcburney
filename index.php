@@ -30,7 +30,7 @@ if (isset($current_photo)) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-	<title><?php if (isset($current_photo)) echo $current_photo['title'].' | ';?>Photography by Derek McBurney</title>
+	<title><?php if (isset($current_photo)) echo $current_photo['title'].' | ';?>Calgary Photography by Derek McBurney</title>
 	
 	<meta name="description" content="Calgary, Alberta based photographer who loves to shoot and share weddings, engagements, events, people, landscapes and architecture." />
 	<meta name="keywords" content="photography by derek mcburney, derek mcburney, calgary, alberta, calgary photographer, wedding photography, engagement photography, event photography, people photography, landscape photography, architecture photography" />
