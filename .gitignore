@@ -1,7 +1,8 @@
-# Ignore OS, SASS, Bower and Node output
+# Ignore OS, SASS, CodeKit Bower and Node output
 .DS_Store*
 Thumbs.db
 .sass-cache
+config.codekit
 assets/js/lib
 node_modules
 npm-debug.log
