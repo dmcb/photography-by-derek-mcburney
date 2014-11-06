@@ -4,21 +4,22 @@
   src: url("../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.woff") format("woff"), url("../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.ttf") format("truetype"), url("../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.svg#LeagueGothicRegular") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 @font-face {
   font-family: 'SortsMillGoudyItalic';
   src: url("../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.eot");
   src: url("../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.woff") format("woff"), url("../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.ttf") format("truetype"), url("../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.svg#SortsMillGoudyItalic") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 body {
   margin: 0;
-  background: black url("../images/background.jpg") no-repeat center -1000px;
-  -webkit-background-size: 2560px;
   color: #FFF;
   font-size: 16px;
-  font-family: Georgia, serif; }
+  font-family: Georgia, serif;
+  background: radial-gradient(center center, 50% 70%, #333333 70%, #222222);
+  background: -webkit-radial-gradient(center center, 50% 70%, #333333 70%, #222222);
+  background: -o-radial-gradient(center center, 50% 70%, #333333 70%, #222222);
+  background: -ms-radial-gradient(center center, 50% 70%, #333333 70%, #222222);
+  background-attachment: fixed; }
 
 a {
   color: #dea7cc;

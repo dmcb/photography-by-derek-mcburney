@@ -41,11 +41,14 @@ $pink: #dea7cc;
 
 body {
 	margin: 0;
-	background: #000 url("../images/background.jpg") no-repeat center -1000px;
-	-webkit-background-size: 2560px;
 	color: #FFF;
 	font-size: 16px;
 	font-family: Georgia, serif;
+	background: radial-gradient(center center, 50% 70%, #333 70%, #222);
+	background: -webkit-radial-gradient(center center, 50% 70%, #333 70%, #222);
+	background: -o-radial-gradient(center center, 50% 70%, #333 70%, #222);
+	background: -ms-radial-gradient(center center, 50% 70%, #333 70%, #222);
+	background-attachment: fixed;
 }
 
 a {
