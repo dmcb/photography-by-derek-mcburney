@@ -1,7 +1,7 @@
 
 
-
-
+@import "../import1.css";
+@import "../import2.css";
 
 body {
   margin: 0;
@@ -27,4 +27,3 @@ textarea, select {
   font: 1em/160% Verdana, sans-serif;
   color: #494949;
 }
-
