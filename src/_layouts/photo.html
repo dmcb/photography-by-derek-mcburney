@@ -7,8 +7,8 @@
                 {% include header.html %}
 
                 <div id="showcase" class="section">
-                    <a class="navigation" id="left" href="<?php if (isset($previous_photo)) print $previous_photo['id']; ?>"><span></span></a>
-                    <a class="navigation" id="right" href="<?php if (isset($next_photo)) print $next_photo['id']; ?>"><span></span></a> 
+                    <a class="navigation" id="left" href=""><span></span></a>
+                    <a class="navigation" id="right" href=""><span></span></a> 
                     <div id="focus">
                         <img src="/images/placeholder.png" style="background-image: url({{ page.photo }}); filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{{ page.photo }}',sizingMethod="scale"); -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{{ page.photo }}',sizingMethod="scale"); "/>
                     </div>
