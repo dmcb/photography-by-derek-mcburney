@@ -1,0 +1,492 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+$dark-grey: #222;
+$grey: #4c4c4c;
+$grey-highlight: #8c8c8c;
+$orange: #ffa300;
+$pink: #dea7cc;
+
+@mixin drop-shadow {
+    -moz-box-shadow: 0 0 16px #000;
+    -webkit-box-shadow: 0 0 16px #000;
+    box-shadow: 0 0 16px #000;  
+}
+
+@mixin easing {
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+}
+
+@font-face {
+    font-family: 'LeagueGothicRegular';
+    src: url('../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.eot');
+    src: url('../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.woff') format('woff'),
+         url('../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.ttf') format('truetype'),
+         url('../fonts/League-Gothic-fontfacekit/League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SortsMillGoudyItalic';
+    src: url('../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.eot');
+    src: url('../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.woff') format('woff'),
+         url('../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.ttf') format('truetype'),
+         url('../fonts/Sorts-Mill-Goudy-fontfacekit/GoudyStM-Italic-webfont.svg#SortsMillGoudyItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    color: #FFF;
+    font-size: 16px;
+    font-family: Georgia, serif;
+    background: radial-gradient(center center, 50% 70%, #333 70%, #222);
+    background: -webkit-radial-gradient(center center, 50% 70%, #333 70%, #222);
+    background: -o-radial-gradient(center center, 50% 70%, #333 70%, #222);
+    background: -ms-radial-gradient(center center, 50% 70%, #333 70%, #222);
+    background-attachment: fixed;
+}
+
+a {
+    color: $pink;
+    text-decoration: none;
+    
+    &:hover {
+        text-decoration: none;
+    }
+    
+    img {
+        border: 0;
+    }
+}
+
+h1 {
+    font-family: "LeagueGothicRegular", impact, sans-serif; 
+    font-size: 2.5em;
+    text-transform: lowercase;
+    font-weight: normal;
+    text-align: center;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+h2, .section > span, form > span {
+    font-family: 'SortsMillGoudyItalic', Georgia, serif;
+    font-size: 1.4em;
+    font-weight: normal;
+    width: 100%;
+    display: block;
+    margin: 0.8em 0;
+    text-align: center;
+}
+
+input, textarea, button {
+    font-family: Georgia, serif;
+    border-radius: 4px;
+    border: 0 none;
+    width: 98%;
+    margin: 2px 0;
+    font-size: 1em;
+    padding: 2px;
+    background-color: rgba(255,255,255,0.1);
+    color: #FFF;
+    border: 2px solid transparent;
+    
+    &.error {
+        border: 2px solid $pink;
+    }
+}
+
+label.error {
+    color: $pink;
+    width: 100%;
+    text-align: right;
+    display: none;
+    font-size: 0.8em;
+}
+
+textarea {
+    height: 96px;
+    overflow: auto;
+}
+
+.placeholder, ::-webkit-input-placeholder, :-moz-placeholder, :-ms-input-placeholder {
+    color: $grey-highlight;
+}
+
+button {
+    font-family: 'SortsMillGoudyItalic', Georgia, serif;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: $grey;
+    color: #FFFFFF;
+    width: 176px;
+    height: 28px;
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: initial;
+    @include easing;
+    
+    &:hover {
+        color: $pink;
+    }
+}
+
+.frame {
+    padding: 24px;
+    /* This property is only to stop weird white space right of the frame from causing scaling issues on iPhone after rotating from portrait to landscape back to portrait */
+    overflow: hidden;
+}
+
+#menu {
+    select {
+        display: none;
+        width: 100%;
+        margin: 8px 0;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+
+        
+        li {
+            list-style: none;
+            font-size: 0.9em;
+            display: inline-block;
+            text-align: center;
+            padding: 8px 10px;
+
+            a {
+                transition: 0.3s ease;
+                -moz-transition: 0.3s ease;
+                -webkit-transition: 0.3s ease;
+                -o-transition: 0.3s ease;
+                color: $grey-highlight;
+
+                &:hover {
+                    color: $pink;
+                    text-decoration: none;
+                }
+                
+                &.active {
+                    color: $pink;   
+                }
+            }
+        }
+    }
+}
+
+
+.section {
+    max-width: 560px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#showcase {
+    text-align: center;
+    position: relative;
+    max-width: 946px;
+    width: 100%;
+    
+    .navigation {
+        height: 100%;
+        width: 30%;
+        position: absolute;
+        cursor: pointer;
+        background-image: url("../images/transparent.gif");
+        
+        &:hover {   
+            span {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        
+        &#left {
+            left: -16px;
+            
+            span {
+                background-image: url("../images/arrow-left.png");
+                background-repeat: none;
+                left: -8px;
+            }
+        }
+        
+        &#right {
+            right: -16px;
+            
+            span {
+                background-image: url("../images/arrow-right.png");
+                background-repeat: none;
+                right: -8px;
+            }
+        }
+        
+        span {
+            background-size: cover;
+            position: absolute;
+            top: 50%;
+            @include easing;
+            opacity: 0;
+            display: block;
+            visibility: hidden;
+            height: 48px;
+            width: 48px;
+            margin-top: -80px;
+        }
+    }
+
+    img {
+        width: 100%;
+        background-color: #080808;
+        background-size: cover;
+        @include drop-shadow;
+    }
+}
+
+#details h2 img {
+    vertical-align: middle;
+    padding-left: 4px;
+    padding-bottom: 4px;
+}
+
+#contactme {
+    text-align: center;
+}
+
+#footer {
+    max-width: 544px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 3em;
+    color: $grey;
+
+    #social-media {
+        margin-bottom: 0.5em;
+
+        img {
+            width: 32px;
+            height: 32px;
+        }
+    }
+    
+    #watermark {
+        display: block;
+        font-size: 0.8em;
+        text-align: center;
+        margin-top: 8px;
+        color: $grey;
+        
+        img {
+            vertical-align: bottom;
+            margin: 0 3px;
+            width: 43px;
+            height: 30px;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+/* Modernizr detects touch ability, so if touch, don't require a hover to show previous/next elements */
+html.touch #showcase .navigation span {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* For narrow displays or phones */
+@media screen and (max-width: 580px), screen and (max-device-width: 480px) {
+    body {
+        font-size: 12px
+    }
+    
+    button {
+        width: 98%;
+        height: 22px;
+        padding: 0 2px;
+    }
+    
+    .frame {
+        padding: 8px;
+    }
+    
+    #menu {
+        select {
+            display: inline;
+        }
+    
+        ul {
+            display: none;
+        }
+    }
+    
+    .section {
+        max-width: none;
+    }
+
+    #showcase {
+        max-width: none;
+        width: auto;
+        
+        .navigation {
+            &#left {
+                left: -4px;
+            }
+            
+            &#right {
+                right: -4px;
+            }
+            
+            span { 
+                margin-top: -25px;
+                height: 32px;
+                width: 32px;
+            }
+        }
+    }
+}
+
+/* For wide displays or tablets in landscape */
+@media screen and (min-width: 1400px), screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+
+    h1 {
+        text-align: left;
+    }
+    
+    h2, .section > span, form > span {
+        text-align: left;
+    }
+    
+    .container {
+        display:table;
+        position:absolute;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .frame {
+        display: table-cell;
+        vertical-align: middle;
+        max-width: 1884px;
+        padding-top: 0;
+    }
+    
+    #showcase {
+        max-width: 1896px;
+        display: inline-block;
+        width: 70%;
+        margin-right: 32px;
+    
+        img {
+            float: left;
+        }
+    }
+
+    #details {
+        position: absolute;
+        width: 27%;
+        display: inline-block;
+        
+        h2 {
+            margin-top: 0;
+        }
+    }
+    
+    #contactme {
+        text-align: left;
+    }
+    
+    #side {
+        width: 27%;
+        display: inline-block;
+        vertical-align: bottom;
+        
+        .section {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+    
+    #menu ul, #footer {
+        max-width: none;
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
+        
+        #social-media {
+            display: inline-block;
+            margin-right: 16px;
+        }
+    }
+    
+    #menu ul li {
+        padding-left: 0;
+        padding-right: 32px;
+    }
+
+    #footer {
+        max-width: 544px;
+        text-align: left;
+
+        #watermark {
+            text-align: left;
+        }
+    }
+}
+
+/* Specifically tablets in landscape */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        
+    #details, #side {
+        font-size: 0.8em;
+    }
+    
+    button {
+        width: 98%;
+        padding: 0 2px;
+        height: 22px;
+    }
+    
+    textarea {
+        height: 48px;
+    }
+    
+    .frame {
+        padding: 16px;
+    }
+    
+    #showcase {
+        margin-right: 16px;
+    
+        .navigation {
+            &#left {
+                left: -4px;
+            }
+            
+            &#right {
+                right: -4px;
+            }
+        }
+    }
+    
+    #details, #side {
+        width: 28%;
+    }
+}

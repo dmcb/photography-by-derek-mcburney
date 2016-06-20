@@ -6,18 +6,33 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
+title: Calgary Photography by Derek McBurney
+email: derek@photographybyderek.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Calgary, Alberta based photographer who loves to shoot and share weddings, engagements, events, people, landscapes and architecture.
+keywords: "photography by derek mcburney, derek mcburney, calgary, alberta, calgary photographer, wedding photography, engagement photography, event photography, people photography, landscape photography, architecture photography"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "http://photographybyderek.com" # the base hostname & protocol for your site
+twitter_username: derekmcb
+github_username:  dmcb
 
 # Build settings
 markdown: kramdown
 source: src
 destination: _site
+
+# Collections
+collections:
+  photos:
+    output: true
+    permalink: /:path/
+  blogs:
+    output: true
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: photos
+    values:
+      layout: photo

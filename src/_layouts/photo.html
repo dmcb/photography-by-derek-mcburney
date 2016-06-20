@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    {% include head.html %}
+    <body>
+        <div class="container">
+            <div class="frame">
+                {% include header.html %}
+
+                <div id="showcase" class="section">
+                    <a class="navigation" id="left" href="<?php if (isset($previous_photo)) print $previous_photo['id']; ?>"><span></span></a>
+                    <a class="navigation" id="right" href="<?php if (isset($next_photo)) print $next_photo['id']; ?>"><span></span></a> 
+                    <div id="focus">
+                        <img src="/images/placeholder.png" style="background-image: url({{ page.photo }}); filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{{ page.photo }}',sizingMethod="scale"); -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{{ page.photo }}',sizingMethod="scale"); "/>
+                    </div>
+                </div>
+
+                <div id="details" class="section">
+                    <h2>
+                        {{ page.title }}
+                        <a href="//www.pinterest.com/pin/create/button/?url=http://photographybyderek.com/<% print(encodeURI(id)); %>&media=<%= file %>&description=<% print(encodeURI(title)); %>" data-pin-do="buttonPin" data-pin-config="none" target="_blank"><img src="/images/pin_it_button.png" /></a>
+                    </h2>
+                    <p>
+                        {{ content }}
+                    </p>
+                </div>
+
+                {% include footer.html %}
+            </div>
+        </div>
+    </body>
+
+</html>

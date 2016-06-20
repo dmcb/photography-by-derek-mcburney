@@ -1,12 +1,47 @@
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-
-  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    
+    <meta name="description" content="{{ site.description }}" />
+    <meta name="keywords" content="{{ site.keywords }}" />
+    <meta name="robots" content="ALL" />
+    <meta name="author" content="Derek McBurney" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    
+    <meta name="twitter:site" content="@derekmcb" />
+    <meta name="twitter:creator" content="@derekmcb" />
+    <meta name="twitter:card" content="photo" />
+    <meta name="twitter:title" content="{{ page.title" />
+    <meta name="twitter:description" content="{{ page.content }}" />
+    <meta name="twitter:image" content="{{ page.photo }}" />
+    <meta name="twitter:image:width" content="1896" />
+    <meta name="twitter:image:height" content="1264" />
+    
+    <meta name="fb:app_id" content="" />
+    <meta name="og:type" content="photo" />
+    <meta name="og:title" content="{{ page.title }}" />
+    <meta name="og:image" content="{{ page.photo }}" />
+    <meta name="og:description" content="{{ page.content }}" />
+    
+    <link rel="author" href="https://plus.google.com/109721017489855707609" />
+    
+    <link href="/css/all.css" rel="stylesheet"/>
+    <!--[if lt IE 9]>
+    <link href="/css/ie8.css" rel="stylesheet"/>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link href="/css/ie7.css" rel="stylesheet"/>
+    <![endif]-->
+    
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-35360688-1']);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
 </head>
