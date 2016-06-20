@@ -24,3 +24,6 @@ blog/sites/*/settings*.php
 blog/.htaccess
 blog/sites/*/files
 blog/sites/*/private
+
+# Ignore Jekyll generated files
+_site
