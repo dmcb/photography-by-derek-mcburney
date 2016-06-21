@@ -29,8 +29,6 @@ collections:
     output: true
   photos-places:
     output: true
-  blogs:
-    output: true
 
 # Defaults
 defaults:
@@ -38,14 +36,19 @@ defaults:
       path: ""
       type: photos-weddings
     values:
-      layout: photo
+      layout: portfolio
   - scope:
       path: ""
       type: photos-people
     values:
-      layout: photo
+      layout: portfolio
   - scope:
       path: ""
       type: photos-places
     values:
-      layout: photo
+      layout: portfolio
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: blog

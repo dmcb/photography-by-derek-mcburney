@@ -1,5 +1,5 @@
 ---
-layout: photo
+layout: portfolio
 collection: photos-weddings
 title: Anna and Martin
 photo: /images/photos/anna-and-martin.jpg

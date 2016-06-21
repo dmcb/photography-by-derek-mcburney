@@ -1,0 +1,159 @@
+body {
+    margin: 0;
+    font-size: 16px;
+    font-family: Georgia, serif;
+
+    &.portfolio {
+        background: radial-gradient(center center, 50% 70%, #333 70%, #222);
+        background: -webkit-radial-gradient(center center, 50% 70%, #333 70%, #222);
+        background: -o-radial-gradient(center center, 50% 70%, #333 70%, #222);
+        background: -ms-radial-gradient(center center, 50% 70%, #333 70%, #222);
+        background-attachment: fixed;
+        color: #FFF;
+
+        /* For wide displays or tablets in landscape */
+        @media screen and (min-width: 1400px), screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+
+            h1 {
+                text-align: left;
+            }
+            
+            h2, .section > span, form > span {
+                text-align: left;
+            }
+            
+            .container {
+                display:table;
+                position:absolute;
+                height: 100%;
+                width: 100%;
+            }
+            
+            .frame {
+                display: table-cell;
+                vertical-align: middle;
+                max-width: 1884px;
+                padding-top: 0;
+            }
+            
+            #showcase {
+                max-width: 1896px;
+                display: inline-block;
+                width: 70%;
+                margin-right: 32px;
+            
+                img {
+                    float: left;
+                }
+            }
+
+            #details {
+                position: absolute;
+                width: 27%;
+                display: inline-block;
+                
+                h2 {
+                    margin-top: 0;
+                }
+            }
+            
+            #contactme {
+                text-align: left;
+            }
+            
+            #side {
+                width: 27%;
+                display: inline-block;
+                vertical-align: bottom;
+                
+                .section {
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+            }
+            
+            #menu ul, #footer {
+                max-width: none;
+                margin-top: 0;
+                margin-left: 0;
+                margin-right: 0;
+                text-align: left;
+                
+                #social-media {
+                    display: inline-block;
+                    margin-right: 16px;
+                }
+            }
+            
+            #menu ul li {
+                padding-left: 0;
+                padding-right: 32px;
+            }
+
+            #footer {
+                max-width: 544px;
+                text-align: left;
+
+                #watermark {
+                    text-align: left;
+                }
+            }
+        }
+
+        /* Specifically tablets in landscape */
+        @media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+                
+            #details, #side {
+                font-size: 0.8em;
+            }
+            
+            button {
+                width: 98%;
+                padding: 0 2px;
+                height: 22px;
+            }
+            
+            textarea {
+                height: 48px;
+            }
+            
+            .frame {
+                padding: 16px;
+            }
+            
+            #showcase {
+                margin-right: 16px;
+            
+                .navigation {
+                    &#left {
+                        left: -4px;
+                    }
+                    
+                    &#right {
+                        right: -4px;
+                    }
+                }
+            }
+            
+            #details, #side {
+                width: 28%;
+            }
+        }
+    }
+
+    &.blog {
+        background: radial-gradient(center center, 50% 70%, #FCFCF9 70%, #F1F1EA);
+        background: -webkit-radial-gradient(center center, 50% 70%, #FCFCF9 70%, #F1F1EA);
+        background: -o-radial-gradient(center center, 50% 70%, #FCFCF9 70%, #F1F1EA);
+        background: -ms-radial-gradient(center center, 50% 70%, #FCFCF9 70%, #F1F1EA);
+        background-color: #FCFCF9;
+        background-attachment: fixed;
+        color: $dark-grey;
+    }
+
+    .frame {
+        padding: 24px;
+        /* This property is only to stop weird white space right of the frame from causing scaling issues on iPhone after rotating from portrait to landscape back to portrait */
+        overflow: hidden;
+    }
+}

@@ -1,0 +1,50 @@
+#menu {
+    select {
+        display: none;
+        width: 100%;
+        margin: 8px 0;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+
+        
+        li {
+            list-style: none;
+            font-size: 0.9em;
+            display: inline-block;
+            text-align: center;
+            padding: 8px 10px;
+
+            a {
+                transition: 0.3s ease;
+                -moz-transition: 0.3s ease;
+                -webkit-transition: 0.3s ease;
+                -o-transition: 0.3s ease;
+                color: $grey-highlight;
+
+                &:hover {
+                    color: $pink;
+                    text-decoration: none;
+                }
+                
+                &.active {
+                    color: $pink;   
+                }
+            }
+        }
+    }
+}
+
+body.blog #menu {
+    ul li a {
+        color: $blog-grey;
+
+        &:hover, &.active {
+            color: $blog-pink;
+        }
+    }
+}
