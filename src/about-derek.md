@@ -7,7 +7,7 @@ title: About Derek
 ## About Derek
 
 <div class="image-container">
-    <img src="http://photographybyderek.com/blog/sites/default/files/article_images/DSC_0540.jpg" alt="" title="Photo by Jason Ronald" class="picture" style="display: inline;">
+    <img src="/images/me.jpg" alt="" title="Photo by Jason Ronald" class="picture" style="display: inline;">
     <p class="caption">Photo by Jason Ronald</p>
 </div>
 
