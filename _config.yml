@@ -23,9 +23,12 @@ destination: _site
 
 # Collections
 collections:
-  photos:
+  photos-weddings:
     output: true
-    permalink: /:path/
+  photos-people:
+    output: true
+  photos-places:
+    output: true
   blogs:
     output: true
 
@@ -33,6 +36,16 @@ collections:
 defaults:
   - scope:
       path: ""
-      type: photos
+      type: photos-weddings
+    values:
+      layout: photo
+  - scope:
+      path: ""
+      type: photos-people
+    values:
+      layout: photo
+  - scope:
+      path: ""
+      type: photos-places
     values:
       layout: photo
