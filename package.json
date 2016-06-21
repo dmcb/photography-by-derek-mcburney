@@ -1,9 +1,0 @@
-{
-  "name": "Photography-by-Derek-McBurney",
-  "version": "1.0.0",
-  "devDependencies": {
-	"bower": "~0.8.5",
-	"grunt": "~0.4.1",
-	"grunt-bowerful": "~0.2.1"
-  }
-}
