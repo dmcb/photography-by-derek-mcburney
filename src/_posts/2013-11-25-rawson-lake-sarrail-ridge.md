@@ -1,6 +1,6 @@
 ---
 title: "Rawson Lake & Sarrail Ridge"
-permalink: rawson-lake-sarrail-ridge
+photo-root: rawson-lake-sarrail-ridge
 photos: 12
 captions:
   12: I had my neutral density filter with me, but it's cheap and I don't like how it performs (plus it doesn't fit the 40mm). But in this shady area, I didn't need it to slow down the exposure to my liking.
@@ -9,6 +9,7 @@ details:
 - Distance: 11km
 - Duration: 4.5 hours
 - Difficulty: First half easy, second half challenging
+description: "I love hiking, especially in September, when the air gets crisp, the colours start turning and the sun starts struggling to stay up in the sky. Originally on this day we were going to hike Paradise Valley near Lake Louise, but our projected group of 8 dropped down to 3 and we became one short of the 4 person minimum for hiking that area."
 ---
 I love hiking, especially in September, when the air gets crisp, the colours start turning and the sun starts struggling to stay up in the sky. Originally on this day we were going to hike Paradise Valley near Lake Louise, but our projected group of 8 dropped down to 3 and we became one short of the 4 person minimum for hiking that area.
 
