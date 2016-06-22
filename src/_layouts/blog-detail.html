@@ -21,12 +21,15 @@ layout: blog
             {{ page.captions[i] }}
         </p>
         {% endif %}
+        {% capture exif %}{% exiftag exif?, images/photos-blog, {{ page.permalink }}-{{ i }}.jpg %}{% endcapture %}
+        {% if exif == 'true' %}
         <ul class="metadata">
             <li>{% exiftag focal_length.to_i, images/photos-blog, {{ page.permalink }}-{{ i }}.jpg %}mm</li>
             <li>ISO {% exiftag iso_speed_ratings, images/photos-blog, {{ page.permalink }}-{{ i }}.jpg %}</li>
             <li>f/{% exiftag f_number.to_f, images/photos-blog, {{ page.permalink }}-{{ i }}.jpg %}</li>
             <li>{% exiftag exposure_time.to_s, images/photos-blog, {{ page.permalink }}-{{ i }}.jpg %}</li>
         </ul>
+        {% endif %}
         <a href="//www.pinterest.com/pin/create/button/?url=******&amp;media=******&amp;description=******" data-pin-do="buttonPin" data-pin-config="none" target="_blank">
             <img src="http://photographybyderek.com/blog/sites/all/modules/embed_image/images/pin_it_button.png" class="pinit">
         </a>

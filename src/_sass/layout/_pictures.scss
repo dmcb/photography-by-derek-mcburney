@@ -23,36 +23,6 @@ ul.pictures {
     margin-left: auto;
     margin-right: auto;
 
-    &.panorama {
-        max-width: 100%;
-
-        li.picture {
-            width: 100%;
-            margin-left: 0;
-            margin-right: 0;
-            margin-top: 1em;
-            margin-bottom: 2em;
-
-            @media screen and (max-width: 480px), screen and (max-device-width: 480px) {
-                margin-top: 0;
-                margin-bottom: 1em;
-                @include picture-width(1);
-            }
-
-            .image-container img {
-                padding-left: 0;
-                padding-right: 0;
-                border-left: 0;
-                border-right: 0;
-
-                @media screen and (max-width: 480px), screen and (max-device-width: 480px) {
-                    padding: $padding-mobile;
-                    border: $border-size;
-                }
-            }
-        }
-    }
-
     li.picture {
         @include picture-width(1);
         display: inline-block;
