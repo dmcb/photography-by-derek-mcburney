@@ -23,7 +23,7 @@
 
                 <div id="showcase" class="section">
                     {% if page.previous.url %}<a class="navigation" id="left" href="{{page.previous.url}}"><span></span></a>{% endif %}
-                    {% if page.next.url %}<a class="navigation" id="right" href="{{page.next.url}}"><span></span></a>{% endif %}
+                    {% if page.next.url %}<a class="navigation" id="right" href="{{page.next.url}}"><span></span></a>{% elsif page.index %}<a class="navigation" id="right" href="{{site[page.collection][1].url}}"><span></span></a>{% endif %}
                     <div id="focus">
                         <img src="/images/placeholder.png" style="background-image: url({{ page.photo }}); filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{{ page.photo }}',sizingMethod="scale"); -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{{ page.photo }}',sizingMethod="scale"); "/>
                     </div>
