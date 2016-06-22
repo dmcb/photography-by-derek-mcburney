@@ -4,3 +4,27 @@ layout: blog
 <div class="section">
 {{ content }}
 </div>
+
+{% if page.photos %}
+<ul class="pictures count-{{ page.photos }}">
+    {% for i in (1..page.photos) %}
+    <li class="picture">
+        <div class="image-container">
+            <a href="" class="fancybox">
+                <img src="/images/photos-blog/{{ page.permalink }}-{{ i }}.jpg" alt="" />
+            </a>
+        </div>
+        {% if page.captions[i] %}
+        <p class="caption">
+            {{ page.captions[i] }}
+        </p>
+        {% endif %}
+        <ul class="metadata">
+        </ul>
+        <a href="//www.pinterest.com/pin/create/button/?url=******&amp;media=******&amp;description=******" data-pin-do="buttonPin" data-pin-config="none" target="_blank">
+            <img src="http://photographybyderek.com/blog/sites/all/modules/embed_image/images/pin_it_button.png" class="pinit">
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
