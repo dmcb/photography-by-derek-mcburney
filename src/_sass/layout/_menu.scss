@@ -1,4 +1,6 @@
 #menu {
+    margin-bottom: 10px;
+
     select {
         display: none;
         width: 100%;
@@ -40,6 +42,8 @@
 }
 
 body.blog #menu {
+    margin-bottom: 40px;
+
     ul li a {
         color: $blog-grey;
 
