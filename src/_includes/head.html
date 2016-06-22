@@ -12,13 +12,17 @@
     <meta name="twitter:title" content="{{ page.title }}" />
     {% if page.description %}<meta name="twitter:description" content="{{ page.description | truncate: 250 }}" />{% endif %}
     {% if page.photo %}<meta name="twitter:card" content="photo" />
-    <meta name="twitter:image" content="{{ page.photo }}" />{% endif %}
+    <meta name="twitter:image" content="{{ page.photo }}" />
+    {% elsif page.photo-root %}<meta name="twitter:card" content="photo" />
+    <meta name="twitter:image" content="{{ site.url }}/images/photos-blog-index/{{ page.photo-root }}.jpg" />{% endif %}
     
     <meta name="fb:app_id" content="" />
     <meta name="og:title" content="{{ page.title }}" />
     {% if page.description %}<meta name="og:description" content="{{ page.description | truncate: 250 }}" />{% endif %}
-    {% if page.photo %}<meta name="og:image" content="{{ page.photo }}" />
-    <meta name="og:type" content="photo" />{% endif %}
+    {% if page.photo %}<meta name="og:type" content="photo" />
+    <meta name="og:image" content="{{ page.photo }}" />
+    {% elsif page.photo-root %}<meta name="og:type" content="photo" />
+    <meta name="og:image" content="{{ site.url }}/images/photos-blog-index/{{ page.photo-root }}.jpg" />{% endif %}
     
     <link rel="author" href="https://plus.google.com/109721017489855707609" />
     
