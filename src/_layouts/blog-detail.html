@@ -5,7 +5,21 @@ layout: blog
 <h2>{{ page.title }}</h2>
 
 <div class="section">
-{{ content }}
+    {% if page.details %}
+    <ul class="details">
+      {% for detail in page.details %}
+        <li>
+          {% for detail_item in detail %}
+          {% if detail_item[1] %}
+          {{ detail_item[0] }}: {{ detail_item[1] }}
+          {% endif %}
+          {% endfor %}
+        </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {{ content }}
 </div>
 
 {% if page.photos %}
