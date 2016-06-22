@@ -2,6 +2,11 @@
 title: "Sugand & Christoph's Wedding"
 permalink: sugand-christophs-wedding
 photos: 45
+captions:
+  24: No peeking!
+  25: We just had so much fun!
+  29: The home had a bright, clean, airy look to it but was beautifully punched up with colour.
+  35: I was given one requirement with this wedding. Take a "Vanity Fair" shot. Here it is.
 details:
 - Ceremony: Private Home
 - Reception: <a href="http://www.bears-den.ca/">Bear's Den</a>

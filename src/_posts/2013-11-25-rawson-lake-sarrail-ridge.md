@@ -2,6 +2,8 @@
 title: "Rawson Lake & Sarrail Ridge"
 permalink: rawson-lake-sarrail-ridge
 photos: 12
+captions:
+  12: I had my neutral density filter with me, but it's cheap and I don't like how it performs (plus it doesn't fit the 40mm). But in this shady area, I didn't need it to slow down the exposure to my liking.
 details:
 - Hike: <a href="http://www.trailpeak.com/trail-Rawson-Lake-Sarrail-Ridge-near-Calgary-AB-10669">Rawson Lake & Sarrail Ridge</a>
 - Distance: 11km
