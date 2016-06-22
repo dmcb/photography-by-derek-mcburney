@@ -1,7 +1,6 @@
 ---
 title: "Kendra & Nelson's Wedding"
 permalink: kendra-nelsons-wedding
-image: 
 details:
 - Hair and makeup: <a href="http://www.butterbeautyparlour.com/">Butter Beauty Parlour</a>
 - Ceremony and reception: <a href="http://www.endeavorarts.com/">Endeavor Art Gallery</a>
