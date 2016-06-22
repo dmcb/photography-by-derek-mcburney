@@ -1,6 +1,7 @@
 ---
 title: "Rawson Lake & Sarrail Ridge"
 permalink: rawson-lake-sarrail-ridge
+photos: 12
 details:
 - Hike: <a href="http://www.trailpeak.com/trail-Rawson-Lake-Sarrail-Ridge-near-Calgary-AB-10669">Rawson Lake & Sarrail Ridge</a>
 - Distance: 11km

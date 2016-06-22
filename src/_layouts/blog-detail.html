@@ -1,14 +1,16 @@
 ---
 layout: blog
 ---
+
+<h2>{{ page.title }}</h2>
+
 <div class="section">
 {{ content }}
 </div>
 
 {% if page.photos %}
 <ul class="pictures count-{{ page.photos }}">
-    {% for i in (1..page.photos) %}
-    <li class="picture">
+    {% for i in (1..page.photos) %}{% capture width %}{% exiftag width, images/photos-blog, {{ page.permalink }}-{{ i }}.jpg %}{% endcapture %}{% capture height %}{% exiftag height, images/photos-blog, {{ page.permalink }}-{{ i }}.jpg %}{% endcapture %}{% assign aspect_ratio = width | divided_by:height %}{% assign min_width = '1440' %}<li class="picture{% if aspect_ratio >= 2 and width > min_width %} panorama{% elsif width > height %} horizontal{% else %} vertical{% endif %}">
         <div class="image-container">
             <a href="" class="fancybox">
                 <img src="/images/photos-blog/{{ page.permalink }}-{{ i }}.jpg" alt="" />
@@ -20,11 +22,14 @@ layout: blog
         </p>
         {% endif %}
         <ul class="metadata">
+            <li>{% exiftag focal_length.to_i, images/photos-blog, {{ page.permalink }}-{{ i }}.jpg %}mm</li>
+            <li>ISO {% exiftag iso_speed_ratings, images/photos-blog, {{ page.permalink }}-{{ i }}.jpg %}</li>
+            <li>f/{% exiftag f_number.to_f, images/photos-blog, {{ page.permalink }}-{{ i }}.jpg %}</li>
+            <li>{% exiftag exposure_time.to_s, images/photos-blog, {{ page.permalink }}-{{ i }}.jpg %}</li>
         </ul>
         <a href="//www.pinterest.com/pin/create/button/?url=******&amp;media=******&amp;description=******" data-pin-do="buttonPin" data-pin-config="none" target="_blank">
             <img src="http://photographybyderek.com/blog/sites/all/modules/embed_image/images/pin_it_button.png" class="pinit">
         </a>
-    </li>
-    {% endfor %}
+    </li>{% endfor %}
 </ul>
 {% endif %}

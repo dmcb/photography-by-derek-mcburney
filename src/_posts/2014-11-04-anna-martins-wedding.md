@@ -1,6 +1,7 @@
 ---
 title: "Anna & Martin's Wedding"
 permalink: anna-martins-wedding
+photos: 16
 details:
 - Ceremony: <a href="http://www.sacredheartcalgary.ca/">Sacred Heart Church</a>
 - Wedding party photos: <a href="">North Glenmore Park</a> & <a href="">Cafe Kawa & Area</a>

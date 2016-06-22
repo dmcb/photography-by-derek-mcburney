@@ -155,4 +155,11 @@ body {
         /* This property is only to stop weird white space right of the frame from causing scaling issues on iPhone after rotating from portrait to landscape back to portrait */
         overflow: hidden;
     }
+
+    .section {
+        max-width: 560px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

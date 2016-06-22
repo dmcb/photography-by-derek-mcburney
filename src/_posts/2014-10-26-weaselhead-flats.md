@@ -1,6 +1,7 @@
 ---
 title: "Weaselhead Flats"
 permalink: weaselhead-flats
+photos: 8
 ---
 I'd been making bike trips to the Weaselhead Flats over summer and into the beautiful fall, and just had to bring my camera along one time. This area is an absolute gem in Calgary.
 

@@ -19,6 +19,7 @@
 // Layout
 @import 'layout/footer';
 @import 'layout/menu';
+@import 'layout/pictures';
 @import 'layout/posts';
 @import 'layout/showcase';
 
@@ -27,12 +28,6 @@
 
 
 
-.section {
-    max-width: 560px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 
 #details h2 img {

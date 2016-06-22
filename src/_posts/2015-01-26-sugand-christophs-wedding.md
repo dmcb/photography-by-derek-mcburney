@@ -1,6 +1,7 @@
 ---
 title: "Sugand & Christoph's Wedding"
 permalink: sugand-christophs-wedding
+photos: 45
 details:
 - Ceremony: Private Home
 - Reception: <a href="http://www.bears-den.ca/">Bear's Den</a>
