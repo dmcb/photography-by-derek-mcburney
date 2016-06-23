@@ -1,0 +1,67 @@
+#showcase {
+    text-align: center;
+    position: relative;
+    max-width: 946px;
+    width: 100%;
+    
+    .navigation {
+        height: 100%;
+        width: 30%;
+        position: absolute;
+        cursor: pointer;
+        background-image: url("../images/transparent.gif");
+        
+        &:hover {   
+            span {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        
+        &#left {
+            left: -16px;
+            
+            span {
+                background-image: url("../images/arrow-left.png");
+                background-repeat: none;
+                left: -8px;
+            }
+        }
+        
+        &#right {
+            right: -16px;
+            
+            span {
+                background-image: url("../images/arrow-right.png");
+                background-repeat: none;
+                right: -8px;
+            }
+        }
+        
+        span {
+            background-size: cover;
+            position: absolute;
+            top: 50%;
+            @include easing;
+            opacity: 0;
+            display: block;
+            visibility: hidden;
+            height: 48px;
+            width: 48px;
+            margin-top: -80px;
+        }
+    }
+
+    img {
+        width: 100%;
+        background-color: #080808;
+        background-size: cover;
+        @include drop-shadow;
+    }
+}
+
+/* Modernizr detects touch ability, so if touch, don't require a hover to show previous/next elements */
+html.touch #showcase .navigation span {
+    visibility: visible;
+    opacity: 1;
+}

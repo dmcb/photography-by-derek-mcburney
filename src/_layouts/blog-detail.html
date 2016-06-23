@@ -1,0 +1,51 @@
+---
+layout: blog
+---
+
+<h2>{{ page.title }}</h2>
+
+<div class="section">
+    {% if page.details %}
+    <ul class="details">
+      {% for detail in page.details %}
+        <li>
+          {% for detail_item in detail %}
+          {% if detail_item[1] %}
+          {{ detail_item[0] }}: {{ detail_item[1] }}
+          {% endif %}
+          {% endfor %}
+        </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {{ content }}
+</div>
+
+{% if page.photos %}
+<ul class="pictures count-{{ page.photos }}">
+    {% for i in (1..page.photos) %}{% capture width %}{% exiftag width, images/photos-blog-meta, {{ page.photo-root }}-{{ i }}.jpg %}{% endcapture %}{% capture height %}{% exiftag height, images/photos-blog-meta, {{ page.photo-root }}-{{ i }}.jpg %}{% endcapture %}{% assign aspect_ratio = width | divided_by:height %}{% assign min_width = '1440' %}<li class="picture{% if aspect_ratio >= 2 and width > min_width %} panorama{% elsif width > height %} horizontal{% else %} vertical{% endif %}">
+        <div class="image-container">
+            <img class="lazy" data-src="/images/photos-blog/{{ page.photo-root }}-{{ i }}.jpg" alt="" />
+            <noscript><img src="/images/photos-blog/{{ page.photo-root }}-{{ i }}.jpg" alt="" /></noscript>
+        </div>
+        {% if page.captions[i] %}
+        <p class="caption">
+            {{ page.captions[i] }}
+        </p>
+        {% endif %}
+        {% capture exif %}{% exiftag exif?, images/photos-blog-meta, {{ page.photo-root }}-{{ i }}.jpg %}{% endcapture %}
+        {% if exif == 'true' %}
+        <ul class="metadata">
+            <li>{% exiftag focal_length.to_i, images/photos-blog-meta, {{ page.photo-root }}-{{ i }}.jpg %}mm</li>
+            <li>ISO {% exiftag iso_speed_ratings, images/photos-blog-meta, {{ page.photo-root }}-{{ i }}.jpg %}</li>
+            <li>f/{% exiftag f_number.to_f, images/photos-blog-meta, {{ page.photo-root }}-{{ i }}.jpg %}</li>
+            <li>{% exiftag exposure_time.to_s, images/photos-blog-meta, {{ page.photo-root }}-{{ i }}.jpg %}</li>
+        </ul>
+        {% endif %}
+        <a href="//www.pinterest.com/pin/create/button/?url={{ site.url }}{{ page.url }}&media={{ site.url }}/images/photos-blog/{{ page.photo-root }}-{{ i }}.jpg&description={{ page.description }}" data-pin-do="buttonPin" data-pin-config="none" target="_blank">
+            <img src="/images/pin_it_button.png" class="pinit">
+        </a>
+    </li>{% endfor %}
+</ul>
+{% endif %}

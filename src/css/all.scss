@@ -1,0 +1,99 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+// Variables
+@import 'variables/colours';
+@import 'variables/typography';
+
+// Modules
+@import 'modules/animation';
+@import 'modules/shadows';
+
+// Partials
+@import 'partials/body';
+@import 'partials/elements';
+@import 'partials/forms';
+@import 'partials/headers';
+@import 'partials/links';
+
+// Layout
+@import 'layout/details';
+@import 'layout/footer';
+@import 'layout/menu';
+@import 'layout/pictures';
+@import 'layout/posts';
+@import 'layout/showcase';
+
+
+
+
+
+
+
+
+#details h2 img {
+    vertical-align: middle;
+    padding-left: 4px;
+    padding-bottom: 4px;
+}
+
+#contactme {
+    text-align: center;
+}
+
+
+
+
+
+/* For narrow displays or phones */
+@media screen and (max-width: 580px), screen and (max-device-width: 480px) {
+    body {
+        font-size: 12px
+    }
+    
+    button {
+        width: 98%;
+        height: 22px;
+        padding: 0 2px;
+    }
+    
+    .frame {
+        padding: 8px;
+    }
+    
+    #menu {
+        select {
+            display: inline;
+        }
+    
+        ul {
+            display: none;
+        }
+    }
+    
+    .section {
+        max-width: none;
+    }
+
+    #showcase {
+        max-width: none;
+        width: auto;
+        
+        .navigation {
+            &#left {
+                left: -4px;
+            }
+            
+            &#right {
+                right: -4px;
+            }
+            
+            span { 
+                margin-top: -25px;
+                height: 32px;
+                width: 32px;
+            }
+        }
+    }
+}

@@ -1,9 +1,0 @@
-; $Id$
-name = Embed image
-description = Filters nodes to process images by their attached index, leaving icky img HTML tag markup in the dust.
-version = 7.x-1.0
-core = 7.x
-dependencies[] = fancybox
-dependencies[] = imagemagick
-dependencies[] = lazyloader
-dependencies[] = modernizr
