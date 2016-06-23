@@ -9,13 +9,13 @@
                 <div id="menu">
                     <select class="menu">
                         <option value="/">Return to portfolio</option>
-                        <option value="/blog" {% if page.title == 'Blog' %}selected="selected"{% endif %}>Blog</option>
-                        <option value="/blog" {% if page.title == 'About Derek' %}selected="selected"{% endif %}>About Derek</option>
+                        <option value="/blog/" {% if page.title == 'Blog' %}selected="selected"{% endif %}>Blog</option>
+                        <option value="/blog/about-derek/" {% if page.title == 'About Derek' %}selected="selected"{% endif %}>About Derek</option>
                     </select>
                     <ul class="menu">
                         <li><a href="/">Return to portfolio</a></li>
-                        <li><a href="/blog" {% if page.title == 'Blog' %}class="active"{% endif %}>Blog</a></li>
-                        <li><a href="/blog/about-derek" {% if page.title == 'About Derek' %}class="active"{% endif %}>About Derek</a></li>
+                        <li><a href="/blog/" {% if page.title == 'Blog' %}class="active"{% endif %}>Blog</a></li>
+                        <li><a href="/blog/about-derek/" {% if page.title == 'About Derek' %}class="active"{% endif %}>About Derek</a></li>
                     </ul>
                 </div>
 
