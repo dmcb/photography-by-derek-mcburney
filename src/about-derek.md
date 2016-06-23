@@ -9,7 +9,8 @@ title: About Derek
 <ul class="pictures">
     <li class="picture horizontal">
         <div class="image-container">
-            <img src="/images/me.jpg" alt="" title="Photo by Jason Ronald" class="picture" style="display: inline;">
+            <img class="lazy" data-src="/images/me.jpg" alt="" title="Photo by Jason Ronald" />
+            <noscript><img src="/images/me.jpg" alt="" title="Photo by Jason Ronald" /></noscript>
         </div>
         <p class="caption">Photo by Jason Ronald</p>
     </li>

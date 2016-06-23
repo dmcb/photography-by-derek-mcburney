@@ -27,7 +27,8 @@ layout: blog
     {% for i in (1..page.photos) %}{% capture width %}{% exiftag width, images/photos-blog-meta, {{ page.photo-root }}-{{ i }}.jpg %}{% endcapture %}{% capture height %}{% exiftag height, images/photos-blog-meta, {{ page.photo-root }}-{{ i }}.jpg %}{% endcapture %}{% assign aspect_ratio = width | divided_by:height %}{% assign min_width = '1440' %}<li class="picture{% if aspect_ratio >= 2 and width > min_width %} panorama{% elsif width > height %} horizontal{% else %} vertical{% endif %}">
         <div class="image-container">
             <a href="" class="fancybox">
-                <img src="/images/photos-blog/{{ page.photo-root }}-{{ i }}.jpg" alt="" />
+                <img class="lazy" data-src="/images/photos-blog/{{ page.photo-root }}-{{ i }}.jpg" alt="" />
+                <noscript><img src="/images/photos-blog/{{ page.photo-root }}-{{ i }}.jpg" alt="" /></noscript>
             </a>
         </div>
         {% if page.captions[i] %}
