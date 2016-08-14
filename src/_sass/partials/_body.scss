@@ -4,10 +4,8 @@ body {
     font-family: Georgia, serif;
 
     &.portfolio {
-        background: radial-gradient(center center, 50% 70%, #333 70%, #222);
-        background: -webkit-radial-gradient(center center, 50% 70%, #333 70%, #222);
-        background: -o-radial-gradient(center center, 50% 70%, #333 70%, #222);
-        background: -ms-radial-gradient(center center, 50% 70%, #333 70%, #222);
+        background-color: #333;
+        background-image: radial-gradient(circle, #333 70%, #222);
         background-attachment: fixed;
         color: #FFF;
 
@@ -141,10 +139,8 @@ body {
     }
 
     &.blog {
-        background: radial-gradient(center center, 50% 70%, #FCFCF9 70%, #F1F1EA);
-        background: -webkit-radial-gradient(center center, 50% 70%, #FCFCF9 70%, #F1F1EA);
-        background: -o-radial-gradient(center center, 50% 70%, #FCFCF9 70%, #F1F1EA);
-        background: -ms-radial-gradient(center center, 50% 70%, #FCFCF9 70%, #F1F1EA);
+        background-color: #FCFCF9;
+        background-image: radial-gradient(circle, #FCFCF9 70%, #F1F1EA);
         background-color: #FCFCF9;
         background-attachment: fixed;
         color: $dark-grey;
