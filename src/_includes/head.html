@@ -1,13 +1,24 @@
 <head>
     <meta charset="utf-8">
     <title>{% if page.title %}{{ page.title | escape }}{% endif %} | {{ site.title | escape }}</title>
-    
+
     <meta name="description" content="{{ site.description }}" />
     <meta name="keywords" content="{{ site.keywords }}" />
     <meta name="robots" content="ALL" />
     <meta name="author" content="Derek McBurney" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+    <meta name="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+    <meta name="og:title" content="{{ page.title }}" />
+    {% if page.description %}<meta name="og:description" content="{{ page.description | truncate: 250 }}" />{% endif %}
+    {% if page.photo %}<meta name="og:type" content="photo" />
+    <meta name="og:image" content="{{ page.photo }}" />
+    {% elsif page.photo-root %}<meta name="og:type" content="photo" />
+    <meta name="og:image" content="{{ site.url }}/images/photos-blog-index/{{ page.photo-root }}.jpg" />
+    {% else %}<meta name="og:type" content="website" />{% endif %}
+
     <meta name="twitter:site" content="@derekmcb" />
     <meta name="twitter:creator" content="@derekmcb" />
     <meta name="twitter:title" content="{{ page.title }}" />
@@ -16,17 +27,9 @@
     <meta name="twitter:image" content="{{ page.photo }}" />
     {% elsif page.photo-root %}<meta name="twitter:card" content="photo" />
     <meta name="twitter:image" content="{{ site.url }}/images/photos-blog-index/{{ page.photo-root }}.jpg" />{% endif %}
-    
-    <meta name="fb:app_id" content="" />
-    <meta name="og:title" content="{{ page.title }}" />
-    {% if page.description %}<meta name="og:description" content="{{ page.description | truncate: 250 }}" />{% endif %}
-    {% if page.photo %}<meta name="og:type" content="photo" />
-    <meta name="og:image" content="{{ page.photo }}" />
-    {% elsif page.photo-root %}<meta name="og:type" content="photo" />
-    <meta name="og:image" content="{{ site.url }}/images/photos-blog-index/{{ page.photo-root }}.jpg" />{% endif %}
-    
+
     <link rel="author" href="https://plus.google.com/109721017489855707609" />
-    
+
     <link href="/css/all.css" rel="stylesheet"/>
     <!--[if lt IE 9]>
     <link href="/css/ie8.css" rel="stylesheet"/>
@@ -38,13 +41,13 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-3.0.0.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.1/jquery.lazy.min.js"></script>
     <script type="text/javascript" src="/scripts/script.js"></script>
-    
+
     <!-- Google Analytics -->
     <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-35360688-1']);
         _gaq.push(['_trackPageview']);
-        
+
         (function() {
             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
