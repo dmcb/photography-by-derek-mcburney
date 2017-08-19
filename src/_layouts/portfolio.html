@@ -24,15 +24,20 @@ layout: default
                 <div id="showcase" class="section">
                     {% if page.previous.url %}<a class="navigation" id="left" href="{{page.previous.url}}"><span></span></a>{% endif %}
                     {% if page.next.url %}<a class="navigation" id="right" href="{{page.next.url}}"><span></span></a>{% elsif page.index %}<a class="navigation" id="right" href="{{site[page.collection][1].url}}"><span></span></a>{% endif %}
-                    <div id="focus">
-                        <img src="/images/placeholder.png" style="background-image: url({{ page.photo }}); filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{{ page.photo }}',sizingMethod="scale"); -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{{ page.photo }}',sizingMethod="scale"); "/>
-                    </div>
+                    <picture id="focus">
+                        <source data-srcset="/photos/portfolio/{{ page.photo }}.desktop-large.jpg, /photos/portfolio/{{ page.photo }}.desktop-large.2x.jpg 2x" media="(min-width: 1920px)">
+                        <source data-srcset="/photos/portfolio/{{ page.photo }}.desktop-medium.jpg, /photos/portfolio/{{ page.photo }}.desktop-medium.2x.jpg 2x" media="(min-width: 1400px)">
+                        <source data-srcset="/photos/portfolio/{{ page.photo }}.desktop.jpg, /photos/portfolio/{{ page.photo }}.desktop.2x.jpg 2x" media="(min-width: 780px)">
+                        <source data-srcset="/photos/portfolio/{{ page.photo }}.tablet.jpg, /photos/portfolio/{{ page.photo }}.tablet.2x.jpg 2x" media="(min-width: 420px)">
+                        <img src="/photos/portfolio/{{ page.photo }}.tiny.jpg" data-srcset="/photos/portfolio/{{ page.photo }}.mobile.jpg, /photos/portfolio/{{ page.photo }}.mobile.2x.jpg 2x" alt="" class="lazyload" />
+                        <noscript><img src="/photos/portfolio/{{ page.photo }}.desktop.jpg" alt="" /></noscript>
+                    </picture>
                 </div>
 
                 <div id="details" class="section">
                     <h2>
                         {{ page.title }}
-                        <a href="//www.pinterest.com/pin/create/button/?url={{ site.url }}{{ page.url }}&media={{ site.url }}{{ page.photo }}&description={{ page.title }}" data-pin-do="buttonPin" data-pin-config="none" target="_blank"><img src="/images/pin_it_button.png" /></a>
+                        <a href="//www.pinterest.com/pin/create/button/?url={{ site.url }}{{ page.url }}&media={{ site.url }}photos/portfolio/{{ page.photo }}.desktop.jpg&description={{ page.title }}" data-pin-do="buttonPin" data-pin-config="none" target="_blank"><img src="/images/pin_it_button.png" /></a>
                     </h2>
                     <p>
                         {{ page.description }}
