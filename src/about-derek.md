@@ -8,10 +8,11 @@ title: About Derek
 
 <ul class="pictures">
     <li class="picture horizontal">
-        <div class="image-container">
-            <img class="lazy" data-src="/images/me.jpg" alt="" title="Photo by Jason Ronald" />
-            <noscript><img src="/images/me.jpg" alt="" title="Photo by Jason Ronald" /></noscript>
-        </div>
+        <picture class="image-container">
+            <source data-srcset="/photos/blog/me.tablet.jpg, /photos/blog/me.tablet.2x.jpg 2x" media="(min-width: 420px)">
+            <img src="/photos/blog/me.tiny.jpg" data-srcset="/photos/blog/me.mobile.jpg, /photos/blog/me.mobile.2x.jpg 2x" alt="Me" title="Photo by Jason Ronald" class="lazyload" />
+            <noscript><img src="/photos/blog/me.tablet.jpg" alt="Me" title="Photo by Jason Ronald" /></noscript>
+        </picture>
         <p class="caption">Photo by Jason Ronald</p>
     </li>
 </ul>

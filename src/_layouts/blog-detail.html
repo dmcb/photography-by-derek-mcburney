@@ -24,28 +24,35 @@ layout: blog
 
 {% if page.photos %}
 <ul class="pictures count-{{ page.photos }}">
-    {% for i in (1..page.photos) %}{% capture width %}{% exiftag width, images/photos-blog-meta, {{ page.photo-root }}-{{ i }}.jpg %}{% endcapture %}{% capture height %}{% exiftag height, images/photos-blog-meta, {{ page.photo-root }}-{{ i }}.jpg %}{% endcapture %}{% assign aspect_ratio = width | divided_by:height %}{% assign min_width = '1440' %}<li class="picture{% if aspect_ratio >= 2 and width > min_width %} panorama{% elsif width > height %} horizontal{% else %} vertical{% endif %}">
-        <div class="image-container">
-            <img class="lazy" data-src="/images/photos-blog/{{ page.photo-root }}-{{ i }}.jpg" alt="" />
-            <noscript><img src="/images/photos-blog/{{ page.photo-root }}-{{ i }}.jpg" alt="" /></noscript>
-        </div>
+    {% for i in (1..page.photos) %}
+    {% capture width %}{% exiftag width, photos/blog, {{ page.photo-root }}-{{ i }}.jpg %}{% endcapture %}
+    {% capture height %}{% exiftag height, photos/blog, {{ page.photo-root }}-{{ i }}.jpg %}{% endcapture %}
+    {% assign aspect_ratio = width | divided_by:height %}{% assign min_width = '1440' %}
+    <li class="picture{% if aspect_ratio >= 2 and width > min_width %} panorama{% elsif width > height %} horizontal{% else %} vertical{% endif %}">
+        <picture class="image-container">
+            {% if aspect_ratio >= 2 and width > min_width %}<source data-srcset="/photos/blog/{{ page.photo-root }}-{{ i }}.desktop.jpg, /photos/blog/{{ page.photo-root }}-{{ i }}.desktop.2x.jpg 2x" media="(min-width: 780px)">{% endif %}
+            <source data-srcset="/photos/blog/{{ page.photo-root }}-{{ i }}.tablet.jpg, /photos/blog/{{ page.photo-root }}-{{ i }}.tablet.2x.jpg 2x" media="(min-width: 420px)">
+            <img src="/photos/blog/{{ page.photo-root }}-{{ i }}.tiny.jpg" data-srcset="/photos/blog/{{ page.photo-root }}-{{ i }}.mobile.jpg, /photos/blog/{{ page.photo-root }}-{{ i }}.mobile.2x.jpg 2x" alt="" class="lazyload" />
+            <noscript><img src="/photos/blog/{{ page.photo-root }}-{{ i }}.tablet.jpg" alt="" /></noscript>
+        </picture>
         {% if page.captions[i] %}
         <p class="caption">
             {{ page.captions[i] }}
         </p>
         {% endif %}
-        {% capture exif %}{% exiftag exif?, images/photos-blog-meta, {{ page.photo-root }}-{{ i }}.jpg %}{% endcapture %}
+        {% capture exif %}{% exiftag exif?, photos/blog, {{ page.photo-root }}-{{ i }}.jpg %}{% endcapture %}
         {% if exif == 'true' %}
         <ul class="metadata">
-            <li>{% exiftag focal_length.to_i, images/photos-blog-meta, {{ page.photo-root }}-{{ i }}.jpg %}mm</li>
-            <li>ISO {% exiftag iso_speed_ratings, images/photos-blog-meta, {{ page.photo-root }}-{{ i }}.jpg %}</li>
-            <li>f/{% exiftag f_number.to_f, images/photos-blog-meta, {{ page.photo-root }}-{{ i }}.jpg %}</li>
-            <li>{% exiftag exposure_time.to_s, images/photos-blog-meta, {{ page.photo-root }}-{{ i }}.jpg %}</li>
+            <li>{% exiftag focal_length.to_i, photos/blog, {{ page.photo-root }}-{{ i }}.jpg %}mm</li>
+            <li>ISO {% exiftag iso_speed_ratings, photos/blog, {{ page.photo-root }}-{{ i }}.jpg %}</li>
+            <li>f/{% exiftag f_number.to_f, photos/blog, {{ page.photo-root }}-{{ i }}.jpg %}</li>
+            <li>{% exiftag exposure_time.to_s, photos/blog, {{ page.photo-root }}-{{ i }}.jpg %}</li>
         </ul>
         {% endif %}
-        <a href="//www.pinterest.com/pin/create/button/?url={{ site.url }}{{ page.url }}&media={{ site.url }}/images/photos-blog/{{ page.photo-root }}-{{ i }}.jpg&description={{ page.description }}" data-pin-do="buttonPin" data-pin-config="none" target="_blank">
+        <a href="//www.pinterest.com/pin/create/button/?url={{ site.url }}{{ page.url }}&media={{ site.url }}/photos/blog/{{ page.photo-root }}-{{ i }}.tablet.jpg&description={{ page.description }}" data-pin-do="buttonPin" data-pin-config="none" target="_blank">
             <img src="/images/pin_it_button.png" class="pinit">
         </a>
-    </li>{% endfor %}
+    </li>
+    {% endfor %}
 </ul>
 {% endif %}

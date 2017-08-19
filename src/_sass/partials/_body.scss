@@ -3,6 +3,10 @@ body {
     font-size: 16px;
     font-family: Georgia, serif;
 
+    &.no-js img.lazyload {
+        display: none;
+    }
+
     &.portfolio {
         background-color: #333;
         background-image: radial-gradient(circle, #333 70%, #222);
@@ -15,30 +19,30 @@ body {
             h1 {
                 text-align: left;
             }
-            
+
             h2, .section > span, form > span {
                 text-align: left;
             }
-            
+
             .container {
                 display:table;
                 position:absolute;
                 height: 100%;
                 width: 100%;
             }
-            
+
             .frame {
                 display: table-cell;
                 vertical-align: middle;
                 max-width: 1884px;
             }
-            
+
             #showcase {
                 max-width: 1896px;
                 display: inline-block;
                 width: 70%;
                 margin-right: 32px;
-            
+
                 img {
                     float: left;
                 }
@@ -48,40 +52,40 @@ body {
                 position: absolute;
                 width: 27%;
                 display: inline-block;
-                
+
                 h2 {
                     margin-top: 0;
                 }
             }
-            
+
             #contactme {
                 text-align: left;
             }
-            
+
             #side {
                 width: 27%;
                 display: inline-block;
                 vertical-align: bottom;
-                
+
                 .section {
                     margin-left: 0;
                     margin-right: 0;
                 }
             }
-            
+
             #menu ul, #footer {
                 max-width: none;
                 margin-top: 0;
                 margin-left: 0;
                 margin-right: 0;
                 text-align: left;
-                
+
                 #social-media {
                     display: inline-block;
                     margin-right: 16px;
                 }
             }
-            
+
             #menu ul li {
                 padding-left: 0;
                 padding-right: 32px;
@@ -99,39 +103,39 @@ body {
 
         /* Specifically tablets in landscape */
         @media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-                
+
             #details, #side {
                 font-size: 0.8em;
             }
-            
+
             button {
                 width: 98%;
                 padding: 0 2px;
                 height: 22px;
             }
-            
+
             textarea {
                 height: 48px;
             }
-            
+
             .frame {
                 padding: 16px;
             }
-            
+
             #showcase {
                 margin-right: 16px;
-            
+
                 .navigation {
                     &#left {
                         left: -4px;
                     }
-                    
+
                     &#right {
                         right: -4px;
                     }
                 }
             }
-            
+
             #details, #side {
                 width: 28%;
             }
