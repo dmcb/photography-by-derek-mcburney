@@ -8,8 +8,7 @@
 # Site settings
 title: Calgary Photography by Derek McBurney
 email: derek@photographybyderek.com
-description: > # this means to ignore newlines until "baseurl:"
-  Calgary, Alberta based photographer who loves to shoot and share weddings, engagements, events, people, landscapes and architecture.
+description: Calgary, Alberta based photographer who loves to shoot and share weddings, engagements, events, people, landscapes and architecture.
 keywords: "photography by derek mcburney, derek mcburney, calgary, alberta, calgary photographer, wedding photography, engagement photography, event photography, people photography, landscape photography, architecture photography"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://photographybyderek.com" # the base hostname & protocol for your site
