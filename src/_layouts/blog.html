@@ -7,7 +7,7 @@ layout: default
                 <h1>Photography by Derek McBurney</h1>
 
                 <div id="menu">
-                    <select class="menu">
+                    <select class="menu" onchange="changeMenu(this)">
                         <option value="/">Return to portfolio</option>
                         <option value="/blog/" {% if page.title == 'Blog' %}selected="selected"{% endif %}>Blog</option>
                         <option value="/blog/about-derek/" {% if page.title == 'About Derek' %}selected="selected"{% endif %}>About Derek</option>

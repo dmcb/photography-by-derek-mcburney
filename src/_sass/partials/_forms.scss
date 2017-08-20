@@ -9,27 +9,19 @@ input, textarea, button {
     background-color: rgba(255,255,255,0.1);
     color: #FFF;
     border: 2px solid transparent;
-    
+
     &.error {
         border: 2px solid $pink;
     }
 }
 
-label.error {
-    color: $pink;
-    width: 100%;
-    text-align: right;
-    display: none;
-    font-size: 0.8em;
+select {
+    font-size: 1rem;
 }
 
 textarea {
     height: 96px;
     overflow: auto;
-}
-
-.placeholder, ::-webkit-input-placeholder, :-moz-placeholder, :-ms-input-placeholder {
-    color: $grey-highlight;
 }
 
 button {
@@ -44,8 +36,20 @@ button {
     margin: 0;
     -webkit-box-sizing: initial;
     @include easing;
-    
+
     &:hover {
         color: $pink;
     }
+}
+
+label.error {
+    color: $pink;
+    width: 100%;
+    text-align: right;
+    display: none;
+    font-size: 0.8em;
+}
+
+.placeholder, ::-webkit-input-placeholder, :-moz-placeholder, :-ms-input-placeholder {
+    color: $grey-highlight;
 }

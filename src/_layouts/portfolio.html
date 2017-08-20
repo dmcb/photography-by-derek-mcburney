@@ -7,7 +7,7 @@ layout: default
                 <h1>Photography by Derek McBurney</h1>
 
                 <div id="menu">
-                    <select class="menu">
+                    <select class="menu" onchange="changeMenu(this)">
                         <option value="{{ site.photos-weddings.first.url }}" {% if page.collection == 'photos-weddings' %}selected="selected"{% endif %}>Weddings/Engagements</option>
                         <option value="{{ site.photos-people.first.url }}" {% if page.collection == 'photos-people' %}selected="selected"{% endif %}>People/Events</option>
                         <option value="{{ site.photos-places.first.url }}" {% if page.collection == 'photos-places' %}selected="selected"{% endif %}>Landscapes/Architecture</option>
