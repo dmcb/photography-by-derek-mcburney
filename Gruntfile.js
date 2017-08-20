@@ -6,12 +6,6 @@ module.exports = function(grunt) {
       blog: {
         options: {
           sizes: [{
-            suffix: '.tiny',
-            quality: 90,
-            rename: false,
-            width: 36,
-            height: 24
-          },{
             suffix: '.mobile',
             quality: 90,
             rename: false,
@@ -59,12 +53,6 @@ module.exports = function(grunt) {
       blogIndex: {
         options: {
           sizes: [{
-            suffix: '.tiny',
-            quality: 90,
-            rename: false,
-            width: 36,
-            height: 36
-          },{
             suffix: '.mobile',
             quality: 90,
             rename: false,
@@ -88,12 +76,6 @@ module.exports = function(grunt) {
       portfolio: {
         options: {
           sizes: [{
-            suffix: '.tiny',
-            quality: 90,
-            rename: false,
-            width: 36,
-            height: 36
-          },{
             suffix: '.mobile',
             quality: 90,
             rename: false,
@@ -161,7 +143,24 @@ module.exports = function(grunt) {
           cwd: 'src/photos/portfolio/',
           dest: '_site/photos/portfolio/'
         }]
-      }
+      },
+      tiny: {
+        options: {
+          sizes: [{
+            suffix: '.tiny',
+            quality: 90,
+            rename: false,
+            width: 36,
+            height: 36
+          }]
+        },
+        files: [{
+          expand: true,
+          src: ['**/*.jpg'],
+          cwd: 'src/photos/',
+          dest: 'src/photos-tiny/'
+        }]
+      },
     }
   });
 

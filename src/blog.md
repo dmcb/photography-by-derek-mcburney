@@ -8,7 +8,8 @@ title: Blog
     <li>
         <a href="{{ post.url | prepend: site.baseurl }}">
             <picture>
-                <img src="/photos/blog-index/{{ post.photo-root }}.tiny.jpg" data-srcset="/photos/blog-index/{{ post.photo-root }}.mobile.jpg, /photos/blog-index/{{ post.photo-root }}.mobile.2x.jpg 2x" alt="{{ post.title }}" class="lazyload" />
+                {% capture jpeg %}/photos-tiny/blog-index/{{ post.photo-root }}.tiny.jpg{% endcapture %}
+                <img src="{% base64 jpeg %}" data-srcset="/photos/blog-index/{{ post.photo-root }}.mobile.jpg, /photos/blog-index/{{ post.photo-root }}.mobile.2x.jpg 2x" alt="{{ post.title }}" class="lazyload" />
                 <noscript><img src="/photos/blog-index/{{ post.photo-root }}.mobile.jpg" alt="{{ post.title }}" /></noscript>
             </picture>
         </a>

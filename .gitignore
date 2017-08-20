@@ -9,3 +9,6 @@ npm-debug.log
 
 # Ignore Jekyll generated files
 _site
+
+# Ignore Grunt generated files
+photos-tiny/

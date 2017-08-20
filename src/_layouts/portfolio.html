@@ -29,7 +29,8 @@ layout: default
                         <source data-srcset="/photos/portfolio/{{ page.photo }}.desktop-medium.jpg, /photos/portfolio/{{ page.photo }}.desktop-medium.2x.jpg 2x" media="(min-width: 1400px)">
                         <source data-srcset="/photos/portfolio/{{ page.photo }}.desktop.jpg, /photos/portfolio/{{ page.photo }}.desktop.2x.jpg 2x" media="(min-width: 780px)">
                         <source data-srcset="/photos/portfolio/{{ page.photo }}.tablet.jpg, /photos/portfolio/{{ page.photo }}.tablet.2x.jpg 2x" media="(min-width: 420px)">
-                        <img src="/photos/portfolio/{{ page.photo }}.tiny.jpg" data-srcset="/photos/portfolio/{{ page.photo }}.mobile.jpg, /photos/portfolio/{{ page.photo }}.mobile.2x.jpg 2x" alt="" class="lazyload" />
+                        {% capture jpeg %}/photos-tiny/portfolio/{{ page.photo }}.tiny.jpg{% endcapture %}
+                        <img src="{% base64 jpeg %}" data-srcset="/photos/portfolio/{{ page.photo }}.mobile.jpg, /photos/portfolio/{{ page.photo }}.mobile.2x.jpg 2x" alt="" class="lazyload" />
                         <noscript><img src="/photos/portfolio/{{ page.photo }}.desktop.jpg" alt="" /></noscript>
                     </picture>
                 </div>
