@@ -161,11 +161,33 @@ module.exports = function(grunt) {
           dest: 'src/photos-tiny/'
         }]
       },
+    },
+
+    imagemin: {
+      photos: {
+        options: {
+          optimizationLevel: 4
+        },
+        files: [{
+          expand: true,
+          cwd: '_site/photos/',
+          src: ['**/*.jpg'],
+          dest: '_site/photos/'
+        }]
+      },
+      photosTiny: {
+        files: [{
+          expand: true,
+          cwd: 'src/photos-tiny/',
+          src: ['**/*.jpg'],
+          dest: 'src/photos-tiny/'
+        }]
+      }
     }
   });
 
   require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('build', ['responsive_images']);
+  grunt.registerTask('build', ['responsive_images', 'imagemin']);
   grunt.registerTask('default', ['build']);
 }
