@@ -10,13 +10,13 @@ module.exports = function(grunt) {
             quality: 90,
             rename: false,
             width: 356,
-            height: 237
+            height: 427
           },{
             suffix: '.mobile.2x',
             quality: 85,
             rename: false,
             width: 712,
-            height: 475
+            height: 854
           },{
             suffix: '.tablet',
             quality: 90,
