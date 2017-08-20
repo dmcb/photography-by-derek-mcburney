@@ -1,8 +1,8 @@
 # Photography by Derek McBurney
-This is the code behind my photography website, [photographybyderek.com](http://photographybyderek.com)
+This is the code behind my photography website, [photographybyderek.com](https://photographybyderek.com)
 
 ## Author
-[Derek McBurney](http://dmcbdesign.com)
+[Derek McBurney](http://derekmcburney.com)
 
 ## License
 This code cannot be used commercially without the written consent of
