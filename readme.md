@@ -12,4 +12,6 @@ Derek McBurney. **Non-commercial use requires attribution.**
 1. [Get docker](https://www.docker.com)
 2. `docker run --rm -it -v "$(pwd)":/app dmcb/taskrunner npm install`
 3. `docker run --rm -it -v "$(pwd)":/app dmcb/taskrunner grunt build`
-4. `docker run --rm -it -v "$(pwd)":/app dmcb/taskrunner jekyll build`
+
+## To run the site
+1. `docker-compose up`

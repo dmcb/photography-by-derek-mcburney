@@ -183,11 +183,59 @@ module.exports = function(grunt) {
           dest: 'src/photos-tiny/'
         }]
       }
+    },
+
+    jekyll: {
+      all: {
+        options: {
+          config: '_config.yml'
+        }
+      }
+    },
+
+    sass: {
+      all: {
+        options: {
+          sourceMap: true,
+          outputStyle: 'compressed',
+          includePaths: []
+        },
+        files: [
+          {
+            expand: true,
+            cwd: 'src/_scss',
+            src: ['*.scss'],
+            dest: '_site/css',
+            ext: '.css'
+          }
+        ]
+      },
+    },
+
+    filerev: {
+      css: {
+        src: ['_site/css/*.css']
+      }
+    },
+
+    filerev_match_replace: {
+        dist: {
+            src: '_site/**/*.html',
+            options: {
+                analyzers: [
+                    'css-background-analyzer',
+                    'html-image-analyzer',
+                    'html-link-analyzer',
+                    'html-script-analyzer'
+                ],
+                webroot: "_site"
+            }
+        }
     }
   });
 
   require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('build', ['responsive_images', 'imagemin']);
+  grunt.registerTask('build', ['responsive_images', 'imagemin', 'jekyll', 'sass', 'filerev', 'filerev_match_replace']);
   grunt.registerTask('default', ['build']);
 }
