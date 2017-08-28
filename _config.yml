@@ -22,6 +22,8 @@ source: src
 destination: _site
 exclude: ["photos","photos-tiny"]
 keep_files: ["photos"]
+sass:
+  style: compressed
 
 # Collections
 collections:

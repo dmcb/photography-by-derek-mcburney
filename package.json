@@ -9,8 +9,6 @@
     "grunt-filerev-match-replace": "0.0.10",
     "grunt-jekyll": "^0.4.6",
     "grunt-responsive-images": "^1.10.1",
-    "grunt-sass": "^2.0.0",
-    "grunt-usemin": "^3.1.1",
     "load-grunt-tasks": "^3.5.2"
   }
 }

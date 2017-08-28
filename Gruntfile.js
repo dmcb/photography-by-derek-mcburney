@@ -193,33 +193,14 @@ module.exports = function(grunt) {
       }
     },
 
-    sass: {
-      all: {
-        options: {
-          sourceMap: true,
-          outputStyle: 'compressed',
-          includePaths: []
-        },
-        files: [
-          {
-            expand: true,
-            cwd: 'src/_scss',
-            src: ['*.scss'],
-            dest: '_site/css',
-            ext: '.css'
-          }
-        ]
-      },
-    },
-
     filerev: {
-      css: {
-        src: ['_site/css/*.css']
+      js: {
+        src: ['_site/js/*.js']
       }
     },
 
     filerev_match_replace: {
-        dist: {
+        all: {
             src: '_site/**/*.html',
             options: {
                 analyzers: [
@@ -236,6 +217,6 @@ module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('build', ['responsive_images', 'imagemin', 'jekyll', 'sass', 'filerev', 'filerev_match_replace']);
+  grunt.registerTask('build', ['responsive_images', 'imagemin', 'jekyll', 'filerev', 'filerev_match_replace']);
   grunt.registerTask('default', ['build']);
 }

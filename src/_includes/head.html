@@ -29,7 +29,12 @@
     <meta name="twitter:image" content="{{ site.url }}/images/photos-blog-index/{{ page.photo-root }}.jpg" />{% endif %}
 
     <link rel="author" href="https://plus.google.com/109721017489855707609" />
-    <link href="/css/styles.css" rel="stylesheet"/>
+    <style>
+        {% capture include_to_scssify %}
+            {% include styles.scss %}
+        {% endcapture %}
+        {{ include_to_scssify | scssify | strip_newlines }}
+    </style>
 
     <script>
         /* Picture element HTML5 shiv */
