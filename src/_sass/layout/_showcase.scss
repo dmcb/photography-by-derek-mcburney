@@ -3,41 +3,40 @@
     position: relative;
     max-width: 946px;
     width: 100%;
-    
+
     .navigation {
         height: 100%;
         width: 30%;
         position: absolute;
         cursor: pointer;
-        background-image: url("../images/transparent.gif");
-        
-        &:hover {   
+
+        &:hover {
             span {
                 opacity: 1;
                 visibility: visible;
             }
         }
-        
+
         &#left {
             left: -16px;
-            
+
             span {
                 background-image: url("../images/arrow-left.png");
                 background-repeat: none;
                 left: -8px;
             }
         }
-        
+
         &#right {
             right: -16px;
-            
+
             span {
                 background-image: url("../images/arrow-right.png");
                 background-repeat: none;
                 right: -8px;
             }
         }
-        
+
         span {
             background-size: cover;
             position: absolute;
