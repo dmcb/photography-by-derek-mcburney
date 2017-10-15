@@ -2,8 +2,6 @@
 .DS_Store*
 Thumbs.db
 .sass-cache
-config.codekit
-assets/js/lib
 node_modules
 npm-debug.log
 
@@ -11,4 +9,6 @@ npm-debug.log
 _site
 
 # Ignore Grunt generated files
-photos-tiny/
+resized-photos/
+resized-photos-tiny/
+src/photos-tiny/

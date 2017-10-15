@@ -30,8 +30,10 @@ layout: blog
     {% assign aspect_ratio = width | divided_by:height %}{% assign min_width = '1440' %}
     <li class="picture{% if aspect_ratio >= 2 and width > min_width %} panorama{% elsif width > height %} horizontal{% else %} vertical{% endif %}">
         <picture class="image-container">
-            {% if aspect_ratio >= 2 and width > min_width %}<source data-srcset="/photos/blog/{{ page.photo-root }}-{{ i }}.desktop.jpg, /photos/blog/{{ page.photo-root }}-{{ i }}.desktop.2x.jpg 2x" media="(min-width: 780px)">{% endif %}
-            <source data-srcset="/photos/blog/{{ page.photo-root }}-{{ i }}.tablet.jpg, /photos/blog/{{ page.photo-root }}-{{ i }}.tablet.2x.jpg 2x" media="(min-width: 420px)">
+            {% if aspect_ratio >= 2 and width > min_width %}<source data-srcset="/photos/blog/{{ page.photo-root }}-{{ i }}.desktop.jpg, /photos/blog/{{ page.photo-root }}-{{ i }}.desktop.2x.jpg 2x" media="(min-width: 780px)" type="image/jpeg">{% endif %}
+            <source data-srcset="/photos/blog/{{ page.photo-root }}-{{ i }}.tablet.jpg, /photos/blog/{{ page.photo-root }}-{{ i }}.tablet.2x.jpg 2x" media="(min-width: 420px)" type="image/jpeg">
+            {% if aspect_ratio >= 2 and width > min_width %}<source data-srcset="/photos/blog/{{ page.photo-root }}-{{ i }}.desktop.webp, /photos/blog/{{ page.photo-root }}-{{ i }}.desktop.2x.webp 2x" media="(min-width: 780px)" type="image/webp">{% endif %}
+            <source data-srcset="/photos/blog/{{ page.photo-root }}-{{ i }}.tablet.webp, /photos/blog/{{ page.photo-root }}-{{ i }}.tablet.2x.webp 2x" media="(min-width: 420px)" type="image/webp">
             {% capture jpeg %}/photos-tiny/blog/{{ page.photo-root }}-{{ i }}.tiny.jpg{% endcapture %}
             <img src="{% base64 jpeg %}" data-srcset="/photos/blog/{{ page.photo-root }}-{{ i }}.mobile.jpg, /photos/blog/{{ page.photo-root }}-{{ i }}.mobile.2x.jpg 2x" alt="" class="lazyload" />
             <noscript><img src="/photos/blog/{{ page.photo-root }}-{{ i }}.tablet.jpg" alt="" /></noscript>
