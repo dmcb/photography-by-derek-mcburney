@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
   const webp = require('imagemin-webp');
-  const mozjpeg = require('imagemin-mozjpeg');
+  const jpegrecompress = require('imagemin-jpeg-recompress');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -150,9 +150,11 @@ module.exports = function(grunt) {
     imagemin: {
       photos: {
         options: {
-          use: [mozjpeg()],
+          use: [jpegrecompress()],
+          accurate: true,
           progressive: true,
-          quality: 80
+          quality: "medium",
+          strip: true
         },
         files: [{
           expand: true,
@@ -187,8 +189,11 @@ module.exports = function(grunt) {
       },
       photosTiny: {
         options: {
-          use: [mozjpeg()],
-          quality: 50
+          use: [jpegrecompress()],
+          accurate: true,
+          progressive: true,
+          quality: "medium",
+          strip: true
         },
         files: [{
           expand: true,

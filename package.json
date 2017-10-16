@@ -9,8 +9,8 @@
     "grunt-filerev-match-replace": "0.0.10",
     "grunt-jekyll": "^0.4.6",
     "grunt-responsive-images": "^1.10.1",
-    "load-grunt-tasks": "^3.5.2",
-    "imagemin-mozjpeg": "^6.0.0",
-    "imagemin-webp": "^4.0.0"
+    "imagemin-jpeg-recompress": "^5.1.0",
+    "imagemin-webp": "^4.0.0",
+    "load-grunt-tasks": "^3.5.2"
   }
 }
