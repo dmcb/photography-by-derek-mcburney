@@ -158,7 +158,12 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'resized-photos/',
           src: ['**/*.jpg'],
-          dest: '_site/photos/'
+          dest: '_site/photos/',
+          filter: function (dest) {
+            var cwd = this.cwd, src = dest.replace(new RegExp('^' + cwd), '');
+            dest = grunt.task.current.data.files[0].dest;
+            return (!grunt.file.exists(dest + src));
+          }
         }]
       },
       photosWebP: {
@@ -172,7 +177,12 @@ module.exports = function(grunt) {
           src: ['**/*.jpg'],
           dest: '_site/photos/',
           ext: '.webp',
-          extDot: 'last'
+          extDot: 'last',
+          filter: function (dest) {
+            var cwd = this.cwd, src = dest.replace(new RegExp('^' + cwd), '').replace(new RegExp('.jpg$'), '.webp');
+            dest = grunt.task.current.data.files[0].dest;
+            return (!grunt.file.exists(dest + src));
+          }
         }]
       },
       photosTiny: {
@@ -184,7 +194,12 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'resized-photos-tiny/',
           src: ['**/*.jpg'],
-          dest: 'src/photos-tiny/'
+          dest: 'src/photos-tiny/',
+          filter: function (dest) {
+            var cwd = this.cwd, src = dest.replace(new RegExp('^' + cwd), '');
+            dest = grunt.task.current.data.files[0].dest;
+            return (!grunt.file.exists(dest + src));
+          }
         }]
       }
     },
