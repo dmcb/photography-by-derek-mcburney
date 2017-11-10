@@ -150,11 +150,15 @@ module.exports = function(grunt) {
     imagemin: {
       photos: {
         options: {
-          use: [jpegrecompress()],
-          accurate: true,
-          progressive: true,
-          quality: "medium",
-          strip: true
+          use: [jpegrecompress(
+            {
+              accurate: true,
+              progressive: true,
+              quality: "medium",
+              strip: true,
+              method: "smallfry"
+            }
+          )]
         },
         files: [{
           expand: true,
@@ -171,7 +175,6 @@ module.exports = function(grunt) {
       photosWebP: {
         options: {
           use: [webp()],
-          quality: 50
         },
         files: [{
           expand: true,
@@ -189,11 +192,15 @@ module.exports = function(grunt) {
       },
       photosTiny: {
         options: {
-          use: [jpegrecompress()],
-          accurate: true,
-          progressive: true,
-          quality: "medium",
-          strip: true
+          use: [jpegrecompress(
+            {
+              accurate: true,
+              progressive: true,
+              quality: "medium",
+              strip: true,
+              method: "smallfry"
+            }
+          )]
         },
         files: [{
           expand: true,
